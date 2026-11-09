@@ -1,0 +1,35 @@
+# Firmware binaries and extracted filesystems (keep hashes and manifests tracked)
+firmware/original/*.FW
+firmware/original/*.bin
+firmware/original/*.zip
+firmware/extracted/*
+!firmware/extracted/.gitkeep
+
+# Build artifacts
+target/
+build/
+dist/
+*.o
+*.a
+*.so
+*.dll
+*.exe
+*.pdb
+
+# Reverse engineering temporary databases
+*.gpr
+*.rep/
+*.idb
+*.i64
+
+# Python cache & virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

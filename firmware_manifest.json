@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0.0",
+  "project": "verdanove-ninja-lab",
+  "phase": "Phase 0 — Environment and Asset Verification",
+  "generated_at": "2026-11-09T00:00:00Z",
+  "target_device": {
+    "manufacturer": "Atomos",
+    "model": "Ninja V (Original 5-inch model)",
+    "excluded_models": [
+      "Ninja V+",
+      "Ninja Ultra",
+      "Ninja RAW",
+      "Ninja TX"
+    ]
+  },
+  "firmware_asset": {
+    "os_family": "AtomOS 11",
+    "version": "11.19.00",
+    "filename": "ATOMNJV.FW",
+    "source_directory": "../ATOMNJV_11.19.0 (1)/ATOMNJV.FW",
+    "immutable_repository_path": "firmware/original/ATOMNJV.FW",
+    "read_only_enforced": true,
+    "size_bytes": 319558064,
+    "size_mib": 304.7543182373047,
+    "hashes": {
+      "sha256": "65e14e67bcc2624115300624d967634042601f23e9574e75ee7f06f2c8004be1",
+      "sha1": "a30ea978a0801f07284be8ecb079997a0fd9f153",
+      "md5": "76b48aaa512d146992aed6fbbf68e987"
+    },
+    "release_notes_present": false
+  }
+}
