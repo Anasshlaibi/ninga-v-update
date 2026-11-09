@@ -1,10 +1,12 @@
-Resolution,Bayer_Depth,Frame_Size_MB,Cores,Algorithm,Stage,Latency_ms,FPS,Throughput_MBs,Comp_Ratio,Target_Met
-3840x2160,12-bit,11.87,1,TICO-RAW,Star-Tetrix,35.46,28.20,334.73,N/A,No
-3840x2160,12-bit,11.87,1,TICO-RAW,5/3 Wavelet,23.35,42.83,508.39,N/A,No
-3840x2160,12-bit,11.87,1,TICO-RAW,Bit-Packing,45.18,22.13,262.68,2.28:1,No
-3840x2160,12-bit,11.87,1,TICO-RAW,Requant Pipeline,101.21,9.88,51.50,2.28:1,No
-3840x2160,12-bit,11.87,2,TICO-RAW,Requant Pipeline,90.81,11.01,57.42,2.28:1,No
-3840x2160,12-bit,11.87,4,TICO-RAW,Requant Pipeline,86.50,11.56,60.26,2.28:1,No
-3840x2160,12-bit,11.87,N/A,Uncompressed DMA,Direct SATA,0.00,24.00,284.84,1.00:1,Yes (SATA <= 540 MB/s)
-3840x2160,12-bit,11.87,N/A,Uncompressed DMA,Direct SATA,0.00,60.00,711.90,1.00:1,No (Exceeds SATA 540 MB/s)
-3840x2160,12-bit,11.87,FPGA PL,Hardware TICO/ProRes RAW,Full HW Pipeline,3.50,60.00,312.60,2.28:1,Yes (Hardware Bitstream)
+Benchmark_Type,Execution_Environment,Resolution,Bayer_Depth,Workers_or_Mode,Pipeline_Stage,Latency_ms,FPS,Throughput_MBs,Comp_Ratio,Target_Met,Notes
+Empirical_Measured,QEMU_AArch64_Host_JIT,3840x2160,12-bit,1,Stage 1: Star-Tetrix Decorrelation,96.91,10.32,122.50,N/A,No,Quad Bayer 4-channel spatial decorrelation
+Empirical_Measured,QEMU_AArch64_Host_JIT,3840x2160,12-bit,1,Stage 2: 5/3 Discrete Wavelet DWT,34.69,28.83,342.31,N/A,No,5 horizontal / 1 vertical reversible wavelet levels
+Empirical_Measured,QEMU_AArch64_Host_JIT,3840x2160,12-bit,1,Stage 3: Precinct Bit-Packing,50.48,19.81,235.15,2.28:1,No,Entropy coding and bitstream formatting
+Empirical_Measured,QEMU_AArch64_Host_JIT,3840x2160,12-bit,1,Full Pipeline End-to-End,182.07,5.49,65.17,2.28:1,No,Serial single-thread full Bayer to TICO codestream
+Empirical_Measured,QEMU_AArch64_Host_JIT,3840x2160,12-bit,1,Multithreaded Full-Frame (1 worker),75.51,13.24,69.00,2.28:1,No,Full frame encoding across repeated scenes
+Empirical_Measured,QEMU_AArch64_Host_JIT,3840x2160,12-bit,2,Multithreaded Full-Frame (2 workers),62.42,16.02,83.50,2.28:1,No,2 worker threads running full pipeline
+Empirical_Measured,QEMU_AArch64_Host_JIT,3840x2160,12-bit,4,Multithreaded Full-Frame (4 workers),61.08,16.37,85.40,2.28:1,No,4 worker threads (scaling bottleneck in JIT/alloc)
+Theoretical_Spec,Physical_NinjaV_A53_Silicon,3840x2160,12-bit,4 (Quad A53 @ 1.2GHz),Estimated Software Limit,250.00-500.00,2.00-4.00,10.00-20.00,2.28:1,No,Hardware in-order A53 cycle budget = 24.1 cycles/pixel at 24fps
+Theoretical_Spec,Physical_SATA3_Bus,3840x2160,12-bit,Hardware Direct DMA,Uncompressed CinemaDNG (24fps),N/A,24.00,284.84,1.00:1,Yes (SATA <= 540 MB/s),Direct memory-to-disk DMA bypasses CPU compression
+Theoretical_Spec,Physical_SATA3_Bus,3840x2160,12-bit,Hardware Direct DMA,Uncompressed CinemaDNG (60fps),N/A,60.00,711.90,1.00:1,No (Exceeds SATA 540 MB/s),Requires compression to fit 540 MB/s SATA SSD limit
+Theoretical_Spec,Physical_FPGA_Bitstream,3840x2160,12-bit,ZynqMP PL Fabric,Hardware TICO / ProRes RAW (60fps),<16.67,60.00,312.60,2.28:1,Yes (Dedicated HW bitstream),Requires Xilinx FPGA PL bitstream (DPGA*.BIN)
