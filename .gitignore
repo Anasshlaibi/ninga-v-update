@@ -7,8 +7,10 @@ firmware/extracted/*
 
 # Build artifacts
 target/
+**/target/
 build/
 dist/
+compression/blue-compressor/repo/
 *.o
 *.a
 *.so

@@ -1,0 +1,10 @@
+Resolution,Bayer_Depth,Frame_Size_MB,Cores,Algorithm,Stage,Latency_ms,FPS,Throughput_MBs,Comp_Ratio,Target_Met
+3840x2160,12-bit,11.87,1,TICO-RAW,Star-Tetrix,35.46,28.20,334.73,N/A,No
+3840x2160,12-bit,11.87,1,TICO-RAW,5/3 Wavelet,23.35,42.83,508.39,N/A,No
+3840x2160,12-bit,11.87,1,TICO-RAW,Bit-Packing,45.18,22.13,262.68,2.28:1,No
+3840x2160,12-bit,11.87,1,TICO-RAW,Requant Pipeline,101.21,9.88,51.50,2.28:1,No
+3840x2160,12-bit,11.87,2,TICO-RAW,Requant Pipeline,90.81,11.01,57.42,2.28:1,No
+3840x2160,12-bit,11.87,4,TICO-RAW,Requant Pipeline,86.50,11.56,60.26,2.28:1,No
+3840x2160,12-bit,11.87,N/A,Uncompressed DMA,Direct SATA,0.00,24.00,284.84,1.00:1,Yes (SATA <= 540 MB/s)
+3840x2160,12-bit,11.87,N/A,Uncompressed DMA,Direct SATA,0.00,60.00,711.90,1.00:1,No (Exceeds SATA 540 MB/s)
+3840x2160,12-bit,11.87,FPGA PL,Hardware TICO/ProRes RAW,Full HW Pipeline,3.50,60.00,312.60,2.28:1,Yes (Hardware Bitstream)
