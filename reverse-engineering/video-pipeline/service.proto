@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package Service;
+
+message GetStatus {
+    message Response {
+        string status = 1;
+    }
+}
+
+message ShutDown {
+    message Response {
+        string status = 1;
+    }
+}
+
+message Error {
+    enum Reason {
+        None = 0;
+        UnhandledInterface = 1;
+        InterfaceUnavailable = 2;
+    }
+    message Response {
+        Reason reason = 1;
+        string interface = 2;
+    }
+}
+
+message Requests {
+    uint32 version = 1;
+    oneof body {
+        GetStatus getStatus = 2;
+        ShutDown shutdown = 3;
+    }
+}
+
+message Responses {
+    uint32 version = 1;
+    oneof body {
+        Error.Response error = 2;
+        GetStatus.Response getStatus = 3;
+        ShutDown.Response shutdown = 4;
+    }
+}
+
