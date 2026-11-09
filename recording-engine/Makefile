@@ -29,3 +29,4 @@ test: vraw_daemon
 
 clean:
 	rm -f $(HOST_TARGETS) $(ARM64_TARGETS)
+

@@ -117,3 +117,4 @@ Disassembly and string analysis of `sec4_parts/part07_u-boot.elf_load_08000000.b
    Never replace or reflash `DPGA*.BIN` (FPGA bitstreams) or `APP0000.BIN` (Cortex-R5). The co-processor and FPGA maintain camera communication, HDMI/SDI ingest, and hardware watchdog timers. Modifying them risks a hard brick.
 3. **User-Facing Integration:**
    `vraw_daemon` communicates exclusively over the Linux userspace UNIX domain socket `/var/run/user/1000/atomos/video_pipeline_socket` via `SOCK_SEQPACKET`, extracting frame descriptors via `SCM_RIGHTS` without altering the stock AtomOS UI or factory scopes.
+

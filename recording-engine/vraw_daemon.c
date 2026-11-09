@@ -13,6 +13,13 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/mman.h>
+#include <signal.h>
+
+static volatile int g_running = 1;
+static void sig_handler(int sig) {
+    (void)sig;
+    g_running = 0;
+}
 
 #define WIDTH 3840
 #define HEIGHT 2160
@@ -352,9 +359,12 @@ int main(int argc, char **argv) {
     struct timespec bench_start, bench_end;
     clock_gettime(CLOCK_MONOTONIC, &bench_start);
 
+    signal(SIGINT, sig_handler);
+    signal(SIGTERM, sig_handler);
+
     const long frame_interval_ns = 41666667L; // 24.00 fps cadence
 
-    for (uint32_t f = 0; f < capture_frames; f++) {
+    for (uint32_t f = 0; (capture_frames == 0 || f < capture_frames) && g_running; f++) {
         struct timespec frame_start;
         clock_gettime(CLOCK_MONOTONIC, &frame_start);
 
@@ -449,3 +459,4 @@ int main(int argc, char **argv) {
 
     return 0;
 }
+
