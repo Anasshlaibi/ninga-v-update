@@ -19,25 +19,37 @@
 #define TOTAL_FRAME_BYTES (HEADER_SIZE + RAW_FRAME_BYTES)
 #define RING_BUFFER_SLOTS 8 // 8 frame buffer slots (~99.5 MB RAM)
 
-// TIFF / DNG Tag IDs
+// Standard TIFF / DNG Tag IDs
 #define TAG_NEWSUBFILETYPE         0x00FE
 #define TAG_IMAGEWIDTH             0x0100
 #define TAG_IMAGELENGTH            0x0101
 #define TAG_BITSPERSAMPLE          0x0102
 #define TAG_COMPRESSION            0x0103
 #define TAG_PHOTOMETRIC            0x0106
+#define TAG_MAKE                   0x010F
+#define TAG_MODEL                  0x0110
 #define TAG_STRIPOFFSETS           0x0111
 #define TAG_SAMPLESPERPXL          0x0115
 #define TAG_ROWSPERSTRIP           0x0116
 #define TAG_STRIPBYTECOUNTS        0x0117
+#define TAG_XRESOLUTION            0x011A
+#define TAG_YRESOLUTION            0x011B
 #define TAG_PLANARCONFIG           0x011C
+#define TAG_RESOLUTIONUNIT         0x0128
 #define TAG_CFAREPEATPATT          0x828D
 #define TAG_CFAPATTERN             0x828E
 #define TAG_DNGVERSION             0xC612
 #define TAG_DNGFORWARDVERSION      0xC613
+#define TAG_UNIQUECAMERAMODEL      0xC614
+#define TAG_BLACKLEVEL             0xC61A
+#define TAG_WHITELEVEL             0xC61D
 
-#define TYPE_SHORT 3
-#define TYPE_LONG  4
+// TIFF Types
+#define TYPE_BYTE     1
+#define TYPE_ASCII    2
+#define TYPE_SHORT    3
+#define TYPE_LONG     4
+#define TYPE_RATIONAL 5
 
 #pragma pack(push, 1)
 typedef struct {
@@ -69,41 +81,69 @@ typedef struct {
     pthread_cond_t not_full;
 } RingQueue;
 
-// Generate Adobe DNG 1.4 compliant TIFF header
+// Generate Adobe DNG 1.4 / CinemaDNG compliant TIFF header with full camera metadata
 static void build_dng_header(uint8_t *hdr, uint32_t frame_index) {
     memset(hdr, 0, HEADER_SIZE);
 
+    // 1. TIFF Header: Little Endian ("II"), Magic 42, IFD0 offset at byte 8
     hdr[0] = 'I'; hdr[1] = 'I';
     hdr[2] = 0x2A; hdr[3] = 0x00;
     uint32_t ifd_offset = 8;
     memcpy(hdr + 4, &ifd_offset, 4);
 
-    uint16_t num_entries = 15;
+    // 2. Extra payload placement (strings and rationals starting at offset 300)
+    const uint32_t off_make = 300;
+    const char *str_make = "CinemaDNG"; // 10 bytes including '\0'
+    memcpy(hdr + off_make, str_make, 10);
+
+    const uint32_t off_model = 316;
+    const char *str_model = "Ninja V RAW"; // 12 bytes including '\0'
+    memcpy(hdr + off_model, str_model, 12);
+
+    const uint32_t off_xres = 336;
+    uint32_t xres_rational[2] = {72, 1}; // 72 dpi
+    memcpy(hdr + off_xres, xres_rational, 8);
+
+    const uint32_t off_yres = 344;
+    uint32_t yres_rational[2] = {72, 1}; // 72 dpi
+    memcpy(hdr + off_yres, yres_rational, 8);
+
+    // 3. Number of directory entries: 23 tags strictly sorted in ascending numerical order
+    uint16_t num_entries = 23;
     uint32_t p = 8;
     memcpy(hdr + p, &num_entries, 2);
     p += 2;
 
-    TiffEntry entries[15] = {
-        {TAG_NEWSUBFILETYPE, TYPE_LONG, 1, 0},
-        {TAG_IMAGEWIDTH, TYPE_LONG, 1, WIDTH},
-        {TAG_IMAGELENGTH, TYPE_LONG, 1, HEIGHT},
-        {TAG_BITSPERSAMPLE, TYPE_SHORT, 1, BITS_PER_SAMPLE},
-        {TAG_COMPRESSION, TYPE_SHORT, 1, 1}, // Uncompressed
-        {TAG_PHOTOMETRIC, TYPE_SHORT, 1, 32803}, // CFA
-        {TAG_STRIPOFFSETS, TYPE_LONG, 1, HEADER_SIZE}, // 4096
-        {TAG_SAMPLESPERPXL, TYPE_SHORT, 1, 1},
-        {TAG_ROWSPERSTRIP, TYPE_LONG, 1, HEIGHT},
-        {TAG_STRIPBYTECOUNTS, TYPE_LONG, 1, RAW_FRAME_BYTES},
-        {TAG_PLANARCONFIG, TYPE_SHORT, 1, 1},
-        {TAG_CFAREPEATPATT, TYPE_SHORT, 2, (2 << 16) | 2},
-        {TAG_CFAPATTERN, 1, 4, 0x02010100}, // RGGB (0, 1, 1, 2)
-        {TAG_DNGVERSION, 1, 4, 0x00000401}, // 1.4.0.0
-        {TAG_DNGFORWARDVERSION, 1, 4, 0x00000101} // 1.1.0.0
+    TiffEntry entries[23] = {
+        {TAG_NEWSUBFILETYPE,    TYPE_LONG,     1,  0},                           // 0x00FE
+        {TAG_IMAGEWIDTH,        TYPE_LONG,     1,  WIDTH},                       // 0x0100
+        {TAG_IMAGELENGTH,       TYPE_LONG,     1,  HEIGHT},                      // 0x0101
+        {TAG_BITSPERSAMPLE,     TYPE_SHORT,    1,  BITS_PER_SAMPLE},             // 0x0102
+        {TAG_COMPRESSION,       TYPE_SHORT,    1,  1},                           // 0x0103 (Uncompressed)
+        {TAG_PHOTOMETRIC,       TYPE_SHORT,    1,  32803},                       // 0x0106 (CFA)
+        {TAG_MAKE,              TYPE_ASCII,    10, off_make},                    // 0x010F ("CinemaDNG")
+        {TAG_MODEL,             TYPE_ASCII,    12, off_model},                   // 0x0110 ("Ninja V RAW")
+        {TAG_STRIPOFFSETS,      TYPE_LONG,     1,  HEADER_SIZE},                 // 0x0111 (4096 page-aligned)
+        {TAG_SAMPLESPERPXL,     TYPE_SHORT,    1,  1},                           // 0x0115
+        {TAG_ROWSPERSTRIP,      TYPE_LONG,     1,  HEIGHT},                      // 0x0116
+        {TAG_STRIPBYTECOUNTS,   TYPE_LONG,     1,  RAW_FRAME_BYTES},             // 0x0117
+        {TAG_XRESOLUTION,       TYPE_RATIONAL, 1,  off_xres},                    // 0x011A (72/1)
+        {TAG_YRESOLUTION,       TYPE_RATIONAL, 1,  off_yres},                    // 0x011B (72/1)
+        {TAG_PLANARCONFIG,      TYPE_SHORT,    1,  1},                           // 0x011C
+        {TAG_RESOLUTIONUNIT,    TYPE_SHORT,    1,  2},                           // 0x0128 (Inches)
+        {TAG_CFAREPEATPATT,     TYPE_SHORT,    2,  (2 << 16) | 2},               // 0x828D [2, 2]
+        {TAG_CFAPATTERN,        TYPE_BYTE,     4,  0x02010100},                  // 0x828E RGGB (0, 1, 1, 2)
+        {TAG_DNGVERSION,        TYPE_BYTE,     4,  0x00000401},                  // 0xC612 1.4.0.0
+        {TAG_DNGFORWARDVERSION, TYPE_BYTE,     4,  0x00000101},                  // 0xC613 1.1.0.0
+        {TAG_UNIQUECAMERAMODEL, TYPE_ASCII,    10, off_make},                    // 0xC614 ("CinemaDNG")
+        {TAG_BLACKLEVEL,        TYPE_SHORT,    1,  0},                           // 0xC61A (0)
+        {TAG_WHITELEVEL,        TYPE_LONG,     1,  4095}                         // 0xC61D (4095 for 12-bit)
     };
 
     memcpy(hdr + p, entries, sizeof(entries));
     p += sizeof(entries);
 
+    // 4. Next IFD offset: 0 (No more IFDs)
     uint32_t next_ifd = 0;
     memcpy(hdr + p, &next_ifd, 4);
 }
@@ -155,9 +195,9 @@ static void *disk_writer_thread(void *arg) {
         struct timespec t0, t1;
         clock_gettime(CLOCK_MONOTONIC, &t0);
 
-        // Try direct I/O; fallback to standard if filesystem doesn't support O_DIRECT
+        // Direct I/O write with fallback
         int fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC | O_DIRECT, 0644);
-        if (fd < 0 && errno == EINVAL) {
+        if (fd < 0 && (errno == EINVAL || errno == EOPNOTSUPP)) {
             fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0644);
         }
 
@@ -181,8 +221,8 @@ static void *disk_writer_thread(void *arg) {
 }
 
 int main(int argc, char **argv) {
-    uint32_t total_frames = 48; // 2 seconds at 24fps
-    const char *out_dir = "/tmp/cinemadng_stream";
+    uint32_t total_frames = 24; // Default: 1 second at 24fps
+    const char *out_dir = "/tmp/cinemadng_polished_stream";
 
     if (argc > 1) total_frames = (uint32_t)atoi(argv[1]);
     if (argc > 2) out_dir = argv[2];
@@ -190,10 +230,12 @@ int main(int argc, char **argv) {
     mkdir(out_dir, 0755);
 
     printf("====================================================================\n");
-    printf(" CinemaDNG 12-bit RAW Direct-I/O Ring Buffer Recorder\n");
+    printf(" CinemaDNG 12-bit RAW Direct-I/O Ring Buffer Recorder (Polished)\n");
     printf(" Resolution: %dx%d (4K UHD) | Format: 12-bit Bayer RGGB CinemaDNG\n", WIDTH, HEIGHT);
-    printf(" Frame Payload: %.2f MB | Direct I/O Page-Aligned Header: %d bytes\n",
-        RAW_FRAME_BYTES / (1024.0 * 1024.0), HEADER_SIZE);
+    printf(" Metadata Tags: 23 Tags (Make='CinemaDNG', Model='Ninja V RAW', UniqueModel='CinemaDNG')\n");
+    printf(" Levels: BlackLevel=0, WhiteLevel=4095, Res=72/1 in\n");
+    printf(" Direct I/O Sector Header: %d bytes (Page-Aligned) | Frame: %.2f MB\n",
+        HEADER_SIZE, TOTAL_FRAME_BYTES / (1024.0 * 1024.0));
     printf(" Ring Buffer: %d slots (Total Memory: %.2f MB)\n",
         RING_BUFFER_SLOTS, (RING_BUFFER_SLOTS * TOTAL_FRAME_BYTES) / (1024.0 * 1024.0));
     printf(" Streaming Target: %u frames @ 24.00 fps -> %s\n", total_frames, out_dir);
@@ -221,8 +263,8 @@ int main(int argc, char **argv) {
     struct timespec bench_start, bench_end;
     clock_gettime(CLOCK_MONOTONIC, &bench_start);
 
-    // Producer simulation: streams incoming 4K Bayer frames at 24.00 fps (41.67 ms cadence)
-    const long frame_interval_ns = 41666667L; // 24.00 fps
+    // Producer cadence: 24.00 fps (41.67 ms)
+    const long frame_interval_ns = 41666667L;
 
     for (uint32_t f = 0; f < total_frames; f++) {
         struct timespec frame_start;
@@ -230,7 +272,6 @@ int main(int argc, char **argv) {
 
         pthread_mutex_lock(&queue.mutex);
         if (queue.count == RING_BUFFER_SLOTS) {
-            // Buffer overflow - dropped frame!
             queue.dropped_frames++;
             pthread_mutex_unlock(&queue.mutex);
             fprintf(stderr, "[PRODUCER] WARNING: Buffer full! Dropped frame %u!\n", f);
@@ -252,7 +293,7 @@ int main(int argc, char **argv) {
         pthread_cond_signal(&queue.not_empty);
         pthread_mutex_unlock(&queue.mutex);
 
-        // Frame rate pacing: sleep remaining time in frame budget (41.67 ms)
+        // Pacing
         struct timespec frame_now;
         clock_gettime(CLOCK_MONOTONIC, &frame_now);
         long elapsed_ns = (frame_now.tv_sec - frame_start.tv_sec) * 1000000000L + (frame_now.tv_nsec - frame_start.tv_nsec);
@@ -277,7 +318,7 @@ int main(int argc, char **argv) {
     double avg_throughput = total_mb / total_sec;
 
     printf("\n====================================================================\n");
-    printf(" CinemaDNG Ring Buffer Stream Verification Report:\n");
+    printf(" CinemaDNG Polished Ring Buffer Stream Report:\n");
     printf("   - Total Frames Captured:  %u / %u\n", queue.written_frames, total_frames);
     printf("   - Dropped Frames:         %u (%.2f%% drop rate)\n",
         queue.dropped_frames, (queue.dropped_frames * 100.0) / total_frames);
