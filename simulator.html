@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verdanove Ninja Lab — UI Simulator & Firmware Navigator</title>
+  <style>
+    :root {
+      --bg: #0b0f17;
+      --card-bg: #131a26;
+      --accent: #00d2ff;
+      --accent-dim: rgba(0, 210, 255, 0.15);
+      --green: #00ff88;
+      --orange: #ffaa00;
+      --text: #e1e7f0;
+      --text-dim: #7f8fa4;
+      --border: #1f2d3d;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 24px; }
+    header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 24px; }
+    .title-group h1 { font-size: 22px; color: #fff; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+    .badge { font-size: 11px; padding: 3px 8px; border-radius: 4px; background: var(--accent-dim); color: var(--accent); border: 1px solid var(--accent); font-weight: 600; text-transform: uppercase; }
+    .badge-live { background: rgba(0, 255, 136, 0.15); color: var(--green); border-color: var(--green); }
+    .sub { color: var(--text-dim); font-size: 13px; margin-top: 4px; }
+
+    .grid { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; }
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 24px; }
+    .card-header { font-size: 14px; font-weight: 600; text-transform: uppercase; color: var(--text-dim); letter-spacing: 0.5px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; }
+
+    /* Ninja V Frame Preview */
+    .screen-wrapper {
+      position: relative;
+      background: #000;
+      border: 12px solid #1c2430;
+      border-radius: 12px;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.6);
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+    }
+    .screen-wrapper img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .osd-overlay {
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      display: flex; flex-direction: column; justify-content: space-between;
+      padding: 14px 18px;
+    }
+    .osd-top, .osd-bottom { display: flex; justify-content: space-between; align-items: center; }
+    .osd-pill { background: rgba(0,0,0,0.75); border: 1px solid rgba(255,255,255,0.2); padding: 5px 10px; border-radius: 4px; font-size: 12px; font-family: monospace; font-weight: bold; }
+    .osd-rec { color: #ff3344; display: flex; align-items: center; gap: 6px; }
+    .osd-rec::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #ff3344; display: inline-block; animation: pulse 1s infinite alternate; }
+    @keyframes pulse { from { opacity: 0.3; } to { opacity: 1; } }
+
+    /* Controls & Tree */
+    .stat-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 13px; }
+    .stat-label { color: var(--text-dim); }
+    .stat-val { font-family: monospace; font-weight: 600; color: #fff; }
+
+    .file-tree { list-style: none; font-size: 13px; font-family: monospace; }
+    .file-tree li { padding: 6px 10px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+    .file-tree li:hover { background: rgba(255,255,255,0.05); }
+    .file-tag { font-size: 10px; padding: 2px 6px; border-radius: 3px; font-weight: bold; }
+    .tag-open { background: rgba(0, 255, 136, 0.15); color: var(--green); }
+    .tag-lock { background: rgba(255, 170, 0, 0.15); color: var(--orange); }
+
+    .tabs { display: flex; gap: 8px; margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+    .tab-btn { background: none; border: none; color: var(--text-dim); padding: 6px 12px; font-weight: 600; font-size: 13px; cursor: pointer; border-radius: 4px; }
+    .tab-btn.active { background: var(--accent-dim); color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title-group">
+      <h1>Verdanove Ninja Lab <span class="badge">Simulator Active</span> <span class="badge badge-live">Local Host: 8080</span></h1>
+      <p class="sub">Simulated Atomos Ninja V (AtomOS 11.19.00 / XCZU5EV) &middot; Live Asset Preview</p>
+    </div>
+  </header>
+
+  <div class="grid">
+    <!-- Left Column: Screen Emulator -->
+    <div>
+      <div class="card">
+        <div class="card-header">
+          <span>Ninja V 5-Inch 1080p Screen Preview (Rendered from extracted rootfs)</span>
+          <span style="font-size: 11px; color: var(--green);">Source: /usr/share/video_pipeline/no_input_bg.png</span>
+        </div>
+        <div class="screen-wrapper">
+          <img id="liveScreen" src="interface/monitoring/verdanove_simulated_ui_preview.png" alt="Simulated Screen">
+          <div class="osd-overlay">
+            <div class="osd-top">
+              <div class="osd-pill osd-rec">RAW REC STANDBY</div>
+              <div class="osd-pill">4K UHD 23.98p &middot; 12-BIT BAYER</div>
+              <div class="osd-pill">SATA: 520 MB/s &middot; SSDmini OK</div>
+            </div>
+            <div class="osd-bottom">
+              <div class="osd-pill">HDMI 2.0: NIKON ZR RAW</div>
+              <div class="osd-pill" style="color: var(--accent);">VERDANOVE BLUE COMPRESSOR [SIM]</div>
+              <div class="osd-pill">TDP: 11.2W &middot; FAN: 45%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span>Real-Time Math & Compute Feasibility</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">SoC Application Processing Unit (APU)</span>
+          <span class="stat-val">4x ARM Cortex-A53 @ 1.20 GHz (Max 4.8 Giga-cycles/sec)</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">4K UHD 24fps Uncompressed 12-Bit Rate</span>
+          <span class="stat-val" style="color: var(--green);">284.8 MB/s (Fits in 550 MB/s SATA 3 bandwidth)</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">4K UHD 60fps Uncompressed 12-Bit Rate</span>
+          <span class="stat-val" style="color: var(--orange);">711.9 MB/s (Exceeds SATA 3 &middot; Requires Compression)</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Software Wavelet Cycle Budget (4K 60fps)</span>
+          <span class="stat-val" style="color: #ff5566;">9.6 cycles / pixel (Hardware FPGA required for 60p)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Explorer & Controls -->
+    <div>
+      <div class="card">
+        <div class="card-header">
+          <span>Firmware Component Explorer</span>
+        </div>
+        <ul class="file-tree">
+          <li>
+            <span>/usr/bin/video_pipeline (2.87 MB)</span>
+            <span class="file-tag tag-open">UNENCRYPTED</span>
+          </li>
+          <li>
+            <span>/usr/share/video_pipeline/no_input_bg.png</span>
+            <span class="file-tag tag-open">MODIFIED (ACTIVE)</span>
+          </li>
+          <li>
+            <span>FLASH.UB (Linux 6.1.5 Kernel + DTB)</span>
+            <span class="file-tag tag-open">UNENCRYPTED</span>
+          </li>
+          <li>
+            <span>ROOTFS.BIN (PetaLinux 2023.1 RootFS)</span>
+            <span class="file-tag tag-open">UNENCRYPTED</span>
+          </li>
+          <li>
+            <span>APP0000.BIN (Cortex-R5 UI Engine)</span>
+            <span class="file-tag tag-lock">ENCRYPTED (eFUSE)</span>
+          </li>
+          <li>
+            <span>DPGA0005.BIN (ProRes RAW HDMI FPGA)</span>
+            <span class="file-tag tag-lock">ENCRYPTED (eFUSE)</span>
+          </li>
+          <li>
+            <span>DPGA0009.BIN (H.265 / VCU Capture FPGA)</span>
+            <span class="file-tag tag-lock">ENCRYPTED (eFUSE)</span>
+          </li>
+          <li>
+            <span>FMODDOCK.BIN (AtomX CAST Artix-7)</span>
+            <span class="file-tag tag-open">UNENCRYPTED</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span>Simulation Controls</span>
+        </div>
+        <p style="font-size: 12px; color: var(--text-dim); margin-bottom: 14px;">
+          This local dashboard reflects the live emulated filesystem on your PC. You can edit any file in <code>firmware/extracted/rootfs_ext4</code> and refresh this page to see it instantly.
+        </p>
+        <button style="width: 100%; padding: 10px; background: var(--accent); color: #000; border: none; border-radius: 4px; font-weight: 700; cursor: pointer;" onclick="location.reload()">Refresh Live Preview</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
