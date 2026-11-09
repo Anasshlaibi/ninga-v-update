@@ -1,0 +1,116 @@
+{
+  "file": "firmware/original/ATOMNJV.FW",
+  "size_bytes": 319558064,
+  "global_header": {
+    "header_size": 16,
+    "magic": "wfsa",
+    "version_hex": "0x01000000",
+    "section_count": 8
+  },
+  "sections": [
+    {
+      "index": 0,
+      "header_offset_hex": "0x00000010",
+      "payload_offset_hex": "0x00000028",
+      "total_len_bytes": 1052,
+      "payload_len_bytes": 1024,
+      "magic": " nib",
+      "version_hex": "0x01000000",
+      "section_id_hex": "0xaaaaaaaa",
+      "header_crc_hex": "0xe3421d1b",
+      "trailer_hex": "0x00000000",
+      "payload_sha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+    },
+    {
+      "index": 1,
+      "header_offset_hex": "0x0000042c",
+      "payload_offset_hex": "0x00000444",
+      "total_len_bytes": 1052,
+      "payload_len_bytes": 1024,
+      "magic": " nib",
+      "version_hex": "0x01000000",
+      "section_id_hex": "0xaaaaaaab",
+      "header_crc_hex": "0x9d9abe5f",
+      "trailer_hex": "0x00000000",
+      "payload_sha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+    },
+    {
+      "index": 2,
+      "header_offset_hex": "0x00000848",
+      "payload_offset_hex": "0x00000860",
+      "total_len_bytes": 1052,
+      "payload_len_bytes": 1024,
+      "magic": " nib",
+      "version_hex": "0x01000000",
+      "section_id_hex": "0xaaaaaaa2",
+      "header_crc_hex": "0xa3650bb9",
+      "trailer_hex": "0x00000000",
+      "payload_sha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+    },
+    {
+      "index": 3,
+      "header_offset_hex": "0x00000c64",
+      "payload_offset_hex": "0x00000c7c",
+      "total_len_bytes": 294387740,
+      "payload_len_bytes": 294387712,
+      "magic": "nibx",
+      "version_hex": "0x30000000",
+      "section_id_hex": "0x11111111",
+      "header_crc_hex": "0x989cdecc",
+      "trailer_hex": "0xffffffff",
+      "payload_sha256": "2c60f43b84d2cfec53595c62fadee3978ce5d998cbabab4ddd800206311bf6ab"
+    },
+    {
+      "index": 4,
+      "header_offset_hex": "0x118c0c80",
+      "payload_offset_hex": "0x118c0c98",
+      "total_len_bytes": 2097180,
+      "payload_len_bytes": 2097152,
+      "magic": "nibx",
+      "version_hex": "0x30000000",
+      "section_id_hex": "0x31323334",
+      "header_crc_hex": "0x2182f35e",
+      "trailer_hex": "0xffffffff",
+      "payload_sha256": "eee15385fdc649863f2fc417547b0d5c18d74b9c5e41fdc70da859c4456f891f"
+    },
+    {
+      "index": 5,
+      "header_offset_hex": "0x11ac0c9c",
+      "payload_offset_hex": "0x11ac0cb4",
+      "total_len_bytes": 23068700,
+      "payload_len_bytes": 23068672,
+      "magic": "nibx",
+      "version_hex": "0x30000000",
+      "section_id_hex": "0x40404040",
+      "header_crc_hex": "0x9ed05ea0",
+      "trailer_hex": "0xffffffff",
+      "payload_sha256": "29121abd55dc1ce9c4a9f36e58b4912ac5c6088101d8838fcb03a004d3adc714"
+    },
+    {
+      "index": 6,
+      "header_offset_hex": "0x130c0cb8",
+      "payload_offset_hex": "0x130c0cd0",
+      "total_len_bytes": 1052,
+      "payload_len_bytes": 1024,
+      "magic": " nib",
+      "version_hex": "0x01000000",
+      "section_id_hex": "0xaaaaaaa1",
+      "header_crc_hex": "0x200cee75",
+      "trailer_hex": "0x00000000",
+      "payload_sha256": "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+    },
+    {
+      "index": 7,
+      "header_offset_hex": "0x130c10d4",
+      "payload_offset_hex": "0x130c10ec",
+      "total_len_bytes": 220,
+      "payload_len_bytes": 192,
+      "magic": " xdi",
+      "version_hex": "0x01000000",
+      "section_id_hex": "0x00013000",
+      "header_crc_hex": "0x27aee3aa",
+      "trailer_hex": "0x00000000",
+      "payload_sha256": "c4d0cafe0f681ca3f88232b763626d9784a83113d0312917c058b5b477a2bba5"
+    }
+  ]
+}

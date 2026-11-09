@@ -1,0 +1,2219 @@
+{
+  "fat16_files": [
+    {
+      "name": "APP0000.BIN",
+      "size": 4058580,
+      "sha256": "13ac9053cebe00db03944ab223d5c83e50a9fe6d2712ce9913ea4c6ce6937ce7",
+      "first16": "00000014000000140000001400000014",
+      "entropy": 7.999232
+    },
+    {
+      "name": "DAPP0000.BIN",
+      "size": 4058580,
+      "sha256": "c3fd74af1f0cf4047fe13c62ea9f89c4bd5e42ff17a0132db8490116bc7eb850",
+      "first16": "00000014000000140000001400000014",
+      "entropy": 7.999169
+    },
+    {
+      "name": "DATA0000.BIN",
+      "size": 64,
+      "sha256": "b0e087f4c09c8d180f99a5fd2fce3491b72380312613d2467bcb6b662872d95a",
+      "first16": "c725890f06282c204613e20e47288c24",
+      "entropy": 5.625
+    },
+    {
+      "name": "DOCKUSB.BIN",
+      "size": 137228,
+      "sha256": "9b8511a3cd2a9c4bb74550ac11fa055437cba016b67c73b3284c59a369e7d4c5",
+      "first16": "43591cb0e00800000001000010402de9",
+      "entropy": 5.722171
+    },
+    {
+      "name": "DPGA0000.BIN",
+      "size": 8096828,
+      "sha256": "0047f4cc86df7665c934944640de7a5dc28433635330d8f47467adbbbfa44a8a",
+      "first16": "00000014000000140000001400000014",
+      "entropy": 7.999764
+    },
+    {
+      "name": "DPGA0001.BIN",
+      "size": 8096828,
+      "sha256": "77e1deb131164636489b9917c49a41d5917a9ddeda1c97f6fcc63f26ca929091",
+      "first16": "00000014000000140000001400000014",
+      "entropy": 7.999778
+    },
+    {
+      "name": "DPGA0002.BIN",
+      "size": 8096828,
+      "sha256": "082be856a564d02102a59c83adb0ae1ccdd9e5aa1c74462f79d13804f979e32e",
+      "first16": "00000014000000140000001400000014",
+      "entropy": 7.999785
+    },
+    {
+      "name": "DPGA0003.BIN",
+      "size": 8096828,
+      "sha256": "66aa0bd2b3f96b968d47dade9f052cb99e6b7eda3d72d68be4ef32e0039caca0",
+      "first16": "00000014000000140000001400000014",
+      "entropy": 7.999769
+    },
+    {
+      "name": "DPGA0005.BIN",
+      "size": 8096828,
+      "sha256": "80f061b0e15f50656f66a6cffe2b747d41b81bea393d957b0d9b598692b73147",
+      "first16": "00000014000000140000001400000014",
+      "entropy": 7.999776
+    },
+    {
+      "name": "DPGA0006.BIN",
+      "size": 8096828,
+      "sha256": "2f0a14682ed02a20aa2e2d7819df5d77db42175b5c59bfbb3c29ca918113e454",
+      "first16": "00000014000000140000001400000014",
+      "entropy": 7.999776
+    },
+    {
+      "name": "DPGA0009.BIN",
+      "size": 8096828,
+      "sha256": "e2be78184d90745d02988fb29129abec0db9eea43500d1d3b691cb089da890f1",
+      "first16": "00000014000000140000001400000014",
+      "entropy": 7.99976
+    },
+    {
+      "name": "DPGA0012.BIN",
+      "size": 8096828,
+      "sha256": "009ae29fc9fe0a35c86d702e5d476c1b8eaed2ff0bf2ea1210cbf8c19827a6df",
+      "first16": "00000014000000140000001400000014",
+      "entropy": 7.999755
+    },
+    {
+      "name": "DPGA0013.BIN",
+      "size": 8096828,
+      "sha256": "1283e0f9f961326d4a2ee8d3dd6666d2395f9c8aae20957d4b6099cf129b7d13",
+      "first16": "00000014000000140000001400000014",
+      "entropy": 7.999778
+    },
+    {
+      "name": "DPGA0014.BIN",
+      "size": 8096828,
+      "sha256": "d836a6b859e87a5d3068f1c3f5c662e9827800be53dbc848d32f346d2daad5ef",
+      "first16": "00000014000000140000001400000014",
+      "entropy": 7.999778
+    },
+    {
+      "name": "DPGA0015.BIN",
+      "size": 8096828,
+      "sha256": "b5b515938d4b1273ca0b2d9ab65f67fd5ae73feef0684bafc782389db0923d70",
+      "first16": "00000014000000140000001400000014",
+      "entropy": 7.999765
+    },
+    {
+      "name": "DPGA0017.BIN",
+      "size": 8096828,
+      "sha256": "3417ff6b3d809c900063a5b2293c63687d43f524d44b16f5a2fc43aa352cfc90",
+      "first16": "00000014000000140000001400000014",
+      "entropy": 7.999778
+    },
+    {
+      "name": "DPGA0018.BIN",
+      "size": 8096828,
+      "sha256": "4fe48b8f009d6395e72f5c5b49d8ef1becd9304a80a382a7c9a885a7f6d73075",
+      "first16": "00000014000000140000001400000014",
+      "entropy": 7.999766
+    },
+    {
+      "name": "DPGA0019.BIN",
+      "size": 8096828,
+      "sha256": "7e623aaaf4a108cd607b1e031b37b4d5a60b30351d778089be3cf709d3a641f4",
+      "first16": "00000014000000140000001400000014",
+      "entropy": 7.999771
+    },
+    {
+      "name": "DPGA0020.BIN",
+      "size": 8096828,
+      "sha256": "9662ac9ba8d63413efe50753aa37d8626d994bd1ca8331d60eeb3cc3a5ab869b",
+      "first16": "00000014000000140000001400000014",
+      "entropy": 7.99976
+    },
+    {
+      "name": "FLASH.UB",
+      "size": 8621680,
+      "sha256": "637824dd2b37b21bca4c45ef3d3cb5c912fddb557b61009366acffcd4d94e7da",
+      "first16": "d00dfeed00838e700000003800838a7c",
+      "entropy": 7.968748
+    },
+    {
+      "name": "FMODDOCK.BIN",
+      "size": 2192121,
+      "sha256": "52fddcdecffbce92b3334cf45714e49c4a046f21757b306ff1fe539a7e3b02da",
+      "first16": "00090ff00ff00ff00ff000000161002f",
+      "entropy": 1.222044
+    },
+    {
+      "name": "FMODSTRM.BIN",
+      "size": 553189,
+      "sha256": "e5b5df5dd5bd0fd26f04989766cd5c661c4b2270f3dc873d8786ed92b6c05aaf",
+      "first16": "00090ff00ff00ff00ff000000161003f",
+      "entropy": 1.303067
+    },
+    {
+      "name": "FWFAILED.BIN",
+      "size": 2088960,
+      "sha256": "0a56d97007e4874d54dd48e25958f2f8614cbb1bcafe42466656a31bc74823b8",
+      "first16": "000000ff000000ff000000ff000000ff",
+      "entropy": 1.235567
+    },
+    {
+      "name": "GECKO_FW.BIN",
+      "size": 15607,
+      "sha256": "57a8a21530deb918b297ab0738f08e2d6d483acafe29ec85a79aae5a3d477559",
+      "first16": "c7187d060188e83c00005dbe1900e100",
+      "entropy": 6.834945
+    },
+    {
+      "name": "MANIFEST.XMD",
+      "size": 122,
+      "sha256": "57ccf532027dbb8f3421fab55234cc7a6d26dbb307f91f3488b2a505502771fc",
+      "first16": "3020584d4f4453594e2e62696e203031",
+      "entropy": 4.680733
+    },
+    {
+      "name": "PLS_WAIT.BIN",
+      "size": 238560,
+      "sha256": "ce8f92a11b4fc19ae99dcc99137b48490f345a931fa0513a130b3fc76f8a50db",
+      "first16": "ffffff00ffffff00ffffff00ffffff00",
+      "entropy": 1.320929
+    },
+    {
+      "name": "RAMDISK.UB",
+      "size": 53341780,
+      "sha256": "b511780473656cd7b03485811a78caf6f9eefa71749ac3b3382ce50848fa2ad5",
+      "first16": "d00dfeed032dee5400000038032dea84",
+      "entropy": 7.980989
+    },
+    {
+      "name": "RES0001.BIN",
+      "size": 11459647,
+      "sha256": "e3847c365581d30e13dcae6ae22114656c80c91f7f2956bc230b0dbf24ff7d8d",
+      "first16": "b5009bb14aff644e000000605f7b8300",
+      "entropy": 5.977688
+    },
+    {
+      "name": "ROOTFS.BIN",
+      "size": 99365392,
+      "sha256": "95432401d029fb301dcf2575aa2c8d2ebf5c6c06a3ad67957e14761877b6b9b7",
+      "first16": "1f8b0800000000000203ecdd077c5455",
+      "entropy": 7.976235
+    },
+    {
+      "name": "ROOTFS.TXT",
+      "size": 42,
+      "sha256": "775c02a3d9245bfb0b258ffbb9e3d7ca0f79280e1e2d1d9b906522434cba3566",
+      "first16": "555549443d39623866396431612d6264",
+      "entropy": 4.272804
+    },
+    {
+      "name": "SYNC0001.BIN",
+      "size": 67686,
+      "sha256": "2581819ce6e98245521118e44061d1e7b9f10a45d4796b2bd026a27250b84e34",
+      "first16": "2a416947753100008f00000000081042",
+      "entropy": 7.997351
+    },
+    {
+      "name": "SYNC0002.BIN",
+      "size": 24698,
+      "sha256": "2c3ad943d11685673656c0867f0f195f4861e1dde93d1982acbcd19318b08d7c",
+      "first16": "2a544650416700007100000000001030",
+      "entropy": 7.992496
+    },
+    {
+      "name": "SYNC0003.BIN",
+      "size": 181474,
+      "sha256": "569a5b778c26c4a1cf69e3d5b9ccc0d7cfe2c49df5a88e244625e2e732cafabc",
+      "first16": "2a424c45616700009601000000002fb1",
+      "entropy": 7.998815
+    },
+    {
+      "name": "SYNC0004.BIN",
+      "size": 246781,
+      "sha256": "fca4aa083e36897750c1e75952cd53da92a4ac3881b6daf9c242ac795b0e4033",
+      "first16": "2a414775326300006600000000009f03",
+      "entropy": 7.999166
+    },
+    {
+      "name": "SYNC0005.BIN",
+      "size": 127633,
+      "sha256": "c04a22be53a627aff8b2fd7039eb2766f3d33034c9eb2a0ff2d74242eaf80448",
+      "first16": "2a41477532730000e700000000086907",
+      "entropy": 7.998422
+    },
+    {
+      "name": "UBOOT.ENV",
+      "size": 262144,
+      "sha256": "8a39d2abd3999ab73c34db2476849cddf303ce389b35826850f9a700589b4a90",
+      "first16": "00000000000000000000000000000000",
+      "entropy": -0.0
+    },
+    {
+      "name": "XMODDOCK.BIN",
+      "size": 4402292,
+      "sha256": "97056302d66019148e7d637075ee88aef0bd1cbd768439ba9f6571dbdece58db",
+      "first16": "212054686973206c696e6520656e7375",
+      "entropy": 0.732194
+    },
+    {
+      "name": "XMODSDI.BIN",
+      "size": 3671179,
+      "sha256": "5ec2ca4d355bb683caac48011bcda1dbdf3f30ac28eb13dcb9f2dea081c26bb8",
+      "first16": "21436f70797269676874202843292032",
+      "entropy": 3.802887
+    },
+    {
+      "name": "XMODSTRM.BIN",
+      "size": 1111491,
+      "sha256": "7eb8be28a36a7e68544a587ea30852506aff957da111533df21409b20fff2c12",
+      "first16": "212054686973206c696e6520656e7375",
+      "entropy": 0.765199
+    },
+    {
+      "name": "XMODSYN.BIN",
+      "size": 3671129,
+      "sha256": "128b194731721efe6e85eec8e543690c05a4cb944adef5933c28e276007eda10",
+      "first16": "21436f70797269676874202843292032",
+      "entropy": 3.808309
+    }
+  ],
+  "boot_images": [
+    {
+      "file": "firmware/extracted/sections/sec4_xbin_0x31323334.bin",
+      "size": 2097152,
+      "sha256": "eee15385fdc649863f2fc417547b0d5c18d74b9c5e41fdc70da859c4456f891f",
+      "xlnx_magic": true,
+      "width_detect": "0xaa995566",
+      "key_source_raw": "0xa5c3c5a3",
+      "fsbl_exec_addr": "0xfffc0000",
+      "image_header_table_offset": "0x8c0",
+      "iht_version": "0x1020000",
+      "image_count": 8,
+      "image_names": [
+        "phoenix_fsbl.elf",
+        "phoenix_pmu.elf",
+        "bl31.elf",
+        "boot.dtb",
+        "phoenix_boot.bin",
+        "u-boot.elf"
+      ],
+      "partitions": [
+        {
+          "header_offset": "0x1100",
+          "enc_len_words": 26698,
+          "unenc_len_words": 25722,
+          "total_len_words": 26698,
+          "exec_addr": "0xfffc0000",
+          "load_addr": "0xfffc0000",
+          "data_offset": "0x2800",
+          "attributes_raw": "0x196",
+          "dest_cpu_field": 1,
+          "dest_device_field": 1,
+          "payload_first16": "5b0ced6af1781620e1df9ad1bad79fe5",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.998349
+        },
+        {
+          "header_offset": "0x1140",
+          "enc_len_words": 26645,
+          "unenc_len_words": 25669,
+          "total_len_words": 26645,
+          "exec_addr": "0xffdd25c0",
+          "load_addr": "0xffdc0000",
+          "data_offset": "0x1c940",
+          "attributes_raw": "0x8b6",
+          "dest_cpu_field": 8,
+          "dest_device_field": 3,
+          "payload_first16": "390c5788543c8f2c46467e13485aac01",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.998273
+        },
+        {
+          "header_offset": "0x1180",
+          "enc_len_words": 633,
+          "unenc_len_words": 585,
+          "total_len_words": 633,
+          "exec_addr": "0x0",
+          "load_addr": "0xffddce8c",
+          "data_offset": "0x369c0",
+          "attributes_raw": "0x8b6",
+          "dest_cpu_field": 8,
+          "dest_device_field": 3,
+          "payload_first16": "55f809cacfcf3a032fe6c031b8eff07a",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.921757
+        },
+        {
+          "header_offset": "0x11c0",
+          "enc_len_words": 288,
+          "unenc_len_words": 256,
+          "total_len_words": 288,
+          "exec_addr": "0x0",
+          "load_addr": "0xffddf6e0",
+          "data_offset": "0x373c0",
+          "attributes_raw": "0x8b6",
+          "dest_cpu_field": 8,
+          "dest_device_field": 3,
+          "payload_first16": "0eeabe923cc0d8d5c6ef14658bdfb53b",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.813421
+        },
+        {
+          "header_offset": "0x1200",
+          "enc_len_words": 12804,
+          "unenc_len_words": 12324,
+          "total_len_words": 12804,
+          "exec_addr": "0xfffea000",
+          "load_addr": "0xfffea000",
+          "data_offset": "0x37840",
+          "attributes_raw": "0x196",
+          "dest_cpu_field": 1,
+          "dest_device_field": 1,
+          "payload_first16": "b19b35afc5f555d2fe916e56adb4ca96",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.995984
+        },
+        {
+          "header_offset": "0x1240",
+          "enc_len_words": 11850,
+          "unenc_len_words": 11850,
+          "total_len_words": 11850,
+          "exec_addr": "0x0",
+          "load_addr": "0x100000",
+          "data_offset": "0x44080",
+          "attributes_raw": "0x16",
+          "dest_cpu_field": 0,
+          "dest_device_field": 1,
+          "payload_first16": "d00dfeed0000b9280000003800009b3c",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 3.64951
+        },
+        {
+          "header_offset": "0x1280",
+          "enc_len_words": 32658,
+          "unenc_len_words": 31474,
+          "total_len_words": 32658,
+          "exec_addr": "0x0",
+          "load_addr": "0xc100000",
+          "data_offset": "0x4f9c0",
+          "attributes_raw": "0x96",
+          "dest_cpu_field": 0,
+          "dest_device_field": 1,
+          "payload_first16": "1e08bfb3997508ee95f4b8ebf3f2d728",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.998698
+        },
+        {
+          "header_offset": "0x12c0",
+          "enc_len_words": 323710,
+          "unenc_len_words": 323710,
+          "total_len_words": 323710,
+          "exec_addr": "0x8000000",
+          "load_addr": "0x8000000",
+          "data_offset": "0x6f840",
+          "attributes_raw": "0x114",
+          "dest_cpu_field": 1,
+          "dest_device_field": 1,
+          "payload_first16": "0a0000141f2003d50000000800000000",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 6.581962
+        }
+      ]
+    },
+    {
+      "file": "firmware/extracted/sections/sec5_xbin_0x40404040.bin",
+      "size": 23068672,
+      "sha256": "29121abd55dc1ce9c4a9f36e58b4912ac5c6088101d8838fcb03a004d3adc714",
+      "xlnx_magic": true,
+      "width_detect": "0xaa995566",
+      "key_source_raw": "0xa5c3c5a3",
+      "fsbl_exec_addr": "0xfffc0000",
+      "image_header_table_offset": "0x8c0",
+      "iht_version": "0x1020000",
+      "image_count": 10,
+      "image_names": [
+        "phoenix_fsbl.elf",
+        "phoenix_pmu.elf",
+        "emergency.bit",
+        "startrek_noresources.elf",
+        "startrek.resource_pack.p32"
+      ],
+      "partitions": [
+        {
+          "header_offset": "0x1100",
+          "enc_len_words": 26698,
+          "unenc_len_words": 25722,
+          "total_len_words": 26698,
+          "exec_addr": "0xfffc0000",
+          "load_addr": "0xfffc0000",
+          "data_offset": "0x2800",
+          "attributes_raw": "0x196",
+          "dest_cpu_field": 1,
+          "dest_device_field": 1,
+          "payload_first16": "67a2f69c2eec9a1392806307e457c1ad",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.998538
+        },
+        {
+          "header_offset": "0x1140",
+          "enc_len_words": 26645,
+          "unenc_len_words": 25669,
+          "total_len_words": 26645,
+          "exec_addr": "0xffdd25c0",
+          "load_addr": "0xffdc0000",
+          "data_offset": "0x1c940",
+          "attributes_raw": "0x8be",
+          "dest_cpu_field": 8,
+          "dest_device_field": 3,
+          "payload_first16": "67febaaf4ec743ddc52c3c6ff9736b24",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.998349
+        },
+        {
+          "header_offset": "0x1180",
+          "enc_len_words": 633,
+          "unenc_len_words": 585,
+          "total_len_words": 633,
+          "exec_addr": "0x0",
+          "load_addr": "0xffddce8c",
+          "data_offset": "0x369c0",
+          "attributes_raw": "0x8be",
+          "dest_cpu_field": 8,
+          "dest_device_field": 3,
+          "payload_first16": "3638634854600f1ea40d90ecefa308fd",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.921265
+        },
+        {
+          "header_offset": "0x11c0",
+          "enc_len_words": 288,
+          "unenc_len_words": 256,
+          "total_len_words": 288,
+          "exec_addr": "0x0",
+          "load_addr": "0xffddf6e0",
+          "data_offset": "0x373c0",
+          "attributes_raw": "0x8be",
+          "dest_cpu_field": 8,
+          "dest_device_field": 3,
+          "payload_first16": "5c89a8c2728ffd40fa41ccd563547857",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.846777
+        },
+        {
+          "header_offset": "0x1200",
+          "enc_len_words": 2021647,
+          "unenc_len_words": 1949423,
+          "total_len_words": 2021647,
+          "exec_addr": "0x0",
+          "load_addr": "0xffffffff",
+          "data_offset": "0x37840",
+          "attributes_raw": "0xa6",
+          "dest_cpu_field": 0,
+          "dest_device_field": 2,
+          "payload_first16": "ddc04bf2af8871181974101b3e906d8c",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.999804
+        },
+        {
+          "header_offset": "0x1240",
+          "enc_len_words": 286,
+          "unenc_len_words": 254,
+          "total_len_words": 286,
+          "exec_addr": "0x40",
+          "load_addr": "0x0",
+          "data_offset": "0x7edc80",
+          "attributes_raw": "0x59e",
+          "dest_cpu_field": 5,
+          "dest_device_field": 1,
+          "payload_first16": "7c16c822e60ca4d1befca9104ac7961e",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.8323
+        },
+        {
+          "header_offset": "0x1280",
+          "enc_len_words": 776696,
+          "unenc_len_words": 748936,
+          "total_len_words": 776696,
+          "exec_addr": "0x0",
+          "load_addr": "0x64b87388",
+          "data_offset": "0x7ee100",
+          "attributes_raw": "0x59e",
+          "dest_cpu_field": 5,
+          "dest_device_field": 1,
+          "payload_first16": "ae5683ee146bd35c6ba2b178e1a4079d",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.999815
+        },
+        {
+          "header_offset": "0x12c0",
+          "enc_len_words": 108718,
+          "unenc_len_words": 104814,
+          "total_len_words": 108718,
+          "exec_addr": "0x0",
+          "load_addr": "0x64e629a8",
+          "data_offset": "0xae4900",
+          "attributes_raw": "0x59e",
+          "dest_cpu_field": 5,
+          "dest_device_field": 1,
+          "payload_first16": "c01e65be959f58ed1b342be5f848823c",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.999578
+        },
+        {
+          "header_offset": "0x1300",
+          "enc_len_words": 36,
+          "unenc_len_words": 4,
+          "total_len_words": 36,
+          "exec_addr": "0x0",
+          "load_addr": "0x658f0760",
+          "data_offset": "0xb4ebc0",
+          "attributes_raw": "0x59e",
+          "dest_cpu_field": 5,
+          "dest_device_field": 1,
+          "payload_first16": "0786edcb3d43e1d9520fde2346490380",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 6.640309
+        },
+        {
+          "header_offset": "0x1340",
+          "enc_len_words": 2729058,
+          "unenc_len_words": 2729058,
+          "total_len_words": 2729058,
+          "exec_addr": "0x0",
+          "load_addr": "0x44000000",
+          "data_offset": "0xb4ec80",
+          "attributes_raw": "0x16",
+          "dest_cpu_field": 0,
+          "dest_device_field": 1,
+          "payload_first16": "b5009bb14aff644e00000060a7307b00",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 4.667657
+        }
+      ]
+    },
+    {
+      "file": "firmware/extracted/fat16_fs/APP0000.BIN",
+      "size": 4058580,
+      "sha256": "13ac9053cebe00db03944ab223d5c83e50a9fe6d2712ce9913ea4c6ce6937ce7",
+      "xlnx_magic": true,
+      "width_detect": "0xaa995566",
+      "key_source_raw": "0xa3a5c3c5",
+      "fsbl_exec_addr": "0x0",
+      "image_header_table_offset": "0x8c0",
+      "iht_version": "0x1020000",
+      "image_count": 4,
+      "image_names": [
+        "startrek_noresources.elf"
+      ],
+      "partitions": [
+        {
+          "header_offset": "0x1100",
+          "enc_len_words": 286,
+          "unenc_len_words": 254,
+          "total_len_words": 286,
+          "exec_addr": "0x40",
+          "load_addr": "0x0",
+          "data_offset": "0x2800",
+          "attributes_raw": "0x59e",
+          "dest_cpu_field": 5,
+          "dest_device_field": 1,
+          "payload_first16": "b488c1319bba34e5c699ee967c752a45",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.806752
+        },
+        {
+          "header_offset": "0x1140",
+          "enc_len_words": 896941,
+          "unenc_len_words": 864877,
+          "total_len_words": 896941,
+          "exec_addr": "0x0",
+          "load_addr": "0x64cb7238",
+          "data_offset": "0x2c80",
+          "attributes_raw": "0x59e",
+          "dest_cpu_field": 5,
+          "dest_device_field": 1,
+          "payload_first16": "be39743b7787ac959973c450de1cb4f0",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.999849
+        },
+        {
+          "header_offset": "0x1180",
+          "enc_len_words": 114801,
+          "unenc_len_words": 110673,
+          "total_len_words": 114801,
+          "exec_addr": "0x0",
+          "load_addr": "0x65003bf0",
+          "data_offset": "0x36eb40",
+          "attributes_raw": "0x59e",
+          "dest_cpu_field": 5,
+          "dest_device_field": 1,
+          "payload_first16": "507810963904e63f35b6db2e5f31ca08",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.999562
+        },
+        {
+          "header_offset": "0x11c0",
+          "enc_len_words": 37,
+          "unenc_len_words": 5,
+          "total_len_words": 37,
+          "exec_addr": "0x0",
+          "load_addr": "0x653d514c",
+          "data_offset": "0x3ded40",
+          "attributes_raw": "0x59e",
+          "dest_cpu_field": 5,
+          "dest_device_field": 1,
+          "payload_first16": "66312258db11018c23b8a98813c981e3",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 6.602869
+        }
+      ]
+    },
+    {
+      "file": "firmware/extracted/fat16_fs/DAPP0000.BIN",
+      "size": 4058580,
+      "sha256": "c3fd74af1f0cf4047fe13c62ea9f89c4bd5e42ff17a0132db8490116bc7eb850",
+      "xlnx_magic": true,
+      "width_detect": "0xaa995566",
+      "key_source_raw": "0xa5c3c5a3",
+      "fsbl_exec_addr": "0x0",
+      "image_header_table_offset": "0x8c0",
+      "iht_version": "0x1020000",
+      "image_count": 4,
+      "image_names": [
+        "startrek_noresources.elf"
+      ],
+      "partitions": [
+        {
+          "header_offset": "0x1100",
+          "enc_len_words": 286,
+          "unenc_len_words": 254,
+          "total_len_words": 286,
+          "exec_addr": "0x40",
+          "load_addr": "0x0",
+          "data_offset": "0x2800",
+          "attributes_raw": "0x59e",
+          "dest_cpu_field": 5,
+          "dest_device_field": 1,
+          "payload_first16": "2e7442961d7f8c68f9f2d234a244a51c",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.829622
+        },
+        {
+          "header_offset": "0x1140",
+          "enc_len_words": 896941,
+          "unenc_len_words": 864877,
+          "total_len_words": 896941,
+          "exec_addr": "0x0",
+          "load_addr": "0x64cb7238",
+          "data_offset": "0x2c80",
+          "attributes_raw": "0x59e",
+          "dest_cpu_field": 5,
+          "dest_device_field": 1,
+          "payload_first16": "4d45b9790fb27481c84a8a77a4eafbb0",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.999838
+        },
+        {
+          "header_offset": "0x1180",
+          "enc_len_words": 114801,
+          "unenc_len_words": 110673,
+          "total_len_words": 114801,
+          "exec_addr": "0x0",
+          "load_addr": "0x65003bf0",
+          "data_offset": "0x36eb40",
+          "attributes_raw": "0x59e",
+          "dest_cpu_field": 5,
+          "dest_device_field": 1,
+          "payload_first16": "4854cff1100e89e46c17f26d5f600b3f",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.999611
+        },
+        {
+          "header_offset": "0x11c0",
+          "enc_len_words": 37,
+          "unenc_len_words": 5,
+          "total_len_words": 37,
+          "exec_addr": "0x0",
+          "load_addr": "0x653d514c",
+          "data_offset": "0x3ded40",
+          "attributes_raw": "0x59e",
+          "dest_cpu_field": 5,
+          "dest_device_field": 1,
+          "payload_first16": "73ae147d715d5dad49f82ef283492a56",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 6.726279
+        }
+      ]
+    },
+    {
+      "file": "firmware/extracted/fat16_fs/DPGA0000.BIN",
+      "size": 8096828,
+      "sha256": "0047f4cc86df7665c934944640de7a5dc28433635330d8f47467adbbbfa44a8a",
+      "xlnx_magic": true,
+      "width_detect": "0xaa995566",
+      "key_source_raw": "0xa5c3c5a3",
+      "fsbl_exec_addr": "0x0",
+      "image_header_table_offset": "0x8c0",
+      "iht_version": "0x1020000",
+      "image_count": 1,
+      "image_names": [
+        "prores_pb_app.bit"
+      ],
+      "partitions": [
+        {
+          "header_offset": "0x1100",
+          "enc_len_words": 2021647,
+          "unenc_len_words": 1949423,
+          "total_len_words": 2021647,
+          "exec_addr": "0x0",
+          "load_addr": "0xffffffff",
+          "data_offset": "0x2800",
+          "attributes_raw": "0xa6",
+          "dest_cpu_field": 0,
+          "dest_device_field": 2,
+          "payload_first16": "320c41bc483b0a8289edc6ac0650fcc7",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.999812
+        }
+      ]
+    },
+    {
+      "file": "firmware/extracted/fat16_fs/DPGA0001.BIN",
+      "size": 8096828,
+      "sha256": "77e1deb131164636489b9917c49a41d5917a9ddeda1c97f6fcc63f26ca929091",
+      "xlnx_magic": true,
+      "width_detect": "0xaa995566",
+      "key_source_raw": "0xa5c3c5a3",
+      "fsbl_exec_addr": "0x0",
+      "image_header_table_offset": "0x8c0",
+      "iht_version": "0x1020000",
+      "image_count": 1,
+      "image_names": [
+        "dnx_pb_app.bit"
+      ],
+      "partitions": [
+        {
+          "header_offset": "0x1100",
+          "enc_len_words": 2021647,
+          "unenc_len_words": 1949423,
+          "total_len_words": 2021647,
+          "exec_addr": "0x0",
+          "load_addr": "0xffffffff",
+          "data_offset": "0x2800",
+          "attributes_raw": "0xa6",
+          "dest_cpu_field": 0,
+          "dest_device_field": 2,
+          "payload_first16": "eacf55aee7d09eaf332f45de148c5d49",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.999838
+        }
+      ]
+    },
+    {
+      "file": "firmware/extracted/fat16_fs/DPGA0002.BIN",
+      "size": 8096828,
+      "sha256": "082be856a564d02102a59c83adb0ae1ccdd9e5aa1c74462f79d13804f979e32e",
+      "xlnx_magic": true,
+      "width_detect": "0xaa995566",
+      "key_source_raw": "0xa5c3c5a3",
+      "fsbl_exec_addr": "0x0",
+      "image_header_table_offset": "0x8c0",
+      "iht_version": "0x1020000",
+      "image_count": 1,
+      "image_names": [
+        "prores_cp_app.bit"
+      ],
+      "partitions": [
+        {
+          "header_offset": "0x1100",
+          "enc_len_words": 2021647,
+          "unenc_len_words": 1949423,
+          "total_len_words": 2021647,
+          "exec_addr": "0x0",
+          "load_addr": "0xffffffff",
+          "data_offset": "0x2800",
+          "attributes_raw": "0xa6",
+          "dest_cpu_field": 0,
+          "dest_device_field": 2,
+          "payload_first16": "17dadd0b16b21773ef6004a0328c5aa6",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.99983
+        }
+      ]
+    },
+    {
+      "file": "firmware/extracted/fat16_fs/DPGA0003.BIN",
+      "size": 8096828,
+      "sha256": "66aa0bd2b3f96b968d47dade9f052cb99e6b7eda3d72d68be4ef32e0039caca0",
+      "xlnx_magic": true,
+      "width_detect": "0xaa995566",
+      "key_source_raw": "0xa5c3c5a3",
+      "fsbl_exec_addr": "0x0",
+      "image_header_table_offset": "0x8c0",
+      "iht_version": "0x1020000",
+      "image_count": 1,
+      "image_names": [
+        "dnx_cp_app.bit"
+      ],
+      "partitions": [
+        {
+          "header_offset": "0x1100",
+          "enc_len_words": 2021647,
+          "unenc_len_words": 1949423,
+          "total_len_words": 2021647,
+          "exec_addr": "0x0",
+          "load_addr": "0xffffffff",
+          "data_offset": "0x2800",
+          "attributes_raw": "0xa6",
+          "dest_cpu_field": 0,
+          "dest_device_field": 2,
+          "payload_first16": "85ee0db7089b6f92b961f61370ecbfc8",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.999819
+        }
+      ]
+    },
+    {
+      "file": "firmware/extracted/fat16_fs/DPGA0005.BIN",
+      "size": 8096828,
+      "sha256": "80f061b0e15f50656f66a6cffe2b747d41b81bea393d957b0d9b598692b73147",
+      "xlnx_magic": true,
+      "width_detect": "0xaa995566",
+      "key_source_raw": "0xa5c3c5a3",
+      "fsbl_exec_addr": "0x0",
+      "image_header_table_offset": "0x8c0",
+      "iht_version": "0x1020000",
+      "image_count": 1,
+      "image_names": [
+        "prraw_cp_app.bit"
+      ],
+      "partitions": [
+        {
+          "header_offset": "0x1100",
+          "enc_len_words": 2021647,
+          "unenc_len_words": 1949423,
+          "total_len_words": 2021647,
+          "exec_addr": "0x0",
+          "load_addr": "0xffffffff",
+          "data_offset": "0x2800",
+          "attributes_raw": "0xa6",
+          "dest_cpu_field": 0,
+          "dest_device_field": 2,
+          "payload_first16": "fd3e4f1881d3aa2577c84ffc28c22093",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.999826
+        }
+      ]
+    },
+    {
+      "file": "firmware/extracted/fat16_fs/DPGA0006.BIN",
+      "size": 8096828,
+      "sha256": "2f0a14682ed02a20aa2e2d7819df5d77db42175b5c59bfbb3c29ca918113e454",
+      "xlnx_magic": true,
+      "width_detect": "0xaa995566",
+      "key_source_raw": "0xa5c3c5a3",
+      "fsbl_exec_addr": "0x0",
+      "image_header_table_offset": "0x8c0",
+      "iht_version": "0x1020000",
+      "image_count": 1,
+      "image_names": [
+        "prraw_pb_app.bit"
+      ],
+      "partitions": [
+        {
+          "header_offset": "0x1100",
+          "enc_len_words": 2021647,
+          "unenc_len_words": 1949423,
+          "total_len_words": 2021647,
+          "exec_addr": "0x0",
+          "load_addr": "0xffffffff",
+          "data_offset": "0x2800",
+          "attributes_raw": "0xa6",
+          "dest_cpu_field": 0,
+          "dest_device_field": 2,
+          "payload_first16": "94bf52374f5c9ab0e5364dac641c9f28",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.999839
+        }
+      ]
+    },
+    {
+      "file": "firmware/extracted/fat16_fs/DPGA0009.BIN",
+      "size": 8096828,
+      "sha256": "e2be78184d90745d02988fb29129abec0db9eea43500d1d3b691cb089da890f1",
+      "xlnx_magic": true,
+      "width_detect": "0xaa995566",
+      "key_source_raw": "0xa5c3c5a3",
+      "fsbl_exec_addr": "0x0",
+      "image_header_table_offset": "0x8c0",
+      "iht_version": "0x1020000",
+      "image_count": 1,
+      "image_names": [
+        "cp_h265.bit"
+      ],
+      "partitions": [
+        {
+          "header_offset": "0x1100",
+          "enc_len_words": 2021647,
+          "unenc_len_words": 1949423,
+          "total_len_words": 2021647,
+          "exec_addr": "0x0",
+          "load_addr": "0xffffffff",
+          "data_offset": "0x2800",
+          "attributes_raw": "0xa6",
+          "dest_cpu_field": 0,
+          "dest_device_field": 2,
+          "payload_first16": "2418eabf1727ce875c89da474e9ecc98",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.999843
+        }
+      ]
+    },
+    {
+      "file": "firmware/extracted/fat16_fs/DPGA0012.BIN",
+      "size": 8096828,
+      "sha256": "009ae29fc9fe0a35c86d702e5d476c1b8eaed2ff0bf2ea1210cbf8c19827a6df",
+      "xlnx_magic": true,
+      "width_detect": "0xaa995566",
+      "key_source_raw": "0xa5c3c5a3",
+      "fsbl_exec_addr": "0x0",
+      "image_header_table_offset": "0x8c0",
+      "iht_version": "0x1020000",
+      "image_count": 1,
+      "image_names": [
+        "cp_prores_raw_sdi.bit"
+      ],
+      "partitions": [
+        {
+          "header_offset": "0x1100",
+          "enc_len_words": 2021647,
+          "unenc_len_words": 1949423,
+          "total_len_words": 2021647,
+          "exec_addr": "0x0",
+          "load_addr": "0xffffffff",
+          "data_offset": "0x2800",
+          "attributes_raw": "0xa6",
+          "dest_cpu_field": 0,
+          "dest_device_field": 2,
+          "payload_first16": "6fec1f7ee8e2de09b683bb1b3f779f9c",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.999834
+        }
+      ]
+    },
+    {
+      "file": "firmware/extracted/fat16_fs/DPGA0013.BIN",
+      "size": 8096828,
+      "sha256": "1283e0f9f961326d4a2ee8d3dd6666d2395f9c8aae20957d4b6099cf129b7d13",
+      "xlnx_magic": true,
+      "width_detect": "0xaa995566",
+      "key_source_raw": "0xa5c3c5a3",
+      "fsbl_exec_addr": "0x0",
+      "image_header_table_offset": "0x8c0",
+      "iht_version": "0x1020000",
+      "image_count": 1,
+      "image_names": [
+        "pb_h265.bit"
+      ],
+      "partitions": [
+        {
+          "header_offset": "0x1100",
+          "enc_len_words": 2021647,
+          "unenc_len_words": 1949423,
+          "total_len_words": 2021647,
+          "exec_addr": "0x0",
+          "load_addr": "0xffffffff",
+          "data_offset": "0x2800",
+          "attributes_raw": "0xa6",
+          "dest_cpu_field": 0,
+          "dest_device_field": 2,
+          "payload_first16": "d0085a3e28150c245c3b08cbd36efac9",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.999821
+        }
+      ]
+    },
+    {
+      "file": "firmware/extracted/fat16_fs/DPGA0014.BIN",
+      "size": 8096828,
+      "sha256": "d836a6b859e87a5d3068f1c3f5c662e9827800be53dbc848d32f346d2daad5ef",
+      "xlnx_magic": true,
+      "width_detect": "0xaa995566",
+      "key_source_raw": "0xa5c3c5a3",
+      "fsbl_exec_addr": "0x0",
+      "image_header_table_offset": "0x8c0",
+      "iht_version": "0x1020000",
+      "image_count": 1,
+      "image_names": [
+        "cp_prores_cast.bit"
+      ],
+      "partitions": [
+        {
+          "header_offset": "0x1100",
+          "enc_len_words": 2021647,
+          "unenc_len_words": 1949423,
+          "total_len_words": 2021647,
+          "exec_addr": "0x0",
+          "load_addr": "0xffffffff",
+          "data_offset": "0x2800",
+          "attributes_raw": "0xa6",
+          "dest_cpu_field": 0,
+          "dest_device_field": 2,
+          "payload_first16": "60ed6ff2171bb0eaf8fadca7d0b6818d",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.999839
+        }
+      ]
+    },
+    {
+      "file": "firmware/extracted/fat16_fs/DPGA0015.BIN",
+      "size": 8096828,
+      "sha256": "b5b515938d4b1273ca0b2d9ab65f67fd5ae73feef0684bafc782389db0923d70",
+      "xlnx_magic": true,
+      "width_detect": "0xaa995566",
+      "key_source_raw": "0xa5c3c5a3",
+      "fsbl_exec_addr": "0x0",
+      "image_header_table_offset": "0x8c0",
+      "iht_version": "0x1020000",
+      "image_count": 1,
+      "image_names": [
+        "cp_dnx_cast.bit"
+      ],
+      "partitions": [
+        {
+          "header_offset": "0x1100",
+          "enc_len_words": 2021647,
+          "unenc_len_words": 1949423,
+          "total_len_words": 2021647,
+          "exec_addr": "0x0",
+          "load_addr": "0xffffffff",
+          "data_offset": "0x2800",
+          "attributes_raw": "0xa6",
+          "dest_cpu_field": 0,
+          "dest_device_field": 2,
+          "payload_first16": "0b589a925879e7469eff13c039db6798",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.999832
+        }
+      ]
+    },
+    {
+      "file": "firmware/extracted/fat16_fs/DPGA0017.BIN",
+      "size": 8096828,
+      "sha256": "3417ff6b3d809c900063a5b2293c63687d43f524d44b16f5a2fc43aa352cfc90",
+      "xlnx_magic": true,
+      "width_detect": "0xaa995566",
+      "key_source_raw": "0xa5c3c5a3",
+      "fsbl_exec_addr": "0x0",
+      "image_header_table_offset": "0x8c0",
+      "iht_version": "0x1020000",
+      "image_count": 1,
+      "image_names": [
+        "cp_prores_stream.bit"
+      ],
+      "partitions": [
+        {
+          "header_offset": "0x1100",
+          "enc_len_words": 2021647,
+          "unenc_len_words": 1949423,
+          "total_len_words": 2021647,
+          "exec_addr": "0x0",
+          "load_addr": "0xffffffff",
+          "data_offset": "0x2800",
+          "attributes_raw": "0xa6",
+          "dest_cpu_field": 0,
+          "dest_device_field": 2,
+          "payload_first16": "1016559a941b4cd349a5874f5b98021e",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.999818
+        }
+      ]
+    },
+    {
+      "file": "firmware/extracted/fat16_fs/DPGA0018.BIN",
+      "size": 8096828,
+      "sha256": "4fe48b8f009d6395e72f5c5b49d8ef1becd9304a80a382a7c9a885a7f6d73075",
+      "xlnx_magic": true,
+      "width_detect": "0xaa995566",
+      "key_source_raw": "0xa5c3c5a3",
+      "fsbl_exec_addr": "0x0",
+      "image_header_table_offset": "0x8c0",
+      "iht_version": "0x1020000",
+      "image_count": 1,
+      "image_names": [
+        "cp_dnx_stream.bit"
+      ],
+      "partitions": [
+        {
+          "header_offset": "0x1100",
+          "enc_len_words": 2021647,
+          "unenc_len_words": 1949423,
+          "total_len_words": 2021647,
+          "exec_addr": "0x0",
+          "load_addr": "0xffffffff",
+          "data_offset": "0x2800",
+          "attributes_raw": "0xa6",
+          "dest_cpu_field": 0,
+          "dest_device_field": 2,
+          "payload_first16": "dfcf94d8e7abd2af903c80efebc0fb5e",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.999819
+        }
+      ]
+    },
+    {
+      "file": "firmware/extracted/fat16_fs/DPGA0019.BIN",
+      "size": 8096828,
+      "sha256": "7e623aaaf4a108cd607b1e031b37b4d5a60b30351d778089be3cf709d3a641f4",
+      "xlnx_magic": true,
+      "width_detect": "0xaa995566",
+      "key_source_raw": "0xa5c3c5a3",
+      "fsbl_exec_addr": "0x0",
+      "image_header_table_offset": "0x8c0",
+      "iht_version": "0x1020000",
+      "image_count": 1,
+      "image_names": [
+        "cp_h265_stream.bit"
+      ],
+      "partitions": [
+        {
+          "header_offset": "0x1100",
+          "enc_len_words": 2021647,
+          "unenc_len_words": 1949423,
+          "total_len_words": 2021647,
+          "exec_addr": "0x0",
+          "load_addr": "0xffffffff",
+          "data_offset": "0x2800",
+          "attributes_raw": "0xa6",
+          "dest_cpu_field": 0,
+          "dest_device_field": 2,
+          "payload_first16": "1b3da698f9b784efd3958c04cc62f288",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.999824
+        }
+      ]
+    },
+    {
+      "file": "firmware/extracted/fat16_fs/DPGA0020.BIN",
+      "size": 8096828,
+      "sha256": "9662ac9ba8d63413efe50753aa37d8626d994bd1ca8331d60eeb3cc3a5ab869b",
+      "xlnx_magic": true,
+      "width_detect": "0xaa995566",
+      "key_source_raw": "0xa5c3c5a3",
+      "fsbl_exec_addr": "0x0",
+      "image_header_table_offset": "0x8c0",
+      "iht_version": "0x1020000",
+      "image_count": 1,
+      "image_names": [
+        "pb_h265_stream.bit"
+      ],
+      "partitions": [
+        {
+          "header_offset": "0x1100",
+          "enc_len_words": 2021647,
+          "unenc_len_words": 1949423,
+          "total_len_words": 2021647,
+          "exec_addr": "0x0",
+          "load_addr": "0xffffffff",
+          "data_offset": "0x2800",
+          "attributes_raw": "0xa6",
+          "dest_cpu_field": 0,
+          "dest_device_field": 2,
+          "payload_first16": "adb0616b70627bbb06f30e5aea01248d",
+          "payload_has_elf_magic": false,
+          "payload_has_fpga_sync_word_first1MiB": false,
+          "payload_entropy_first1MiB": 7.999809
+        }
+      ]
+    }
+  ],
+  "text_files": {
+    "MANIFEST.XMD": "0 XMODSYN.bin 0193dd91 \n1 XMODSDI.bin 0193cabf \n5 XMODDOCK.bin 6462c16e FMODDOCK.bin\n6 XMODSTRM.bin 63718e31 FMODSTRM.bin\n",
+    "ROOTFS.TXT": "UUID=9b8f9d1a-bd53-4a10-8432-605efa2b7694\n"
+  },
+  "bit_headers": {
+    "FMODDOCK.BIN": [
+      "/ninjacast_top;UserID=0XFFFFFFFF;Version=2021.1",
+      "7a35tfgg484",
+      "2023/05/15",
+      "23:38:08"
+    ],
+    "FMODSTRM.BIN": [
+      "?ninjastream_top;COMPRESS=TRUE;UserID=0XFFFFFFFF;Version=2021.1",
+      "7a25tcsg325",
+      "2022/11/14",
+      "00:41:15"
+    ]
+  },
+  "svf_headers": {
+    "XMODDOCK.BIN": [
+      "! This line ensure software detects that it is SVF: expand_ninjacast_6462c16e.svf",
+      "TRST OFF;",
+      "ENDIR IDLE;",
+      "ENDDR IDLE;",
+      "STATE RESET;",
+      "STATE IDLE;",
+      "FREQUENCY 1.00E+07 HZ;",
+      "HIR 0 ;",
+      "TIR 0 ;",
+      "HDR 0 ;",
+      "TDR 0 ;",
+      "// config/idcode"
+    ],
+    "XMODSTRM.BIN": [
+      "! This line ensure software detects that it is SVF: expand_ninjastream_63718e31.svf",
+      "TRST OFF;",
+      "ENDIR IDLE;",
+      "ENDDR IDLE;",
+      "STATE RESET;",
+      "STATE IDLE;",
+      "FREQUENCY 1.00E+07 HZ;",
+      "HIR 0 ;",
+      "TIR 0 ;",
+      "HDR 0 ;",
+      "TDR 0 ;",
+      "// config/idcode"
+    ],
+    "XMODSDI.BIN": [
+      "!Copyright (C) 2018  Intel Corporation. All rights reserved.",
+      "!Your use of Intel Corporation's design tools, logic functions",
+      "!and other software and tools, and its AMPP partner logic",
+      "!functions, and any output files from any of the foregoing",
+      "!(including device programming or simulation files), and any",
+      "!associated documentation or information are expressly subject",
+      "!to the terms and conditions of the Intel Program License",
+      "!Subscription Agreement, the Intel Quartus Prime License Agreement,",
+      "!the Intel FPGA IP License Agreement, or other applicable license",
+      "!agreement, including, without limitation, "
+    ],
+    "XMODSYN.BIN": [
+      "!Copyright (C) 2018  Intel Corporation. All rights reserved.",
+      "!Your use of Intel Corporation's design tools, logic functions",
+      "!and other software and tools, and its AMPP partner logic",
+      "!functions, and any output files from any of the foregoing",
+      "!(including device programming or simulation files), and any",
+      "!associated documentation or information are expressly subject",
+      "!to the terms and conditions of the Intel Program License",
+      "!Subscription Agreement, the Intel Quartus Prime License Agreement,",
+      "!the Intel FPGA IP License Agreement, or other applicable license",
+      "!agreement, including, without limitation, "
+    ]
+  },
+  "kernel_banner": "Linux version 6.1.5-xilinx-v2023.1 (oe-user@oe-host) (aarch64-xilinx-linux-gcc (GCC) 12.2.0, GNU ld (GNU Binutils) 2.39.0.20220819) #1 SMP PREEMPT Fri Aug  4 07:22:54 UTC 2023",
+  "rootfs_files": {
+    "etc/fstab": "/dev/root\t/\t\t\tauto\tro\t\t\t\t1  0\nproc\t\t/proc\t\t\tproc\tdefaults\t\t\t\t0  0\ndevpts\t\t/dev/pts\t\tdevpts\tmode=0620,gid=5\t\t\t\t0  0\ntmpfs\t\t/run\t\t\ttmpfs\tmode=0755,nodev,nosuid,strictatime\t0  0\ntmpfs\t\t/var/volatile\t\ttmpfs\tdefaults\t\t\t\t0  0\n\n/dev/mmcblk0p1\t/media/boot\t\tauto\tdefaults,ro,noatime\t0  2\n/dev/mmcblk0p2\t/media/resources\tauto\tdefaults,ro,noatime\t0  2\n/dev/mmcblk0p3\t/media/static\t\tauto\tdefaults,ro,noatime\t0  2\n# TODO not sure how to handle this\n/dev/mmcblk0p6\t/media/app\t\text4\tdefaults,ro,noauto,noatime\t0  2\n\n# nonvolatile is marked as noauto, controlled by external script\n/dev/mmcblk0p7\t/var/nonvolatile\text4\tdefaults,noauto,noatime,nofail,data=journal\t0  2\n",
+    "etc/inittab": "# /etc/inittab: init(8) configuration.\n# $Id: inittab,v 1.91 2002/01/25 13:35:21 miquels Exp $\n\n# The default runlevel.\nid:5:initdefault:\n\n# Boot-time system configuration/initialization script.\n# This is run first except when booting in emergency (-b) mode.\nsi::sysinit:/etc/init.d/rcS\n\n# What to do in single-user mode.\n~~:S:wait:/sbin/sulogin\n\n# /etc/init.d executes the S and K scripts upon change\n# of runlevel.\n#\n# Runlevel 0 is halt.\n# Runlevel 1 is single-user.\n# Runlevels 2-5 are multi-user.\n# Runlevel 6 is reboot.\n\nl0:0:wait:/etc/init.d/rc 0\nl1:1:wait:/etc/init.d/rc 1\nl2:2:wait:/etc/init.d/rc 2\nl3:3:wait:/etc/init.d/rc 3\nl4:4:wait:/etc/init.d/rc 4\nl5:5:wait:/etc/init.d/rc 5\nl6:6:wait:/etc/init.d/rc 6\n# Normally not reached, but fallthrough in case of emergency.\nz6:6:respawn:/sbin/sulogin\nPS0:12345:respawn:/bin/start_getty 115200 ttyPS0 vt102\n# /sbin/getty invocations for the runlevels.\n#\n# The \"id\" field MUST be the same as the last\n# characters of the device (after \"tty\").\n#\n# Format:\n#  <id>:<runlevels>:<action>:<process>\n#\n\n1:12345:respawn:/sbin/getty 38400 tty1\n\n",
+    "etc/version": "20180309123456\n",
+    "etc/hostname": "atomos-ninjav-20231\n",
+    "etc/issue": "PetaLinux 2023.1+release-S05010539 \\n \\l\n\n",
+    "etc/os-release": null,
+    "usr/lib/os-release": null
+  },
+  "init_scripts": {
+    "video_pipeline.sh": "#!/bin/sh\n### BEGIN INIT INFO\n# Provides:             video_pipeline\n# Required-Start:       $remote_fs $time\n# Required-Stop:        $remote_fs $time\n# Default-Start:        4 5\n# Default-Stop:         0 1 2 3 4 6\n# Short-Description:    Video Pipeline service\n### END INIT INFO\n\n# Source function library.\n. /etc/init.d/functions\n\nset -e\n\nPATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin\nDAEMON=/usr/bin/video_pipeline\nWRAPPER=\"$DAEMON.sh\"\nDEBUG_DAEMON=/home/root/video_pipeline\nPERF_DAEMON=/home/root/perf/video_pipeline\nNAME=video_pipeline\nDESC=\"Video Pipeline service\"\nPIDFILE=/var/run/video_pipeline.pid\nSOFTKILL=TERM\n\nexport GST_REGISTRY=/home/root/.gstregistrycache\n\n# Optional args parsing\nSERVICE_ARGS=\"${SERVICE_ARGS} --debug --syslog\"\n\nif [ -r /etc/default/video_pipeline ]; then\n    . /etc/default/video_pipeline\n\n    SERVICE_ARGS=\"${SERVICE_ARGS}\n                    --type=${MODE:-unknown}\n                    --width=${WIDTH}\n                    --height=${HEIGHT}\n                    --framerate=${FRAME_RATE}\n                    ${INTERLACED:+--interlaced}\n                    ${CODEC:+--${CODEC}}\n                    ${BUFFER_FORMAT:+--buffer-format=${BUFFER_FORMAT}}\n                    ${PLANE_SEPARATION:+--plane-separation=${PLANE_SEPARATION}}\n                    ${BUFFER_STRIDE:+--stride=${BUFFER_STRIDE}}\n                    ${LIVE_UPLOAD:+--ipc-sink}\n                    ${GENERAL_OPTS}\n                    ${NDI_RX_OPTS}\n                    \"\n\n    case $CODEC in\n        h265)\n            SERVICE_ARGS=\"${SERVICE_ARGS} ${H265_OPTS}\"\n            # Other h265 specific options\n        ;;\n        h264)\n            SERVICE_ARGS=\"${SERVICE_ARGS} ${H264_OPTS}\"\n            # Other h264 specific options\n        ;;\n    esac\n\nfi\n\nwaitpid ()\n{\n  pid=$1\n  # Give pid a chance to exit before we restart with a 5s timeout in 1s intervals\n  if [ -z \"$pid\" ]; then\n    return\n  fi\n  timeout=5;\n  while [ $timeout -gt 0 ]\n  do\n    timeout=$(( $timeout-1 ))\n    kill -0 $pid 2> /dev/null || break\n    sleep 1\n  done\n}\n\ncase \"$1\" in\n  start)\n\n        # start-stop-daemon doesn't handle wrapper scripts very well\n        # check with status instead\n        if status $DAEMON; then\n            exit 0\n        fi\n        if [ -e /etc/default/video_pipeline.nostart ]; then\n            echo \"Refusing to start $DESC:  due to .nostart\"\n            exit 0\n        fi\n\n        case $CODEC in\n            h265|h264)\n                case $MODE in\n                    unknown*)\n                        ;;\n                    cp*|encode_test|stream_tx*)\n                        encode_setup.sh | logger -s -t video_pipeline\n                        ;;\n                    pb*|decode_test|stream_rx*)\n                        decode_setup.sh | logger -s -t video_pipeline\n                        ;;\n                esac\n                ;;\n        esac\n\n        echo -n \"Starting $DESC: \"\n        start-stop-daemon -S -b -n \"$NAME\" \\\n          -x \"$WRAPPER\" -- $SERVICE_ARGS\n        echo \"$NAME done.\"\n        ;;\n  stop)\n        echo -n \"Stopping $DESC: \"\n        if start-stop-daemon -K -s $SOFTKILL -x \"$DAEMON\" -n \"$NAME\"; then\n            # stop with SIGINT signal first, then trying \"SIGTERM\" if DEAMON is still running.\n            for i in $(seq 0 20); do\n                if status $(basename \"$DAEMON\"); then\n                   sleep 0.1\n                else\n                   break\n                fi\n            done\n            if status $(basename \"$DAEMON\"); then\n                echo \"FORCE-KILLing $DAEMON\" | logger -s -t streaming_pl\n                start-stop-daemon -K -s TERM -x \"$DAEMON\" -n \"$NAME\"\n            fi\n        else\n            # try daemon under debug\n            for debug_daemon in \"$DEBUG_DAEMON\" \"$PERF_DAEMON\"; do\n                if start-stop-daemon -K -s $SOFTKILL -x \"$debug_daemon\" -p $PIDFILE; then\n                    for i in $(seq 0 20); do\n                        if status $(basename \"$DAEMON\"); then\n                            sleep 0.1\n                        else\n                            break\n                        fi\n                    done\n                    if status $(basename \"$DAEMON\"); then\n                        echo \"FORCE-KILLing $DAEMON\" | logger -s -t streaming_pl\n                        start-stop-daemon -K -s TERM -x \"$debug_daemon\" -p $PIDFILE\n                    fi\n                fi\n            done\n        fi\n        echo \"$NAME done.\"\n        ;;\n  status)\n        # for the nostart case allow succesful detection\n        # based on process name, not full path, to allow running\n        # custom versions via GDB\n        if [ -e /etc/default/video_pipeline.nostart -o -e \"$PERF_DAEMON\" ]; then\n            status $(basename \"$DAEMON\")\n            if [ $? -eq 0 ]; then\n                exit 0\n            fi\n            # if not successful fall to normal mechanism\n        fi\n        status \"$DAEMON\"\n        exit $?\n        ;;\n  restart|force-reload)\n        echo -n \"Restarting $DESC: \"\n        if start-stop-daemon -K -s $SOFTKILL -x \"$DAEMON\" -n \"$NAME\"; then\n            # stop with SIGINT signal first, then trying \"SIGTERM\" if DEAMON is still running.\n            for i in $(seq 0 20); do\n                if status $(basename \"$DAEMON\"); then\n                    sleep 0.1\n                else\n                    break\n                fi\n            done\n\n            if status $(basename \"$DAEMON\"); then\n                start-stop-daemon -K -s TERM -x \"$DAEMON\" -n \"$NAME\"\n            fi\n        fi\n        waitpid `cat $PIDFILE`\n        start-stop-daemon -S -b -m -p $PIDFILE \\\n          -x \"$DAEMON\" -- $SERVICE_ARGS\n        echo \"$NAME done.\"\n        ;;\n  *)\n        N=/etc/init.d/$NAME\n        echo \"Usage: $N {start|stop|status|restart|force-reload}\" >&2\n        exit 1\n        ;;\nesac\n\nexit 0\n",
+    "streaming_pl.sh": "#!/bin/sh\n### BEGIN INIT INFO\n# Provides:             streaming_pl\n# Required-Start:       $remote_fs $time\n# Required-Stop:        $remote_fs $time\n# Default-Start:        4 5\n# Default-Stop:         0 1 2 3 4 6\n# Short-Description:    Streaming Pipeline service\n### END INIT INFO\n\n# Source function library.\n. /etc/init.d/functions\n\nset -e\n\nPATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin\nDAEMON=/usr/bin/streaming_pl\nWRAPPER=\"$DAEMON.sh\"\nDEBUG_DAEMON=/home/root/streaming_pl\nPERF_DAEMON=/home/root/perf/streaming_pl\n# NOTE: Daemon name must be <= 15 characters\nNAME=streaming_pl\nDESC=\"Streaming Pipeline service\"\nPIDFILE=/var/run/streaming_pl.pid\nSOFTKILL=INT\n\n# Optional args parsing\n# NOTE - please don't split this line unless you plan on re-writing the GDB wrapper\nSERVICE_ARGS=\"${SERVICE_ARGS} --debug --syslog\"\n\n# NOTE - arguments below here are preseved in GDB wrapper for debugging, arguments above are not\n\n# Hide flvmux warning about A/V DTS not matching\n#export GST_DEBUG=\"3,flvmux:1\"\n\n# Useful debug options:\n#export GST_DEBUG=\"3,flvmux:1,rtmp*:5\"\n#export GST_DEBUG=\"4,flvmux:1,*capsfilter:7,omx*:7,appsrc:6,videoenc*:6,rtmp*:6\"\n#export GST_DEBUG=\"4,*capsfilter:6,omx*:7,appsrc:6,videodec*:6\"\n\n\n# Note that gst logs will quickly fill the ramdisk\n#export GST_DEBUG_FILE=\"/home/root/gst_$(date +%H%M%S).log\"\n\n# This environment variable is read by the Xilinx gst-omx integration layer\n# during enable of the encoder port.\n# It adds extra buffers to the encoder output pool\n# Currently we are only encoding HD for streaming and can therefore support\n# a large number of buffers. For 4K this will need to be config specific.\nexport ENC_EXTRA_OP_BUFFERS=\"10\"\n\nexport GST_REGISTRY=/home/root/.gstregistrycache\n\nif [ -r /etc/default/streaming_pl ]; then\n    . /etc/default/streaming_pl\n    if [ $MODE != \"stream_tx_mlsp\" -a $MODE != \"stream_tx_mlsp_local\" -a $MODE != \"stream_tx_ndi\" ]; then\n        [ -r /etc/default/streamkey ] && . /etc/default/streamkey\n        [ -r /etc/default/stream_url ] && . /etc/default/stream_url\n    fi\n\n    SERVICE_ARGS=\"${SERVICE_ARGS} --comms=/dev/copro_comms_app2\n                    --type=${MODE:-unknown}\n                    --width=${WIDTH}\n                    --height=${HEIGHT}\n                    --framerate=${FRAME_RATE}\n                    ${INTERLACED:+--interlaced}\n                    ${CODEC:+--${CODEC}}\n                    ${BUFFER_FORMAT:+--buffer-format=${BUFFER_FORMAT}}\n                    ${STREAM_KEY:+--stream-key=${STREAM_KEY}}\n                    ${PLANE_SEPARATION:+--plane-separation=${PLANE_SEPARATION}}\n                    ${BUFFER_STRIDE:+--stride=${BUFFER_STRIDE}}\n                    ${LIVE_UPLOAD:+--ipc-sink}\n                    ${GENERAL_OPTS}\n                    ${STREAM_OPTS}\n                    \"\n\n    case $CODEC in\n        h265)\n            SERVICE_ARGS=\"${SERVICE_ARGS} ${H265_OPTS}\"\n            # Other h265 specific options\n        ;;\n        h264)\n            SERVICE_ARGS=\"${SERVICE_ARGS} ${H264_OPTS}\"\n            # Other h264 specific options\n        ;;\n    esac\n\nfi\n\nloadAudioDriver()\n{\n    # Linux audio driver only used on streaming TX and currently\n    # not supported on all FW, so load only when required\n    modprobe pl-audio | logger -s -t streaming_pl\n}\n\nwaitpid ()\n{\n  pid=$1\n  # Give pid a chance to exit before we restart with a 5s timeout in 1s intervals\n  if [ -z \"$pid\" ]; then\n    return\n  fi\n  timeout=5;\n  while [ $timeout -gt 0 ]\n  do\n    timeout=$(( $timeout-1 ))\n    kill -0 $pid 2> /dev/null || break\n    sleep 1\n  done\n}\n\ncase \"$1\" in\n  start)\n\n        # start-stop-daemon doesn't handle wrapper scripts very well\n        # check with status instead\n        if status $DAEMON; then\n            exit 0\n        fi\n        if [ -e /etc/default/streaming_pl.nostart ]; then\n            echo \"Refusing to start $DESC:  due to .nostart\"\n            exit 0\n        fi\n\n        case $CODEC in\n            h265|h264)\n                case $MODE in\n                    unknown*)\n                        ;;\n                    cp*|encode_test)\n                        encode_setup.sh | logger -s -t streaming_pl\n                        ;;\n                    stream_tx*)\n                        loadAudioDriver\n                        encode_setup.sh | logger -s -t streaming_pl\n                        ;;\n                    pb*|decode_test|stream_rx*)\n                        decode_setup.sh | logger -s -t streaming_pl\n                        ;;\n                esac\n                ;;\n        esac\n\n        echo -n \"Starting $DESC: \"\n        start-stop-daemon -S -b -n \"$NAME\" \\\n          -x \"$WRAPPER\" -- $SERVICE_ARGS \\\n            ${STREAM_URL:+--stream-url=\"${STREAM_URL}\"}\n        echo \"$NAME done.\"\n        ;;\n  stop)\n        echo -n \"Stopping $DESC: \"\n        if start-stop-daemon -K -s $SOFTKILL -x \"$DAEMON\" -n \"$NAME\"; then\n            # stop with SIGINT signal first, then trying \"SIGTERM\" if DEAMON is still running.\n            for i in $(seq 0 20); do\n                if status $(basename \"$DAEMON\"); then\n                   sleep 0.1\n                else\n                   break\n                fi\n            done\n            if status $(basename \"$DAEMON\"); then\n                echo \"FORCE-KILLing $DAEMON\" | logger -s -t streaming_pl\n                start-stop-daemon -K -s TERM -x \"$DAEMON\" -n \"$NAME\"\n            fi\n        else\n            # try daemon under debug\n            for debug_daemon in \"$DEBUG_DAEMON\" \"$PERF_DAEMON\"; do\n                if start-stop-daemon -K -s $SOFTKILL -x \"$debug_daemon\" -p $PIDFILE; then\n                    for i in $(seq 0 20); do\n                        if status $(basename \"$DAEMON\"); then\n                            sleep 0.1\n                        else\n                            break\n                        fi\n                    done\n                    if status $(basename \"$DAEMON\"); then\n                        echo \"FORCE-KILLing $DAEMON\" | logger -s -t streaming_pl\n                        start-stop-daemon -K -s TERM -x \"$debug_daemon\" -p $PIDFILE\n                    fi\n                fi\n            done\n        fi\n        echo \"$NAME done.\"\n        ;;\n  status)\n        # for the nostart case allow succesful detection\n        # based on process name, not full path, to allow running\n        # custom versions via GDB\n        if [ -e /etc/default/streaming_pl.nostart -o -e \"$PERF_DAEMON\" ]; then\n            status $(basename \"$DAEMON\")\n            if [ $? -eq 0 ]; then\n                exit 0\n            fi\n            # if not successful fall to normal mechanism\n        fi\n        status \"$DAEMON\"\n        exit $?\n        ;;\n  restart|force-reload)\n        echo -n \"Restarting $DESC: \"\n        if start-stop-daemon -K -s $SOFTKILL -x \"$DAEMON\" -n \"$NAME\"; then\n            # stop with SIGINT signal first, then trying \"SIGTERM\" if DEAMON is still running.\n            for i in $(seq 0 20); do\n                if status $(basename \"$DAEMON\"); then\n                    sleep 0.1\n                else\n                    break\n                fi\n            done\n\n            if status $(basename \"$DAEMON\"); then\n                start-stop-daemon -K -s TERM -x \"$DAEMON\" -n \"$NAME\"\n            fi\n        fi\n        waitpid `cat $PIDFILE`\n        start-stop-daemon -S -b -m -p $PIDFILE \\\n          -x \"$DAEMON\" -- $SERVICE_ARGS \\\n            ${STREAM_URL:+--stream-url=\"${STREAM_URL}\"}\n        echo \"$NAME done.\"\n        ;;\n  *)\n        N=/etc/init.d/$NAME\n        echo \"Usage: $N {start|stop|status|restart|force-reload}\" >&2\n        exit 1\n        ;;\nesac\n\nexit 0\n",
+    "core_control.sh": "#!/bin/sh\n### BEGIN INIT INFO\n# Provides:             core_control\n# Required-Start:       $remote_fs $time\n# Required-Stop:        $remote_fs $time\n# Default-Start:        4 5\n# Default-Stop:         0 1 2 3 4 6\n# Short-Description:    Core control service\n### END INIT INFO\n\n# Source function library.\n. /etc/init.d/functions\n\nset -e\n\nPATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin\nDAEMON=/usr/bin/core_control\nNAME=core_control.sh\nDESC=\"Core control service\"\nPIDFILE=/var/run/core_control.pid\n\n# Optional args parsing\nSERVICE_ARGS=\"--verbose --syslog\"\n\nwaitpid ()\n{\n  pid=$1\n  # Give pid a chance to exit before we restart with a 5s timeout in 1s intervals\n  if [ -z \"$pid\" ]; then\n    return\n  fi\n  timeout=5;\n  while [ $timeout -gt 0 ]\n  do\n    timeout=$(( $timeout-1 ))\n    kill -0 $pid 2> /dev/null || break\n    sleep 1\n  done\n}\n\n# sometimes syslog isn't started, force it to try\n/etc/init.d/syslog start || true\n\ncase \"$1\" in\n  start)\n        echo -n \"Starting $DESC: \"\n        start-stop-daemon -S -b -m -p $PIDFILE \\\n          -x \"$DAEMON\" -- $SERVICE_ARGS\n        echo \"$NAME done.\"\n        ;;\n  stop)\n        echo -n \"Stopping $DESC: \"\n        start-stop-daemon -K -x \"$DAEMON\" -p $PIDFILE\n        echo \"$NAME done.\"\n        ;;\n  status)\n        status \"$DAEMON\"\n        exit $?\n        ;;\n  restart|force-reload)\n        echo -n \"Restarting $DESC: \"\n        start-stop-daemon -K -x \"$DAEMON\" -p $PIDFILE\n        waitpid `cat $PIDFILE`\n        start-stop-daemon -S -b -m -p $PIDFILE \\\n          -x \"$DAEMON\" -- $SERVICE_ARGS\n        echo \"$NAME done.\"\n        ;;\n  *)\n        N=/etc/init.d/$NAME\n        echo \"Usage: $N {start|stop|status|restart|force-reload}\" >&2\n        exit 1\n        ;;\nesac\n\nexit 0\n",
+    "cloud_service.sh": "#!/bin/sh\n### BEGIN INIT INFO\n# Provides:             cloud_service\n# Required-Start:       $remote_fs $time\n# Required-Stop:        $remote_fs $time\n# Default-Start:        4 5\n# Default-Stop:         0 1 2 3 4 6\n# Short-Description:    Cloud video service\n### END INIT INFO\n\n# Source function library.\n. /etc/init.d/functions\n\nset -e\n\nPATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin\nDAEMON=/usr/bin/cloud_service\nWRAPPER=\"$DAEMON.sh\"\nDEBUG_DAEMON=/home/root/cloud_service\nPERF_DAEMON=/home/root/perf/cloud_service\nNAME=cloud_service\nDESC=\"Cloud service\"\nPIDFILE=/var/run/cloud_service.pid\nSOFTKILL=TERM\n\n# Optional args parsing\nSERVICE_ARGS=\"${SERVICE_ARGS} --debug --syslog \"\n\n# Load any configuration files\n[ -r /etc/default/cloud_service ] && . /etc/default/cloud_service\n\n# MLSP Local Setup:\ndetectNetInterface()\n{\n  ifaceName=$(iw dev | grep Interface | cut -f2 -d' ')\n  # Temporarily hard coded, will be omitted after Directview Discovery Protocol applied\n  remoteIPAddr=\"168.254.1.0\"\n}\ndetectNetInterface\nMLSP_LOCAL_ARGS=\"${remoteIPAddr:+--mlsp-ipaddr=${remoteIPAddr}}\n                 ${ifaceName:+--mlsp-iface=${ifaceName}}\"\n# Force RX or TX\n#MLSP_LOCAL_ARGS=\"${MLSP_LOCAL_ARGS} --mlsp-local-rx \"\n#MLSP_LOCAL_ARGS=\"${MLSP_LOCAL_ARGS} --mlsp-local-tx \"\n\nSERVICE_ARGS=\"${SERVICE_ARGS}\n                ${CONTEXT:+--context=${CONTEXT}}\n                ${ENVIRONMENT:+--environment=${ENVIRONMENT}}\n                ${MLSP_LOCAL_ARGS}\n                \"\n\n\nwaitpid ()\n{\n  pid=$1\n  # Give pid a chance to exit before we restart with a 5s timeout in 1s intervals\n  if [ -z \"$pid\" ]; then\n    return\n  fi\n  timeout=5;\n  while [ $timeout -gt 0 ]\n  do\n    timeout=$(( $timeout-1 ))\n    kill -0 $pid 2> /dev/null || break\n    sleep 1\n  done\n}\n\ncase \"$1\" in\n  start)\n        # start-stop-daemon doesn't handle wrapper scripts very well\n        # check with status instead\n        if status $DAEMON; then\n            exit 0\n        fi\n        if [ -e /etc/default/cloud_service.nostart ]; then\n          echo \"Refusing to start $DESC:  due to .nostart\"\n          exit 0\n        fi\n\n        echo -n \"Starting $DESC: \"\n        start-stop-daemon -S -b -n \"$NAME\" \\\n          -x \"$WRAPPER\" -- $SERVICE_ARGS\n        echo \"$NAME done.\"\n        ;;\n  stop)\n        echo -n \"Stopping $DESC: \"\n        if ! start-stop-daemon -K -s $SOFTKILL -x \"$DAEMON\" -n \"$NAME\"; then\n            # try daemon under debug\n            for debug_daemon in \"$DEBUG_DAEMON\" \"$PERF_DAEMON\"; do\n                start-stop-daemon -K -s $SOFTKILL -x \"$debug_daemon\" -p $PIDFILE\n            done\n        fi\n        echo \"$NAME done.\"\n        ;;\n  status)\n        # for the nostart case allow succesful detection\n        # based on process name, not full path, to allow running\n        # custom versions via GDB\n        if [ -e /etc/default/cloud_service.nostart -o -e \"$PERF_DAEMON\" ]; then\n          status $(basename \"$DAEMON\")\n          if [ $? -eq 0 ]; then\n              exit 0\n          fi\n          # if not successful fall to normal mechanism\n        fi\n        status \"$DAEMON\"\n        exit $?\n        ;;\n  restart|force-reload)\n        echo -n \"Restarting $DESC: \"\n        start-stop-daemon -K -s $SOFTKILL -x \"$DAEMON\" -n \"$NAME\"\n        waitpid `cat $PIDFILE`\n        start-stop-daemon -S -b -m -p $PIDFILE \\\n          -x \"$DAEMON\" -- $SERVICE_ARGS\n        echo \"$NAME done.\"\n        ;;\n  *)\n        N=/etc/init.d/$NAME\n        echo \"Usage: $N {start|stop|status|restart|force-reload}\" >&2\n        exit 1\n        ;;\nesac\n\nexit 0\n",
+    "media_control.sh": "#!/bin/sh\n### BEGIN INIT INFO\n# Provides:             media_control\n# Required-Start:       $remote_fs $time\n# Required-Stop:        $remote_fs $time\n# Default-Start:        4 5\n# Default-Stop:         0 1 2 3 4 6\n# Short-Description:    Media control service\n### END INIT INFO\n\n# Source function library.\n. /etc/init.d/functions\n\nset -e\n\nPATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin\nDAEMON=/usr/bin/media_control\nDEBUG_DAEMON=/home/root/media_control\nNAME=media_control.sh\nDESC=\"Media control service\"\nPIDFILE=/var/run/media_control.pid\n\n# Optional args parsing\nSERVICE_ARGS=\"--verbose --syslog\"\n\nwaitpid ()\n{\n  pid=$1\n  # Give pid a chance to exit before we restart with a 5s timeout in 1s intervals\n  if [ -z \"$pid\" ]; then\n    return\n  fi\n  timeout=5;\n  while [ $timeout -gt 0 ]\n  do\n    timeout=$(( $timeout-1 ))\n    kill -0 $pid 2> /dev/null || break\n    sleep 1\n  done\n}\n\ncase \"$1\" in\n  start)\n        if [ -e /etc/default/media_control.nostart ]; then\n          echo \"Refusing to start $DESC:  due to .nostart\"\n          exit 0\n        fi\n        echo -n \"Starting $DESC: \"\n        start-stop-daemon -S -b -m -p $PIDFILE \\\n          -x \"$DAEMON\" -- $SERVICE_ARGS\n        echo \"$NAME done.\"\n        ;;\n  stop)\n        echo -n \"Stopping $DESC: \"\n        if ! start-stop-daemon -K -x \"$DAEMON\" -p $PIDFILE; then\n            # try daemon under debug\n            start-stop-daemon -K -x \"$DEBUG_DAEMON\" -p $PIDFILE\n        fi\n        echo \"$NAME done.\"\n        ;;\n  status)\n        # for the nostart case allow succesful detection\n        # based on process name, not full path, to allow running\n        # custom versions via GDB\n        if [ -e /etc/default/media_control.nostart ]; then\n          status $(basename \"$DAEMON\")\n          if [ $? -eq 0 ]; then\n              exit 0\n          fi\n          # if not successful fall to normal mechanism\n        fi\n        status \"$DAEMON\"\n        exit $?\n        ;;\n  restart|force-reload)\n        echo -n \"Restarting $DESC: \"\n        start-stop-daemon -K -x \"$DAEMON\" -p $PIDFILE\n        waitpid `cat $PIDFILE`\n        start-stop-daemon -S -b -m -p $PIDFILE \\\n          -x \"$DAEMON\" -- $SERVICE_ARGS\n        echo \"$NAME done.\"\n        ;;\n  *)\n        N=/etc/init.d/$NAME\n        echo \"Usage: $N {start|stop|status|restart|force-reload}\" >&2\n        exit 1\n        ;;\nesac\n\nexit 0\n",
+    "camera_control.sh": "#!/bin/sh\n### BEGIN INIT INFO\n# Provides:             media_control\n# Required-Start:       $remote_fs $time\n# Required-Stop:        $remote_fs $time\n# Default-Start:        4 5\n# Default-Stop:         0 1 2 3 4 6\n# Short-Description:    Media control service\n### END INIT INFO\n\n# Source function library.\n. /etc/init.d/functions\n\nset -e\n\nPATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin\nDAEMON=/usr/bin/camera_control\nDEBUG_DAEMON=/home/root/camera_control\nNAME=camera_control.sh\nDESC=\"Camera control service\"\nPIDFILE=/var/run/camera_control.pid\n\n# Optional args parsing\nSERVICE_ARGS=\"--verbose --syslog\"\n\nwaitpid ()\n{\n  pid=$1\n  # Give pid a chance to exit before we restart with a 5s timeout in 1s intervals\n  if [ -z \"$pid\" ]; then\n    return\n  fi\n  timeout=5;\n  while [ $timeout -gt 0 ]\n  do\n    timeout=$(( $timeout-1 ))\n    kill -0 $pid 2> /dev/null || break\n    sleep 1\n  done\n}\n\ncase \"$1\" in\n  start)\n        if [ -e /etc/default/camera_control.nostart ]; then\n          echo \"Refusing to start $DESC:  due to .nostart\"\n          exit 0\n        fi\n        echo -n \"Starting $DESC: \"\n        start-stop-daemon -S -b -m -p $PIDFILE \\\n          -x \"$DAEMON\" -- $SERVICE_ARGS\n        echo \"$NAME done.\"\n        ;;\n  stop)\n        echo -n \"Stopping $DESC: \"\n        if ! start-stop-daemon -K -x \"$DAEMON\" -p $PIDFILE; then\n            # try daemon under debug\n            start-stop-daemon -K -x \"$DEBUG_DAEMON\" -p $PIDFILE\n        fi\n        echo \"$NAME done.\"\n        ;;\n  status)\n        # for the nostart case allow succesful detection\n        # based on process name, not full path, to allow running\n        # custom versions via GDB\n        if [ -e /etc/default/camera_control.nostart ]; then\n          status $(basename \"$DAEMON\")\n          if [ $? -eq 0 ]; then\n              exit 0\n          fi\n          # if not successful fall to normal mechanism\n        fi\n        status \"$DAEMON\"\n        exit $?\n        ;;\n  restart|force-reload)\n        echo -n \"Restarting $DESC: \"\n        start-stop-daemon -K -x \"$DAEMON\" -p $PIDFILE\n        waitpid `cat $PIDFILE`\n        start-stop-daemon -S -b -m -p $PIDFILE \\\n          -x \"$DAEMON\" -- $SERVICE_ARGS\n        echo \"$NAME done.\"\n        ;;\n  *)\n        N=/etc/init.d/$NAME\n        echo \"Usage: $N {start|stop|status|restart|force-reload}\" >&2\n        exit 1\n        ;;\nesac\n\nexit 0\n",
+    "audio_encoder.sh": "#!/bin/sh\n### BEGIN INIT INFO\n# Provides:             audio_encoder\n# Required-Start:       $remote_fs $time\n# Required-Stop:        $remote_fs $time\n# Default-Start:        4 5\n# Default-Stop:         0 1 2 3 4 6\n# Short-Description:    Audio encoder service\n### END INIT INFO\n\n# Source function library.\n. /etc/init.d/functions\n\nset -e\n\nPATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin\nDAEMON=/usr/bin/audio_encoder\nWRAPPER=\"$DAEMON.sh\"\nDEBUG_DAEMON=/home/root/audio_encoder\nNAME=audio_encoder\nDESC=\"Audio encoder service\"\nPIDFILE=/var/run/audio_encoder.pid\n\n# Optional args parsing\nSERVICE_ARGS=\"${SERVICE_ARGS} --debug --syslog\"\n\n# Load a configuration file, if any\nif [ -r /etc/default/audio_encoder ]\nthen\n    . /etc/default/audio_encoder\n\n    SERVICE_ARGS=\"--type=${MODE} ${SERVICE_ARGS} ${SERVICE_OPTIONS}\"\nfi\n\nwaitpid ()\n{\n  pid=$1\n  # Give pid a chance to exit before we restart with a 5s timeout in 1s intervals\n  if [ -z \"$pid\" ]; then\n    return\n  fi\n  timeout=5;\n  while [ $timeout -gt 0 ]\n  do\n    timeout=$(( $timeout-1 ))\n    kill -0 $pid 2> /dev/null || break\n    sleep 1\n  done\n}\n\ncase \"$1\" in\n  start)\n        # start-stop-daemon doesn't handle wrapper scripts very well\n        # check with status instead\n        if status $DAEMON; then\n            exit 0\n        fi\n        if [ -e /etc/default/audio_encoder.nostart ]; then\n          echo \"Refusing to start $DESC:  due to .nostart\"\n          exit 0\n        fi\n\n        echo -n \"Starting $DESC: \"\n        start-stop-daemon -S -b -n \"$NAME\" \\\n          -x \"$WRAPPER\" -- $SERVICE_ARGS\n        echo \"$NAME done.\"\n        ;;\n  stop)\n        echo -n \"Stopping $DESC: \"\n        if ! start-stop-daemon -K -x \"$DAEMON\" -n \"$NAME\"; then\n            # try daemon under debug\n            start-stop-daemon -K -x \"$DEBUG_DAEMON\" -p $PIDFILE\n        fi\n        echo \"$NAME done.\"\n        ;;\n  status)\n        # for the nostart case allow succesful detection\n        # based on process name, not full path, to allow running\n        # custom versions via GDB\n        if [ -e /etc/default/audio_encoder.nostart ]; then\n          status $(basename \"$DAEMON\")\n          if [ $? -eq 0 ]; then\n              exit 0\n          fi\n          # if not successful fall to normal mechanism\n        fi\n        status \"$DAEMON\"\n        exit $?\n        ;;\n  restart|force-reload)\n        echo -n \"Restarting $DESC: \"\n        start-stop-daemon -K -x \"$DAEMON\" -n \"$NAME\"\n        waitpid `cat $PIDFILE`\n        start-stop-daemon -S -b -m -p $PIDFILE \\\n          -x \"$DAEMON\" -- $SERVICE_ARGS\n        echo \"$NAME done.\"\n        ;;\n  *)\n        N=/etc/init.d/$NAME\n        echo \"Usage: $N {start|stop|status|restart|force-reload}\" >&2\n        exit 1\n        ;;\nesac\n\nexit 0\n",
+    "talkback_pl.sh": "#!/bin/sh\n### BEGIN INIT INFO\n# Provides:             talkback_pl\n# Required-Start:       $remote_fs $time\n# Required-Stop:        $remote_fs $time\n# Default-Start:        4 5\n# Default-Stop:         0 1 2 3 4 6\n# Short-Description:    Talkback audio service\n### END INIT INFO\n\n# Source function library.\n. /etc/init.d/functions\n\nset -e\n\nPATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin\nDAEMON=/usr/bin/talkback_pl\nWRAPPER=\"$DAEMON.sh\"\nDEBUG_DAEMON=/home/root/talkback_pl\nNAME=talkback_pl\nDESC=\"Talkback service\"\nPIDFILE=/var/run/talkback_pl.pid\n\n# Optional args parsing\nSERVICE_ARGS=\"${SERVICE_ARGS} --debug --syslog\"\n\n# Load a configuration file, if any\nif [ -r /etc/default/talkback_pl ]\nthen\n    . /etc/default/talkback_pl\n\n    SERVICE_ARGS=\"${SERVICE_ARGS}\n                    --type=${MODE}\n                    ${LOOPBACK:+--loopback}\n                    --raw-channelcount=${CHANNEL_COUNT}\n                    --raw-samplerate=${SAMPLE_RATE}\n                    --raw-samplenum=${SAMPLE_NUM_PER_BLOCK}\n                    --raw-bitwidth=${BITWIDTH}\n                    ${LAYOUT_INTERLEAVED:+--raw-interleaved}\n                    \"\nfi\n\nwaitpid ()\n{\n  pid=$1\n  # Give pid a chance to exit before we restart with a 5s timeout in 1s intervals\n  if [ -z \"$pid\" ]; then\n    return\n  fi\n  timeout=5;\n  while [ $timeout -gt 0 ]\n  do\n    timeout=$(( $timeout-1 ))\n    kill -0 $pid 2> /dev/null || break\n    sleep 1\n  done\n}\n\ncase \"$1\" in\n  start)\n        # start-stop-daemon doesn't handle wrapper scripts very well\n        # check with status instead\n        if status $DAEMON; then\n            exit 0\n        fi\n        if [ -e /etc/default/talkback_pl.nostart ]; then\n          echo \"Refusing to start $DESC:  due to .nostart\"\n          exit 0\n        fi\n\n        echo -n \"Starting $DESC: \"\n        start-stop-daemon -S -b -n \"$NAME\" \\\n          -x \"$WRAPPER\" -- $SERVICE_ARGS\n        echo \"$NAME done.\"\n        ;;\n  stop)\n        echo -n \"Stopping $DESC: \"\n        if ! start-stop-daemon -K -x \"$DAEMON\" -n \"$NAME\"; then\n            # try daemon under debug\n            start-stop-daemon -K -x \"$DEBUG_DAEMON\" -p $PIDFILE\n        fi\n        echo \"$NAME done.\"\n        ;;\n  status)\n        # for the nostart case allow succesful detection\n        # based on process name, not full path, to allow running\n        # custom versions via GDB\n        if [ -e /etc/default/talkback_pl.nostart ]; then\n          status $(basename \"$DAEMON\")\n          if [ $? -eq 0 ]; then\n              exit 0\n          fi\n          # if not successful fall to normal mechanism\n        fi\n        status \"$DAEMON\"\n        exit $?\n        ;;\n  restart|force-reload)\n        echo -n \"Restarting $DESC: \"\n        start-stop-daemon -K -x \"$DAEMON\" -n \"$NAME\"\n        waitpid `cat $PIDFILE`\n        start-stop-daemon -S -b -m -p $PIDFILE \\\n          -x \"$DAEMON\" -- $SERVICE_ARGS\n        echo \"$NAME done.\"\n        ;;\n  *)\n        N=/etc/init.d/$NAME\n        echo \"Usage: $N {start|stop|status|restart|force-reload}\" >&2\n        exit 1\n        ;;\nesac\n\nexit 0\n",
+    "partition-migrate.sh": "#!/bin/sh\n\nset -e\n# Log normal stuff\nlog() {\n    logger -t partition-migrate-service \"$@\"\n    echo \"$@\"\n}\n\n# but force migration onto the boot console\nktrace() {\n    log \"$@\"\n    echo \"$@\" > /dev/kmsg || true\n}\n\nif [ ! -e /proc/device-tree/bootloader/partition_migrate ]; then\n    log \"Partition migrate flag not set...\"\n    exit 0\nfi\n\nflag=$(xxd -l4 -g4 /proc/device-tree/bootloader/partition_migrate | awk '{print $2}')\n\nif [ -z \"$flag\" ]; then\n    log \"Partition migrate not requested...\"\n    exit 0\nfi\n\ngate_guard=$(devmem 0xFFE20000 32)\nif [ \"$((gate_guard))\" -ne \"$((0xA53A5385))\" ]; then\n    log \"Migrate gate not found...\"\n    exit 0\nfi\n\ngate_flag=$(devmem 0xFFE20004 32)\ngate_flag=$((gate_flag | 0x4))\nif [ \"$((gate_flag))\" -eq 0 ]; then\n    log \"Migrate gate flag not found...\"\n    exit 0\nfi\n\n# Errors after here proceed to the end\nset +e\n\nmode=$((flag))\nktrace \"Partition migrate mode $mode\"\n\ncase $mode in\n    1)\n\n        # Hmm,... in older versions of petalinux unrelated startup scripts\n        # would ensure /tmp was available for their own purposes.  Now\n        # those scripts are cleaner and we might find we have no /tmp\n        grep -q \"tmpfs /var/volatile\" /proc/mounts || (ktrace \"running read-only-hooks\" ; /etc/init.d/read-only-rootfs-hook.sh start)\n        [ -d /var/volatile/tmp ] || (ktrace \"creating /tmp\" ; mkdir -m 1777 -p /var/volatile/tmp)\n\n        ktrace \"running /usr/sbin/partition-migrate...\"\n\n        # in pl 2022 when serial-port is unavailable sfdisk and some\n        # others try to check the terminal status and bork out, but\n        # constraining stdout via tee resolves this and allows\n        # post-mortem if developers make enough changes to do so\n        /usr/sbin/partition-migrate 2>&1 | tee /tmp/migrate.log\n        ;;\n    *)\n        ktrace \"Unknown mode\"\n        ;;\nesac\n\nsync\n\nktrace \"Partition migrate ended: code $?\"\n\n# Clear the gate (we should reboot)\ngate_flag=$(devmem 0xFFE20004 32)\ngate_flag=$((gate_flag & ~0x4))\ndevmem 0xFFE20004 32 ${gate_flag}\n\nsleep 5s\nktrace \"Partition migrate failed to terminate...\"\n# If we have failed to recover just hard-break the gate guard\nwhile true; do\n    devmem 0xFFE20000 32 0\ndone\n",
+    "phoenix-diagnostics.sh": "#!/bin/sh\n\n### BEGIN INIT INFO\n# Provides:             phoenix-diagnostics\n# Required-Start:       $local_fs\n# Required-Stop:        $local_fs\n# Default-Start:        S\n# Default-Stop:\n# Short-Description:    Boot time diagnostics config\n### END INIT INFO\n\n# Source function library.\n. /etc/init.d/functions\n\nset -e\n\nNAME=phoenix-diagnostics\n\nlog() {\n    logger -t $NAME \"$@\"\n    echo \"$@\"\n}\n\ncase \"$1\" in\n    start)\n        echo 10 > /proc/sys/kernel/core_pipe_limit\n        echo \"|/usr/share/phoenix-diagnostics/core_dump_handler.sh %P %u %g %s %t %c %e\" > /proc/sys/kernel/core_pattern\n        log \"Configured core-dump handler\"\n        ;;\n    *)\n        N=/etc/init.d/$NAME\n        echo \"Usage: $N {start}\" >&2\n        exit 1\nesac\n",
+    "modutils.sh": "#!/bin/sh\n#\n# SPDX-License-Identifier: MIT\n#\n\n### BEGIN INIT INFO\n# Provides:          module-init-tools\n# Required-Start:    \n# Required-Stop:     \n# Should-Start:      checkroot\n# Should-stop:\n# Default-Start:     S\n# Default-Stop:\n# Short-Description: Process /etc/modules.\n# Description:       Load the modules listed in /etc/modules.\n### END INIT INFO\n\nLOAD_MODULE=modprobe\n[ -f /proc/modules ] || exit 0\n[ -d /lib/modules/`uname -r` ] || exit 0\n\n# Test if modules.dep exists and has a size greater than zero\nif [ ! -s /lib/modules/`uname -r`/modules.dep ]; then\n\t[ \"$VERBOSE\" != no ] && echo \"Calculating module dependencies ...\"\n\tdepmod -a\nfi\n\n[ -f /etc/modules ] || [ -d /etc/modules-load.d ] || exit 0\n[ -e /sbin/modprobe ] || LOAD_MODULE=insmod\n\nloaded_modules=\" \"\n\nprocess_file() {\n\tfile=$1\n\n\t(cat $file; echo; ) |\n\twhile read module args\n\tdo\n\t\tcase \"$module\" in\n\t\t\t\\#*|\"\") continue ;;\n\t\tesac\n\t\t[ -n \"$(echo $loaded_modules | grep \" $module \")\" ] && continue\n\t\t[ \"$VERBOSE\" != no ] && echo -n \"$module \"\n\t\teval \"$LOAD_MODULE $module $args >/dev/null 2>&1\"\n\t\tloaded_modules=\"${loaded_modules}${module} \"\n\tdone\n}\n\n[ \"$VERBOSE\" != no ] && echo -n \"Loading modules: \"\n[ -f /etc/modules ] && process_file /etc/modules\n\n[ -d /etc/modules-load.d ] || exit 0\n\nfor f in /etc/modules-load.d/*.conf; do\n\tprocess_file $f\ndone\n[ \"$VERBOSE\" != no ] && echo\n\nexit 0\n",
+    "rcS": "#!/bin/sh\n#\n# rcS\t\tCall all S??* scripts in /etc/rcS.d in\n#\t\tnumerical/alphabetical order.\n#\n# Version:\t@(#)/etc/init.d/rcS  2.76  19-Apr-1999  miquels@cistron.nl\n#\n\nPATH=/sbin:/bin:/usr/sbin:/usr/bin\nrunlevel=S\nprevlevel=N\numask 022\nexport PATH runlevel prevlevel\n\n#\tMake sure proc is mounted\n#\n[ -d \"/proc/1\" ] || mount /proc\n\n#\n#\tSource defaults.\n#\n. /etc/default/rcS\n\n#\n#\tTrap CTRL-C &c only in this shell so we can interrupt subprocesses.\n#\ntrap \":\" INT QUIT TSTP\n\n#\n#\tCall all parts in order.\n#\nexec /etc/init.d/rc S\n\n\n"
+  },
+  "rc5_links": [
+    "S01core_control.sh",
+    "S01networking",
+    "S02dbus-1",
+    "S15mountnfs.sh",
+    "S20dnsmasq",
+    "S20hostapd",
+    "S20hwclock.sh",
+    "S20network-manager",
+    "S20syslog",
+    "S21avahi-daemon",
+    "S99rmnologin.sh",
+    "S99stop-bootlogd"
+  ],
+  "rcS_links": [
+    "S02banner.sh",
+    "S02sysfs.sh",
+    "S03mountall.sh",
+    "S03systemd-udevd",
+    "S05checkroot.sh",
+    "S06devpts.sh",
+    "S06modutils.sh",
+    "S07bootlogd",
+    "S28partition-migrate.sh",
+    "S29read-only-rootfs-hook.sh",
+    "S29rw-overlays.sh",
+    "S36bootmisc.sh",
+    "S37populate-volatile.sh",
+    "S38dmesg.sh",
+    "S38urandom",
+    "S39hostname.sh",
+    "S40network-config.sh",
+    "S40phoenix-diagnostics.sh"
+  ],
+  "modules_load": {
+    "dmaproxy.conf": "dmaproxy\n"
+  },
+  "services": {
+    "video_pipeline": {
+      "size": 2879712,
+      "sha256": "b2a99dd9d834dc82b5373e159957aa3b5d4e2b1c2ea5545feb76d78dd14f671f",
+      "elf": {
+        "e_machine": 183,
+        "has_symtab": false,
+        "needed": [
+          "libevent-2.1.so.7",
+          "libevent_pthreads-2.1.so.7",
+          "libprotobuf.so.32",
+          "libasound.so.2",
+          "libglib-2.0.so.0",
+          "libgobject-2.0.so.0",
+          "libgstapp-1.0.so.0",
+          "libgstreamer-1.0.so.0",
+          "libgstbase-1.0.so.0",
+          "libcrypto.so.3",
+          "libssl.so.3",
+          "libcurl.so.4",
+          "libpthread.so.0",
+          "libgio-2.0.so.0",
+          "libgstvideo-1.0.so.0",
+          "libgstallocators-1.0.so.0",
+          "libgstcodecparsers-1.0.so.0",
+          "libgstaudio-1.0.so.0",
+          "libndi.so.6",
+          "libxml2.so.2",
+          "libstdc++.so.6",
+          "libm.so.6",
+          "libgcc_s.so.1",
+          "libc.so.6",
+          "ld-linux-aarch64.so.1"
+        ]
+      },
+      "keyword_strings": {
+        "copro_comms": [
+          "/dev/copro_comms_data"
+        ],
+        "/dev/": [
+          "/dev/copro_comms_data",
+          "/dev/dma_heap",
+          "/dev/mem",
+          "Failed to open /dev/mem"
+        ],
+        "ProRes": [
+          "ProRes"
+        ],
+        "raw": [
+          " ! capsfilter name=mmac_capsfilter caps=audio/x-raw",
+          " ! pngdec ! videoconvert ! video/x-raw,width=1920,height=1080,format=NV12 ! rawvideoparse width=1920 height=1080 format=nv12 ! videoscale ! videoconvert ! imagefreeze is-live=true ! queue name=eostarget",
+          " ! rawvideoparse name=binparse width=1920 height=1080 format=nv12 ! videoscale  ! imagefreeze is-live=true ",
+          "rawvideoparse",
+          "video/x-raw"
+        ],
+        "Bayer": [
+          "Bayer"
+        ],
+        "nv12": [
+          "    video_pipeline --type=cp_tpg --width=1920 --height=1080 --verbose --framerate=29.97 --count=30 --buffer-format=nv12 --colorimetry=bt709 --h264 --quality=LQ --outfile=test264LQ.mov",
+          "    video_pipeline --type=cp_tpg --width=1920 --height=1080 --verbose --framerate=50 --count=150 --buffer-format=nv12 --colorimetry=bt709 --h265 --quality=HQ --outfile=test265HQ.mov",
+          "    video_pipeline --type=stream_tx_mavis --fakesrc --debug --width=1920 --height=1080 --framerate=25 --buffer-format=nv12 --colorimetry=bt709 --h264",
+          "    video_pipeline --type=stream_tx_rtmp --stream-target=Facebook --stream-key=<STREAM_KEY> --fakesrc --debug --width=1920 --height=1080 --framerate=30 --buffer-format=nv12 --colorimetry=bt709 --h264",
+          " ! pngdec ! videoconvert ! video/x-raw,width=1920,height=1080,format=NV12 ! rawvideoparse width=1920 height=1080 format=nv12 ! videoscale ! videoconvert ! imagefreeze is-live=true ! queue name=eostarget",
+          " ! rawvideoparse name=binparse width=1920 height=1080 format=nv12 ! videoscale  ! imagefreeze is-live=true "
+        ],
+        "nv16": [
+          "nv16_10le32"
+        ],
+        "omxh265enc": [
+          "omxh265enc"
+        ],
+        "omxh264enc": [
+          "omxh264enc"
+        ],
+        "qtmux": [
+          "qtmux"
+        ],
+        "ndi": [
+          " , this->statsSendingInterval: ",
+          " --ndi-groups=",
+          " --ndi-multicast=",
+          " --ndi-src-name=",
+          " --no-ndi-preview",
+          " buffers outstanding!",
+          " buffers outstanding.",
+          " bytes, TX Pending ",
+          " ndi_device_name=\"",
+          " ndi_src=\"",
+          " no-ndi-preview=",
+          " sending acknowledgement and closing",
+          "*ZN20VideoPipelineService13ConfigHandlerC4ER13MessageRouterEUlS2_R19msg_ndi_connect_srcE3_",
+          "/var/nonvolatile/debug/ndi-audio.txt",
+          "/var/nonvolatile/debug/ndi-merged.txt",
+          "/var/nonvolatile/debug/ndi-preview.txt",
+          "/var/nonvolatile/debug/ndi-prime.txt",
+          "/var/nonvolatile/debug/ndi-rx.txt",
+          "<ndi_color_info ",
+          "<ndi_product",
+          "BIO_ctrl_pending",
+          "Error sending message: ",
+          "Error sending message: : ",
+          "Message is empty, not sending",
+          "N13MessageRouter23DmabufCallbackReadWriteI19msg_ndi_connect_srcEE"
+        ],
+        "srt": [
+          " for srt streaming!",
+          "/var/nonvolatile/debug/srt-stats.txt",
+          "Send EOS on input of srtsink...",
+          "components/video_pipeline/streaming_tx_srt_pipeline.cpp:",
+          "must specify mode(\"caller\" or \"listener\") for srt streaming!",
+          "rtmp://srt://",
+          "srt streaming skipping invalid bitrate update",
+          "srt://",
+          "srt_rx",
+          "srt_tx",
+          "srtsink",
+          "stream_rx_srt",
+          "stream_tx_srt"
+        ],
+        "rtmp": [
+          "    video_pipeline --type=stream_tx_rtmp --stream-target=Facebook --stream-key=<STREAM_KEY> --fakesrc --debug --width=1920 --height=1080 --framerate=30 --buffer-format=nv12 --colorimetry=bt709 --h264",
+          "/var/nonvolatile/debug/rtmp-stats.txt",
+          "a.rtmp.youtube.com",
+          "components/video_pipeline/streaming_tx_rtmp_pipeline.cpp:",
+          "mavis rtmp url: ",
+          "register mavis rtmp interface for Configuration",
+          "rtmp streaming skipping invalid bitrate update",
+          "rtmp2sink",
+          "rtmp://",
+          "rtmp://srt://",
+          "rtmpInfo",
+          "rtmpInfoRequest",
+          "rtmps://",
+          "stream_tx_rtmp",
+          "stream_tx_rtmps"
+        ]
+      }
+    },
+    "streaming_pl": {
+      "size": 2879712,
+      "sha256": "395f0f366b663f18f4d3cc6b104aebba8236aefacecf2500148b9373f7d3b11d",
+      "elf": {
+        "e_machine": 183,
+        "has_symtab": false,
+        "needed": [
+          "libevent-2.1.so.7",
+          "libevent_pthreads-2.1.so.7",
+          "libprotobuf.so.32",
+          "libasound.so.2",
+          "libglib-2.0.so.0",
+          "libgobject-2.0.so.0",
+          "libgstapp-1.0.so.0",
+          "libgstreamer-1.0.so.0",
+          "libgstbase-1.0.so.0",
+          "libcrypto.so.3",
+          "libssl.so.3",
+          "libcurl.so.4",
+          "libpthread.so.0",
+          "libgio-2.0.so.0",
+          "libgstvideo-1.0.so.0",
+          "libgstallocators-1.0.so.0",
+          "libgstcodecparsers-1.0.so.0",
+          "libgstaudio-1.0.so.0",
+          "libndi.so.6",
+          "libxml2.so.2",
+          "libstdc++.so.6",
+          "libm.so.6",
+          "libgcc_s.so.1",
+          "libc.so.6",
+          "ld-linux-aarch64.so.1"
+        ]
+      },
+      "keyword_strings": {
+        "copro_comms": [
+          "/dev/copro_comms_data"
+        ],
+        "/dev/": [
+          "/dev/copro_comms_data",
+          "/dev/dma_heap",
+          "/dev/mem",
+          "Failed to open /dev/mem"
+        ],
+        "ProRes": [
+          "ProRes"
+        ],
+        "raw": [
+          " ! capsfilter name=mmac_capsfilter caps=audio/x-raw",
+          " ! pngdec ! videoconvert ! video/x-raw,width=1920,height=1080,format=NV12 ! rawvideoparse width=1920 height=1080 format=nv12 ! videoscale ! videoconvert ! imagefreeze is-live=true ! queue name=eostarget",
+          " ! rawvideoparse name=binparse width=1920 height=1080 format=nv12 ! videoscale  ! imagefreeze is-live=true ",
+          "rawvideoparse",
+          "video/x-raw"
+        ],
+        "Bayer": [
+          "Bayer"
+        ],
+        "nv12": [
+          "    video_pipeline --type=cp_tpg --width=1920 --height=1080 --verbose --framerate=29.97 --count=30 --buffer-format=nv12 --colorimetry=bt709 --h264 --quality=LQ --outfile=test264LQ.mov",
+          "    video_pipeline --type=cp_tpg --width=1920 --height=1080 --verbose --framerate=50 --count=150 --buffer-format=nv12 --colorimetry=bt709 --h265 --quality=HQ --outfile=test265HQ.mov",
+          "    video_pipeline --type=stream_tx_mavis --fakesrc --debug --width=1920 --height=1080 --framerate=25 --buffer-format=nv12 --colorimetry=bt709 --h264",
+          "    video_pipeline --type=stream_tx_rtmp --stream-target=Facebook --stream-key=<STREAM_KEY> --fakesrc --debug --width=1920 --height=1080 --framerate=30 --buffer-format=nv12 --colorimetry=bt709 --h264",
+          " ! pngdec ! videoconvert ! video/x-raw,width=1920,height=1080,format=NV12 ! rawvideoparse width=1920 height=1080 format=nv12 ! videoscale ! videoconvert ! imagefreeze is-live=true ! queue name=eostarget",
+          " ! rawvideoparse name=binparse width=1920 height=1080 format=nv12 ! videoscale  ! imagefreeze is-live=true "
+        ],
+        "nv16": [
+          "nv16_10le32"
+        ],
+        "omxh265enc": [
+          "omxh265enc"
+        ],
+        "omxh264enc": [
+          "omxh264enc"
+        ],
+        "qtmux": [
+          "qtmux"
+        ],
+        "ndi": [
+          " , this->statsSendingInterval: ",
+          " --ndi-groups=",
+          " --ndi-multicast=",
+          " --ndi-src-name=",
+          " --no-ndi-preview",
+          " buffers outstanding!",
+          " buffers outstanding.",
+          " bytes, TX Pending ",
+          " ndi_device_name=\"",
+          " ndi_src=\"",
+          " no-ndi-preview=",
+          " sending acknowledgement and closing",
+          "*ZN20VideoPipelineService13ConfigHandlerC4ER13MessageRouterEUlS2_R19msg_ndi_connect_srcE3_",
+          "/var/nonvolatile/debug/ndi-audio.txt",
+          "/var/nonvolatile/debug/ndi-merged.txt",
+          "/var/nonvolatile/debug/ndi-preview.txt",
+          "/var/nonvolatile/debug/ndi-prime.txt",
+          "/var/nonvolatile/debug/ndi-rx.txt",
+          "<ndi_color_info ",
+          "<ndi_product",
+          "BIO_ctrl_pending",
+          "Error sending message: ",
+          "Error sending message: : ",
+          "Message is empty, not sending",
+          "N13MessageRouter23DmabufCallbackReadWriteI19msg_ndi_connect_srcEE"
+        ],
+        "srt": [
+          " for srt streaming!",
+          "/var/nonvolatile/debug/srt-stats.txt",
+          "Send EOS on input of srtsink...",
+          "components/video_pipeline/streaming_tx_srt_pipeline.cpp:",
+          "must specify mode(\"caller\" or \"listener\") for srt streaming!",
+          "rtmp://srt://",
+          "srt streaming skipping invalid bitrate update",
+          "srt://",
+          "srt_rx",
+          "srt_tx",
+          "srtsink",
+          "stream_rx_srt",
+          "stream_tx_srt"
+        ],
+        "rtmp": [
+          "    video_pipeline --type=stream_tx_rtmp --stream-target=Facebook --stream-key=<STREAM_KEY> --fakesrc --debug --width=1920 --height=1080 --framerate=30 --buffer-format=nv12 --colorimetry=bt709 --h264",
+          "/var/nonvolatile/debug/rtmp-stats.txt",
+          "a.rtmp.youtube.com",
+          "components/video_pipeline/streaming_tx_rtmp_pipeline.cpp:",
+          "mavis rtmp url: ",
+          "register mavis rtmp interface for Configuration",
+          "rtmp streaming skipping invalid bitrate update",
+          "rtmp2sink",
+          "rtmp://",
+          "rtmp://srt://",
+          "rtmpInfo",
+          "rtmpInfoRequest",
+          "rtmps://",
+          "stream_tx_rtmp",
+          "stream_tx_rtmps"
+        ]
+      }
+    },
+    "core_control": {
+      "size": 727328,
+      "sha256": "64f5c291253a5f343e65899bee8065763373701fe8e140d1891d3f0689770c7c",
+      "elf": {
+        "e_machine": 183,
+        "has_symtab": false,
+        "needed": [
+          "libevent-2.1.so.7",
+          "libevent_pthreads-2.1.so.7",
+          "libprotobuf.so.32",
+          "libndi.so.6",
+          "libstdc++.so.6",
+          "libm.so.6",
+          "libgcc_s.so.1",
+          "libpthread.so.0",
+          "libc.so.6",
+          "ld-linux-aarch64.so.1"
+        ]
+      },
+      "keyword_strings": {
+        "copro_comms": [
+          "/dev/copro_comms_ctrl"
+        ],
+        "/dev/": [
+          " status > /dev/null",
+          "/dev/copro_comms_ctrl",
+          "/dev/mmcblk0",
+          "/dev/mmcblk0p2",
+          "/usr/sbin/sfdisk -q -n -F /dev/mmcblk0 | tail -1"
+        ],
+        "ndi": [
+          "(Handler::wifiApSendChanges) Sending to R5. ",
+          "N13MessageRouter23DmabufCallbackReadWriteI22msg_ndi_discovered_srcEE",
+          "N13MessageRouter23DmabufCallbackReadWriteI23msg_ndi_discoverer_infoEE",
+          "St17_Weak_result_typeIMN5NdiRx10DiscovererEF7StatusTR13MessageRouterR22msg_ndi_discovered_srcEE",
+          "St17_Weak_result_typeIMN5NdiRx10DiscovererEF7StatusTR13MessageRouterR23msg_ndi_discoverer_infoEE",
+          "St24_Weak_result_type_memfunIMN5NdiRx10DiscovererEF7StatusTR13MessageRouterR22msg_ndi_discovered_srcELb1EE",
+          "St24_Weak_result_type_memfunIMN5NdiRx10DiscovererEF7StatusTR13MessageRouterR23msg_ndi_discoverer_infoELb1EE",
+          "St5_BindIFMN5NdiRx10DiscovererEF7StatusTR13MessageRouterR22msg_ndi_discovered_srcEPS1_St12_PlaceholderILi1EESA_ILi2EEEE",
+          "St5_BindIFMN5NdiRx10DiscovererEF7StatusTR13MessageRouterR23msg_ndi_discoverer_infoEPS1_St12_PlaceholderILi1EESA_ILi2EEEE",
+          "_ZNSt18condition_variable10notify_oneEv",
+          "_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE",
+          "_ZNSt18condition_variableC1Ev",
+          "_ZNSt18condition_variableD1Ev",
+          "create ndi find lib with config: ",
+          "lib/ndi/ndi_rx_discoverer.cpp",
+          "lib/ndi/ndi_rx_discoverer.cpp:",
+          "libndi.so.6",
+          "stop searching for ndi sources.",
+          "{ \"ndi\": {\"networks\": {\"discovery\": \""
+        ],
+        "/sys/": [
+          "/sys/class/net/"
+        ]
+      }
+    },
+    "cloud_service": {
+      "size": 3730872,
+      "sha256": "70af379e244b29d480271ac1e84bd84c3f32fbc5d38714c9646d07a3ffe02c02",
+      "elf": {
+        "e_machine": 183,
+        "has_symtab": false,
+        "needed": [
+          "libevent-2.1.so.7",
+          "libevent_pthreads-2.1.so.7",
+          "libprotobuf.so.32",
+          "libglib-2.0.so.0",
+          "libgobject-2.0.so.0",
+          "libgstapp-1.0.so.0",
+          "libgstreamer-1.0.so.0",
+          "libgstbase-1.0.so.0",
+          "libcrypto.so.3",
+          "libssl.so.3",
+          "libcurl.so.4",
+          "libpthread.so.0",
+          "libgio-2.0.so.0",
+          "libgstvideo-1.0.so.0",
+          "libgstallocators-1.0.so.0",
+          "libgstcodecparsers-1.0.so.0",
+          "libuuid.so.1",
+          "libstdc++.so.6",
+          "libm.so.6",
+          "libgcc_s.so.1",
+          "libc.so.6",
+          "ld-linux-aarch64.so.1"
+        ]
+      },
+      "keyword_strings": {
+        "copro_comms": [
+          "/dev/copro_comms_app3"
+        ],
+        "/dev/": [
+          "/dev/copro_comms_app3",
+          "/dev/dma_heap"
+        ],
+        "ndi": [
+          " , this->statsSendingInterval: ",
+          " sending acknowledgement and closing",
+          " video buffers queued for sending!",
+          "An existing chunk upload request was outstanding while Finishing, request the worker to abort",
+          "Authorization pending, retrying in ",
+          "AuthorizationPending",
+          "BIO_ctrl_pending",
+          "Creating a live upload, jump straight to sending chunks",
+          "Ending previous Live Upload: ",
+          "Error sending message:",
+          "Error sending message: ",
+          "Error sending message: : ",
+          "Existing chunk upload request was outstanding, but FileUpload state is ",
+          "MLSP.log.MAVIS_send_message.error: account is null .. get_pending_peer_link_changes_msg",
+          "Message is empty, not sending",
+          "Precondition Failed",
+          "Precondition Required",
+          "Received invalid close reason. Sending acknowledgement and closing",
+          "Resuming a live upload, jump straight to sending chunks",
+          "Sending heartbeat...",
+          "Sending message: ",
+          "Sending to IP: ",
+          "SingleNetworkTransmissionDevice::debugNumOfStagedInSendingQueues",
+          "Skip sending RTMP details for protocol ",
+          "StatsEngine::logSendingInfo"
+        ],
+        "rtmp": [
+          "rtmpInfo",
+          "rtmpInfoRequest"
+        ]
+      }
+    },
+    "media_control": {
+      "size": 266816,
+      "sha256": "d4ddf2016909f5e5a0f3b25d4099a4c5a53390c4ba4085e4e6d9e0e852768696",
+      "elf": {
+        "e_machine": 183,
+        "has_symtab": false,
+        "needed": [
+          "libevent-2.1.so.7",
+          "libevent_pthreads-2.1.so.7",
+          "libprotobuf.so.32",
+          "libstdc++.so.6",
+          "libm.so.6",
+          "libgcc_s.so.1",
+          "libpthread.so.0",
+          "libc.so.6",
+          "ld-linux-aarch64.so.1"
+        ]
+      },
+      "keyword_strings": {
+        "copro_comms": [
+          "/dev/copro_comms_app4"
+        ],
+        "/dev/": [
+          "/dev/copro_comms_app4"
+        ],
+        "RAW": [
+          "Attached RAW disk driver "
+        ],
+        "ndi": [
+          "Sending Stopping message",
+          "_ZNSt18condition_variable10notify_oneEv",
+          "_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE",
+          "_ZNSt18condition_variableC1Ev",
+          "_ZNSt18condition_variableD1Ev"
+        ],
+        "/sys/": [
+          "/sys/class/mmc_host/mmc1",
+          "/sys/kernel/config/device-tree/overlays/sd",
+          "/sys/kernel/config/device-tree/overlays/sd/path"
+        ]
+      }
+    },
+    "camera_control": {
+      "size": 266432,
+      "sha256": "aaab07983e634317285f29f0feb2ae19cbc11bfe1b6580d1154c101eab70ba7f",
+      "elf": {
+        "e_machine": 183,
+        "has_symtab": false,
+        "needed": [
+          "libevent-2.1.so.7",
+          "libevent_pthreads-2.1.so.7",
+          "libprotobuf.so.32",
+          "libCr_Core.so",
+          "libstdc++.so.6",
+          "libm.so.6",
+          "libgcc_s.so.1",
+          "libpthread.so.0",
+          "libc.so.6",
+          "ld-linux-aarch64.so.1"
+        ]
+      },
+      "keyword_strings": {
+        "copro_comms": [
+          "/dev/copro_comms_app5"
+        ],
+        "/dev/": [
+          "/dev/copro_comms_app5"
+        ],
+        "ndi": [
+          "_ZNSt18condition_variable10notify_oneEv",
+          "_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE",
+          "_ZNSt18condition_variableC1Ev",
+          "_ZNSt18condition_variableD1Ev"
+        ]
+      }
+    },
+    "audio_encoder": {
+      "size": 266912,
+      "sha256": "d0b9be81ed8fa1c888affc3db47bdaa676ad740e2ea0c3e521cf543d658774ef",
+      "elf": {
+        "e_machine": 183,
+        "has_symtab": false,
+        "needed": [
+          "libevent-2.1.so.7",
+          "libevent_pthreads-2.1.so.7",
+          "libprotobuf.so.32",
+          "libglib-2.0.so.0",
+          "libgobject-2.0.so.0",
+          "libgstapp-1.0.so.0",
+          "libgstreamer-1.0.so.0",
+          "libgstbase-1.0.so.0",
+          "libcrypto.so.3",
+          "libssl.so.3",
+          "libcurl.so.4",
+          "libpthread.so.0",
+          "libgio-2.0.so.0",
+          "libgstvideo-1.0.so.0",
+          "libgstallocators-1.0.so.0",
+          "libgstcodecparsers-1.0.so.0",
+          "libstdc++.so.6",
+          "libm.so.6",
+          "libgcc_s.so.1",
+          "libc.so.6",
+          "ld-linux-aarch64.so.1"
+        ]
+      },
+      "keyword_strings": {
+        "copro_comms": [
+          "/dev/copro_comms_app5"
+        ],
+        "/dev/": [
+          "/dev/copro_comms_app5",
+          "/dev/dma_heap"
+        ],
+        "raw": [
+          "audio/x-raw"
+        ],
+        "ndi": [
+          " ndi_device_name=\"",
+          " ndi_src=\"",
+          " no-ndi-preview=",
+          "_ZNSt18condition_variable10notify_oneEv",
+          "_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE",
+          "_ZNSt18condition_variableC1Ev",
+          "_ZNSt18condition_variableD1Ev"
+        ]
+      }
+    },
+    "talkback_pl": {
+      "size": 464784,
+      "sha256": "8fd9166a972a48e831c8759fef3155c4c5622b73b34a15c110a768da7d9f3b52",
+      "elf": {
+        "e_machine": 183,
+        "has_symtab": false,
+        "needed": [
+          "libevent-2.1.so.7",
+          "libevent_pthreads-2.1.so.7",
+          "libprotobuf.so.32",
+          "libasound.so.2",
+          "libglib-2.0.so.0",
+          "libgobject-2.0.so.0",
+          "libgstapp-1.0.so.0",
+          "libgstreamer-1.0.so.0",
+          "libgstbase-1.0.so.0",
+          "libcrypto.so.3",
+          "libssl.so.3",
+          "libcurl.so.4",
+          "libpthread.so.0",
+          "libgio-2.0.so.0",
+          "libgstvideo-1.0.so.0",
+          "libgstallocators-1.0.so.0",
+          "libgstcodecparsers-1.0.so.0",
+          "libstdc++.so.6",
+          "libm.so.6",
+          "libgcc_s.so.1",
+          "libc.so.6",
+          "ld-linux-aarch64.so.1"
+        ]
+      },
+      "keyword_strings": {
+        "copro_comms": [
+          "/dev/copro_comms_app5"
+        ],
+        "/dev/": [
+          "/dev/copro_comms_app5",
+          "/dev/dma_heap",
+          "/dev/snd/controlC0"
+        ],
+        "raw": [
+          " ! capsfilter name=mmac_capsfilter caps=audio/x-raw",
+          "Audio raw format channel count",
+          "Audio raw format sample number per block",
+          "Audio raw format sample rate",
+          "Bitwidth per raw format output sample",
+          "Whether audio raw format layout interleaved or not",
+          "raw-bitwidth",
+          "raw-channelcount",
+          "raw-interleaved",
+          "raw-samplenum",
+          "raw-samplerate"
+        ],
+        "ndi": [
+          " ndi_device_name=\"",
+          " ndi_src=\"",
+          " no-ndi-preview=",
+          "If arg is positive, send to R5 by arg blocks then drop samples. Otherwise keep sending until EOS reached.",
+          "Sending EOS on input to audio codec...",
+          "_ZNSt18condition_variable10notify_oneEv",
+          "_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE",
+          "_ZNSt18condition_variableC1Ev",
+          "_ZNSt18condition_variableD1Ev"
+        ],
+        "rtmp": [
+          "rtmpInfo",
+          "rtmpInfoRequest"
+        ]
+      }
+    },
+    "ctrlsw_encoder": {
+      "size": 1839072,
+      "sha256": "472bff601cf1f0316f1201462bbd3d63560cefef4805c7cedfe25f68b283e7c8",
+      "elf": {
+        "e_machine": 183,
+        "has_symtab": false,
+        "needed": [
+          "libstdc++.so.6",
+          "libgcc_s.so.1",
+          "libc.so.6",
+          "ld-linux-aarch64.so.1"
+        ]
+      },
+      "keyword_strings": {
+        "/dev/": [
+          "/dev/allegroIP",
+          "/dev/stdout",
+          "Path of the driver device file used to talk with the IP. Default is /dev/allegroIP"
+        ],
+        "ndi": [
+          "All the values in the described range are not available. Please refer to the corresponding codec specification",
+          "Automatically select between DEFAULT_LDA and DYNAMIC_LDA depending on RateCtrlMode and GopCtrlMode",
+          "Same as AUTO_QP, but the lookup table parameters can be updated at each frame depending on the content",
+          "Set the expected chroma mode of the encoder. Depending on the input FourCC, this might lead to a conversion. Together with the BitDepth, these options determine the final FourCC the encoder is expecting.",
+          "Typical value for Gop.NumB is between 0 and 2. Increasing the number of consecutive B pictures has three effects. First, it requires more frame buffers to store the source pictures, which can be an issue with large resolution.   The second is, that it increases the latency at both sides: encode and decode. The last one is, that it can also decrease the video quality (depending on the video content) because the P-pictures are then far from their reference picture (the previous P or I picture)    and it could be difficult to find the motion vectors.",
+          "Uses lambda factors depending on GOP pattern",
+          "When using a profile, this parameter specifies if the video is progressive or interlaced. In interlaced mode, the corresponding flags in header and SEI message will be added.",
+          "opendir"
+        ],
+        "fpga": [
+          "/usr/src/debug/libvcu-xlnx/1.0.0-xilinx-v2023.1+gitAUTOINC+3e94f53f64-r0/lib_fpga/DevicePool.c"
+        ]
+      }
+    },
+    "ctrlsw_decoder": {
+      "size": 657824,
+      "sha256": "08f471049db5cc8cebc69338fccdf8e568d067c4ace85235e2fe9d8b2093846d",
+      "elf": {
+        "e_machine": 183,
+        "has_symtab": false,
+        "needed": [
+          "libstdc++.so.6",
+          "libgcc_s.so.1",
+          "libc.so.6",
+          "ld-linux-aarch64.so.1"
+        ]
+      },
+      "keyword_strings": {
+        "/dev/": [
+          "/dev/allegroDecodeIP",
+          "Path of the driver device file used to talk with the IP. Default is /dev/allegroDecodeIP"
+        ],
+        "ndi": [
+          "***** /!\\ Error trying to conceal bitstream - ending decoding /!\\ *****",
+          "Indicates to decoder that the stream doesn't contain B-frame & reference must be at best 1",
+          "Specifify early exit condition (e/error, w/warning)",
+          "wrong exit condition"
+        ],
+        "fpga": [
+          "/usr/src/debug/libvcu-xlnx/1.0.0-xilinx-v2023.1+gitAUTOINC+3e94f53f64-r0/lib_fpga/DevicePool.c"
+        ]
+      }
+    }
+  },
+  "custom_modules": {
+    "copro-buf-exporter.ko": {
+      "size": 15368,
+      "sha256": "cebb74a04464646958d4d798d0c89e576de5c36ee8de57aa252a05932f88df13",
+      "modinfo": [
+        "author=austin.boyle@atomos.com",
+        "description=copro-buf-exporter - Co-processor buffer exporter",
+        "license=GPL",
+        "vermagic=6.1.5-xilinx-v2023.1 SMP preempt mod_unload aarch64"
+      ]
+    },
+    "copro-comms.ko": {
+      "size": 24184,
+      "sha256": "9b3f46e7608a92d8b8b083a403ef9469ac42ecd1b42e9f5019561b63ba2a5af5",
+      "modinfo": [
+        "alias=of:N*T*Catomos,copro-comms",
+        "alias=of:N*T*Catomos,copro-commsC*",
+        "author=austin.boyle@atomos.com",
+        "description=copro-comms - message and buffer sharing between co-processors",
+        "license=GPL",
+        "vermagic=6.1.5-xilinx-v2023.1 SMP preempt mod_unload aarch64"
+      ]
+    },
+    "custom-cma.ko": {
+      "size": 17776,
+      "sha256": "5099355090dad356fdfce934ba0c5186d7fb899e75c6c1f75f236e75bffbebc4",
+      "modinfo": [
+        "alias=of:N*T*Catomos,custom-cma",
+        "alias=of:N*T*Catomos,custom-cmaC*",
+        "author=austin.boyle@atomos.com",
+        "description=custom-cma - view & modify CMA pools from user space",
+        "license=GPL",
+        "vermagic=6.1.5-xilinx-v2023.1 SMP preempt mod_unload aarch64"
+      ]
+    },
+    "ipi-mbox.ko": {
+      "size": 12944,
+      "sha256": "35f58159c957ebe298db89dfd8b97e00786f871c58360647d9b2780ac0b31d2e",
+      "modinfo": [
+        "author=austin.boyle@atomos.com",
+        "description=ipi-mbox - IPI messaging mailbox",
+        "license=GPL",
+        "vermagic=6.1.5-xilinx-v2023.1 SMP preempt mod_unload aarch64"
+      ]
+    },
+    "pl-audio.ko": {
+      "size": 20224,
+      "sha256": "b29406696341c34f4262ca01aefb7bc5da9f0c332713383e8f6c7e130ea92aac",
+      "modinfo": [
+        "alias=of:N*T*Catomos,pl-audio",
+        "alias=of:N*T*Catomos,pl-audioC*",
+        "author=graham.gallagher@atomos.com",
+        "description=pl-audio - loadable audio module",
+        "license=GPL",
+        "vermagic=6.1.5-xilinx-v2023.1 SMP preempt mod_unload aarch64"
+      ]
+    },
+    "pl-irq.ko": {
+      "size": 10488,
+      "sha256": "d7534b8e2e56c5bf0006d604f85d5a47eeb9bee0bba8722d0793c3b93c0dd925",
+      "modinfo": [
+        "alias=of:N*T*Catomos,pl-irq",
+        "alias=of:N*T*Catomos,pl-irqC*",
+        "author=adrian@atomos.com",
+        "description=irq-atomos-pl - IRQ Chip driver for atomos PL IRQ",
+        "license=GPL",
+        "vermagic=6.1.5-xilinx-v2023.1 SMP preempt mod_unload aarch64"
+      ]
+    },
+    "pl-sata.ko": {
+      "size": 17864,
+      "sha256": "d988ee143e989e02c5e7ea4ab211762148d0894c522166513ab6c48fa17ca58f",
+      "modinfo": [
+        "alias=of:N*T*Catomos,pl-sata",
+        "alias=of:N*T*Catomos,pl-sataC*",
+        "author=Jordan Boekel <jordan.boekel@atomos.com>",
+        "description=Custom DG core SATA3 driver",
+        "license=GPL",
+        "vermagic=6.1.5-xilinx-v2023.1 SMP preempt mod_unload aarch64"
+      ]
+    },
+    "pl-sysreg.ko": {
+      "size": 14808,
+      "sha256": "7385c93a04f74870bf4c6c8648b2998335eccf4b58d15e2907fd1cf752046f01",
+      "modinfo": [
+        "alias=of:N*T*Catomos,pl-sysreg",
+        "alias=of:N*T*Catomos,pl-sysregC*",
+        "alias=platform:pl_sysreg",
+        "author=Austin Boyle <dev@atomos.com>",
+        "description=Atomos Sysreg Userspace I/O driver",
+        "license=GPL v2",
+        "vermagic=6.1.5-xilinx-v2023.1 SMP preempt mod_unload aarch64"
+      ]
+    },
+    "al5d.ko": {
+      "size": 22624,
+      "sha256": "9f30eeaf5c615860fbb5eadae754d0bdcbee2c0f62b2260fbd089b65c9bae3ae",
+      "modinfo": [
+        "alias=of:N*T*Cal,al5d",
+        "alias=of:N*T*Cal,al5dC*",
+        "author=Antoine Gruzelle",
+        "author=Kevin Grandemange",
+        "author=Sebastien Alaiwan",
+        "description=Allegro Codec Driver",
+        "license=GPL v2",
+        "vermagic=6.1.5-xilinx-v2023.1 SMP preempt mod_unload aarch64"
+      ]
+    },
+    "al5e.ko": {
+      "size": 24176,
+      "sha256": "080fa5ae643e8fc4425042c46dea5c72e28ca9e8c17e50be19768b597b241c22",
+      "modinfo": [
+        "alias=of:N*T*Cal,al5e",
+        "alias=of:N*T*Cal,al5eC*",
+        "author=Antoine Gruzelle",
+        "author=Kevin Grandemange",
+        "author=Sebastien Alaiwan",
+        "description=Allegro Codec Driver",
+        "license=GPL v2",
+        "vermagic=6.1.5-xilinx-v2023.1 SMP preempt mod_unload aarch64"
+      ]
+    },
+    "allegro.ko": {
+      "size": 68312,
+      "sha256": "ea2c2b5152a9f2d53a1957a83f44a68c13a3e7fa3c1d083877b561de77e07f49",
+      "modinfo": [
+        "author=Antoine Gruzelle",
+        "author=Kevin Grandemange",
+        "author=Sebastien Alaiwan",
+        "description=Allegro Common",
+        "license=GPL v2",
+        "vermagic=6.1.5-xilinx-v2023.1 SMP preempt mod_unload aarch64"
+      ]
+    },
+    "dmaproxy.ko": {
+      "size": 14080,
+      "sha256": "f7212a1256a7973096eb4d08361c401de008fe48bd80b63443fd4c9f3064be53",
+      "modinfo": [
+        "author=Jeegar Patel <jeegar.patel@xilinx.com>",
+        "description=Xilinx's zynqmp-dma Client Driver",
+        "license=GPL v2",
+        "vermagic=6.1.5-xilinx-v2023.1 SMP preempt mod_unload aarch64"
+      ]
+    }
+  }
+}
