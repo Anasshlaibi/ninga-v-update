@@ -12,6 +12,8 @@ build/
 dist/
 recording-engine/storage/cinemadng_ring_writer
 recording-engine/storage/cinemadng_ring_writer_arm64
+recording-engine/vraw_daemon
+recording-engine/vraw_daemon_arm64
 compression/blue-compressor/repo/
 *.o
 *.a
@@ -27,6 +29,7 @@ compression/blue-compressor/repo/
 *.i64
 
 # Python cache & virtual environments
+tests/output/
 __pycache__/
 *.py[cod]
 .venv/

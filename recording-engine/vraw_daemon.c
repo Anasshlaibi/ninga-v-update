@@ -200,7 +200,7 @@ static void *disk_writer_thread(void *arg) {
 }
 
 // Generate realistic synthetic 12-bit Bayer frame (fallback/test generator)
-static void generate_synthetic_bayer(uint8_t *pixel_buf, uint32_t frame_index) {
+static void fill_synthetic_12bit_bayer(uint8_t *pixel_buf, uint32_t frame_index) {
     size_t byte_idx = 0;
     for (uint32_t y = 0; y < HEIGHT; y++) {
         for (uint32_t x = 0; x < WIDTH; x += 2) {
@@ -298,7 +298,7 @@ int main(int argc, char **argv) {
             standalone = 1;
         } else if (atoi(argv[i]) > 0) {
             capture_frames = (uint32_t)atoi(argv[i]);
-        } else if (argv[i][0] == '/') {
+        } else if (argv[i][0] != '-') {
             out_dir = argv[i];
         }
     }
