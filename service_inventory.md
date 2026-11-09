@@ -94,3 +94,4 @@ Invoked by `core_control` when the Cortex-R5 requests an FPGA reconfiguration:
 1. Reads current FPGA bitstream `type_id` from physical register `0x820010DC` using `/usr/bin/load_fpga` (`devmem`).
 2. Maps requested mode ID (`0x00`..`0x14`) to `/boot/DPGA00XX.BIN`.
 3. Writes the encrypted ZynqMP bitstream via the ZynqMP FPGA Manager (`/sys/class/fpga_manager/fpga0/firmware`), which passes the bitstream to the PMU/CSU hardware AES-GCM engine (`EFUSE_RED_KEY`) to reconfigure the PL fabric in milliseconds.
+

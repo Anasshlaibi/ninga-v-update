@@ -107,3 +107,4 @@ Static extraction of `ATOMNJV.FW` identified **three distinct filesystem layers*
 | `/usr/bin` | Primary Atomos daemons (`video_pipeline`, `streaming_pl`, `core_control`, `cloud_service`, `media_control`, `camera_control`, `audio_encoder`, `talkback_pl`, `ctrl_vcu`, `load_fpga`, `copro_debug`, `start_r5.sh`) |
 | `/usr/lib` | GStreamer 1.20.5 (`libgstreamer-1.0.so.0.2005.0`), `gstreamer-1.0/` plugins (`libgstomx.so`, `libgstvideo4linux2.so`, `libgstrtmp2.so`, `libgstsrt.so`, `libgstndi.so`), Allegro DVT VCU libraries (`liballegro_encode.so`, `liballegro_decode.so`, `libOMX.allegro.core.so`), `libndi.so.5.5.3`, `librtmp.so.1`, `libsrt.so.1.4.2`, `libx264.so.163`, `libfdk-aac.so.2` |
 | `/home/root` | Default root home directory |
+

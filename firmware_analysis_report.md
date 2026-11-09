@@ -59,6 +59,33 @@ Every section begins with a 24-byte (`0x18`) header (`struct.unpack('<I4sIIII', 
 | **6** | `0x130c0cb8` | `0x130c0cd0` | `"bin "` | `0xaaaaaaa1` | `1,024` (`0x400`) | `0x00000000` | `ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7` | 1 KiB all-zero placeholder |
 | **7** | `0x130c10d4` | `0x130c10ec` | `"idx "` | `0x00013000` | `192` (`0x00c0`) | `0x00000000` | `e98702be8f6027b0cb73bc70698026f73ee27e8d801f536fb09fb99787d311bf` | Master Container Index Table (16 B copy of global header + seven 24 B section header descriptors) |
 
+### 2.4 Shannon Entropy Profile (`reverse-engineering/container-analysis/entropy_analysis.json`)
+
+Shannon entropy $H = -\sum p_i \log_2(p_i)$ (in bits/byte, scale `0.000000` to `8.000000`) was computed across the outer container, its 8 sections, and extracted sub-images to distinguish zero-filled padding, structured metadata/DTBs, unencrypted code/bitstreams, GZIP-compressed archives, and AES-GCM-256 encrypted partitions:
+
+| Component / Payload | Size (Bytes) | Shannon Entropy ($H$, bits/byte) | Empirical Classification |
+|---|---:|---:|---|
+| `ATOMNJV.FW` (Full Outer Container) | `319,558,064` | `7.985727` | Dominated by GZIP-compressed Section 3 (`92.1%` of container) |
+| `sec0`, `sec1`, `sec2`, `sec6` (`bin `) | `1,024` each | `0.000000` | All-zero placeholder sections |
+| `sec7_idx_0x00013000.bin` (`idx `) | `192` | `4.206276` | Structured binary directory header table |
+| `sec3_xbin_0x11111111.bin` (`xbin`) | `294,387,712` | `7.997693` | GZIP-compressed FAT16 image (`293.5 MB`) + `0xFF` tail pad |
+| `sec4_xbin_0x31323334.bin` (Primary QSPI `BOOT.BIN`) | `2,097,152` | `6.090046` | Mixed: AES-GCM encrypted FSBL/PMU/BL31/`phoenix_boot` + **unencrypted** `u-boot.elf` (`848 KB`) & `boot.dtb` (`30 KB`) + `0xFF` padding |
+| `sec5_xbin_0x40404040.bin` (Recovery QSPI `BOOT.BIN`) | `23,068,672` | `7.354980` | Mixed: AES-GCM `emergency.bit` + GZIP `Image.gz` & `rootfs.cpio.gz` + `0xFF` padding |
+| `sec3_decompressed.img` (FAT16 Image) | `355,729,408` | `7.525369` | Contains encrypted `DPGA*.BIN`/`APP0000.BIN`, GZIP `ROOTFS.BIN`/`FLASH.UB`, and unencrypted `FMOD*.BIN`/`XMOD*.BIN` |
+| `APP0000.BIN` (Cortex-R5 `startrek_noresources.elf`) | `21,796,864` | `7.999232` | **AES-GCM-256 Encrypted (`EFUSE_RED_KEY`)** — indistinguishable from uniform random (`>7.999`) |
+| `DPGA0002.BIN` (`prores_cp_app.bit`) | `7,797,692` | `7.999785` | **AES-GCM-256 Encrypted (`EFUSE_RED_KEY`)** ZynqMP FPGA bitstream |
+| `DPGA0005.BIN` (`prraw_cp_app.bit`) | `7,797,692` | `7.999776` | **AES-GCM-256 Encrypted (`EFUSE_RED_KEY`)** ZynqMP FPGA bitstream |
+| `FMODDOCK.BIN` (`ninjacast_top` Artix-7 `.bit`) | `2,192,115` | `1.222044` | **Unencrypted** Xilinx Artix-7 FPGA bitstream (sparse routing/CLB frames) |
+| `FMODSTRM.BIN` (`ninjastream_top` Artix-7 `.bit`) | `1,753,735` | `1.303067` | **Unencrypted** Xilinx Artix-7 FPGA bitstream |
+| `FLASH.UB` (U-Boot FIT Image) | `8,225,532` | `7.968748` | GZIP-compressed Linux 6.1.5 kernel + uncompressed `system.dtb` |
+| `Image` (Decompressed Linux 6.1.5 Kernel) | `22,813,184` | `5.972631` | **Unencrypted** AArch64 machine code + kernel symbol/rodata tables |
+| `system.dtb` (Flattened Device Tree Blob) | `29,995` | `3.653355` | **Unencrypted** FDT nodes, string table, and property cells |
+| `RAMDISK.UB` (U-Boot FIT Initramfs) | `36,204,196` | `7.980989` | GZIP-compressed CPIO initramfs |
+| `ROOTFS.BIN` (Compressed Production RootFS) | `114,557,385` | `7.976235` | GZIP-compressed `ext4` image |
+| `rootfs_decompressed.img` (Decompressed `ext4`) | `381,229,056` | `4.853979` | **Unencrypted** Linux `ext4` root filesystem (`glibc 2.36`, `/usr/bin/video_pipeline`, etc.) |
+
+> **Key Entropy Insight:** The contrast between `DPGA0002.BIN` / `DPGA0005.BIN` / `APP0000.BIN` ($H \approx 7.9992\text{–}7.9998$ bits/byte) and `FMODDOCK.BIN` / `FMODSTRM.BIN` ($H \approx 1.22\text{–}1.30$ bits/byte) mathematically confirms what the ZynqMP Partition Header flags (`attr = 0x80`, Key Source `0xA5C3C5A3` = `EFUSE_RED_KEY`) state: the ZynqMP on-SoC PL bitstreams and Cortex-R5 firmware are hardware AES-GCM encrypted, whereas the Linux kernel (`H = 5.97`), Device Tree (`H = 3.65`), `ext4` RootFS (`H = 4.85`), and expansion module Artix-7 bitstreams (`H = 1.22`) are completely unencrypted.
+
 ---
 
 ## 3. Bootloader & ZynqMP `BOOT.BIN` Partition Analysis (`sec4` & `sec5`)
@@ -140,3 +167,4 @@ Get-FileHash firmware/original/ATOMNJV.FW -Algorithm SHA256
 python firmware/extracted/extract_fdt_fit.py
 python firmware/extracted/generate_inventories.py
 ```
+

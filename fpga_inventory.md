@@ -77,3 +77,4 @@ The file `fat16_fs/MANIFEST.XMD` (`172` bytes) defines the exact hardware mappin
 | `XMODDOCK.BIN` | `2` | **Xilinx Artix-7 (`7a35tfgg484`)** (`IDCODE 0362d093`) | Xilinx Vivado `2021.1` | `ninjacast_top` | ASCII JTAG `.svf` (Unencrypted) | JTAG SVF programming stream for **AtomX CAST** |
 | `FMODSTRM.BIN` | `6` | **Xilinx Artix-7 (`7a25tcsg325`)** | Xilinx Vivado `2021.1` (`2022/11/14 00:41:15`) | `ninjastream_top;UserID=0XFFFFFFFF;Version=2021.1` | Raw Xilinx `.bit` (Unencrypted) | 12G-SDI / HDMI / Ethernet / Wi-Fi bridge FPGA on **Atomos Connect** |
 | `XMODSTRM.BIN` | `6` | **Xilinx Artix-7 (`7a25tcsg325`)** (`IDCODE 037c2093`) | Xilinx Vivado `2021.1` | `ninjastream_top` | ASCII JTAG `.svf` (Unencrypted) | JTAG SVF programming stream for **Atomos Connect** |
+

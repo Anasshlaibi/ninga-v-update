@@ -92,3 +92,4 @@ Derived directly from `reverse-engineering/device-tree/system.dts` (`/memory@0` 
    - The Linux kernel, device tree, initramfs, and `ext4` root filesystem are **completely unencrypted**.
    - Furthermore, when an H.265/VCU bitstream (`DPGA0009.BIN` / `cp_h265.bit`) is active, the FPGA transfers uncompressed captured frames directly into `codec_input` (`0x1b000000`–`0x2c000000`) and notifies Linux `video_pipeline` over `/dev/copro_comms_data`.
    - However, it remains to be verified in **Phase 2 & Phase 3** whether `cp_h265.bit` (`DPGA0009.BIN`) or `prraw_cp_app.bit` (`DPGA0005.BIN`) can expose **12-bit Bayer RAW** frames to Linux in `codec_input`, or whether `cp_h265.bit` only transfers 8-bit/10-bit 4:2:2 YUV (`nv16` / `nv16_10le32`) and whether 4x Cortex-A53 @ 1.2 GHz has sufficient compute and memory bandwidth for real-time Blue Compressor / TICO-RAW encoding.
+

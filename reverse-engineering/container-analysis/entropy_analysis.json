@@ -1,0 +1,152 @@
+{
+  "overall_entropy": 7.985727,
+  "components": [
+    {
+      "label": "ATOMNJV.FW (Full Container)",
+      "path": "firmware/original/ATOMNJV.FW",
+      "size_bytes": 319558064,
+      "shannon_entropy_bits_per_byte": 7.985727,
+      "classification": "Compressed (GZIP) or Encrypted (AES-GCM)"
+    },
+    {
+      "label": "sec0_bin_0xaaaaaaaa.bin",
+      "path": "firmware/extracted/sections/sec0_bin_0xaaaaaaaa.bin",
+      "size_bytes": 1024,
+      "shannon_entropy_bits_per_byte": -0.0,
+      "classification": "Zero / Constant"
+    },
+    {
+      "label": "sec1_bin_0xaaaaaaab.bin",
+      "path": "firmware/extracted/sections/sec1_bin_0xaaaaaaab.bin",
+      "size_bytes": 1024,
+      "shannon_entropy_bits_per_byte": -0.0,
+      "classification": "Zero / Constant"
+    },
+    {
+      "label": "sec2_bin_0xaaaaaaa2.bin",
+      "path": "firmware/extracted/sections/sec2_bin_0xaaaaaaa2.bin",
+      "size_bytes": 1024,
+      "shannon_entropy_bits_per_byte": -0.0,
+      "classification": "Zero / Constant"
+    },
+    {
+      "label": "sec3_xbin_0x11111111.bin (GZIP FAT16)",
+      "path": "firmware/extracted/sections/sec3_xbin_0x11111111.bin",
+      "size_bytes": 294387712,
+      "shannon_entropy_bits_per_byte": 7.997693,
+      "classification": "Compressed (GZIP) or Encrypted (AES-GCM)"
+    },
+    {
+      "label": "sec4_xbin_0x31323334.bin (Primary QSPI BOOT.BIN)",
+      "path": "firmware/extracted/sections/sec4_xbin_0x31323334.bin",
+      "size_bytes": 2097152,
+      "shannon_entropy_bits_per_byte": 6.090046,
+      "classification": "Uncompressed Code / Filesystem / Bitstream"
+    },
+    {
+      "label": "sec5_xbin_0x40404040.bin (Recovery QSPI BOOT.BIN)",
+      "path": "firmware/extracted/sections/sec5_xbin_0x40404040.bin",
+      "size_bytes": 23068672,
+      "shannon_entropy_bits_per_byte": 7.35498,
+      "classification": "Compressed (GZIP) or Encrypted (AES-GCM)"
+    },
+    {
+      "label": "sec6_bin_0xaaaaaaa1.bin",
+      "path": "firmware/extracted/sections/sec6_bin_0xaaaaaaa1.bin",
+      "size_bytes": 1024,
+      "shannon_entropy_bits_per_byte": -0.0,
+      "classification": "Zero / Constant"
+    },
+    {
+      "label": "sec7_idx_0x00013000.bin (Index Table)",
+      "path": "firmware/extracted/sections/sec7_idx_0x00013000.bin",
+      "size_bytes": 192,
+      "shannon_entropy_bits_per_byte": 4.206276,
+      "classification": "Structured Text / Metadata"
+    },
+    {
+      "label": "sec3_decompressed.img (FAT16 Image)",
+      "path": "firmware/extracted/sec3_decompressed.img",
+      "size_bytes": 355729408,
+      "shannon_entropy_bits_per_byte": 7.525369,
+      "classification": "Compressed (GZIP) or Encrypted (AES-GCM)"
+    },
+    {
+      "label": "APP0000.BIN (Encrypted Cortex-R5 ELF)",
+      "path": "firmware/extracted/fat16_fs/APP0000.BIN",
+      "size_bytes": 4058580,
+      "shannon_entropy_bits_per_byte": 7.999232,
+      "classification": "Compressed (GZIP) or Encrypted (AES-GCM)"
+    },
+    {
+      "label": "DPGA0002.BIN (Encrypted ProRes Capture FPGA)",
+      "path": "firmware/extracted/fat16_fs/DPGA0002.BIN",
+      "size_bytes": 8096828,
+      "shannon_entropy_bits_per_byte": 7.999785,
+      "classification": "Compressed (GZIP) or Encrypted (AES-GCM)"
+    },
+    {
+      "label": "DPGA0005.BIN (Encrypted ProRes RAW Capture FPGA)",
+      "path": "firmware/extracted/fat16_fs/DPGA0005.BIN",
+      "size_bytes": 8096828,
+      "shannon_entropy_bits_per_byte": 7.999776,
+      "classification": "Compressed (GZIP) or Encrypted (AES-GCM)"
+    },
+    {
+      "label": "FMODDOCK.BIN (Unencrypted Artix-7 Bitstream)",
+      "path": "firmware/extracted/fat16_fs/FMODDOCK.BIN",
+      "size_bytes": 2192121,
+      "shannon_entropy_bits_per_byte": 1.222044,
+      "classification": "Structured Text / Metadata"
+    },
+    {
+      "label": "FMODSTRM.BIN (Unencrypted Artix-7 Bitstream)",
+      "path": "firmware/extracted/fat16_fs/FMODSTRM.BIN",
+      "size_bytes": 553189,
+      "shannon_entropy_bits_per_byte": 1.303067,
+      "classification": "Structured Text / Metadata"
+    },
+    {
+      "label": "FLASH.UB (FIT Kernel+DTB)",
+      "path": "firmware/extracted/fat16_fs/FLASH.UB",
+      "size_bytes": 8621680,
+      "shannon_entropy_bits_per_byte": 7.968748,
+      "classification": "Compressed (GZIP) or Encrypted (AES-GCM)"
+    },
+    {
+      "label": "Kernel Image (Decompressed Linux 6.1.5)",
+      "path": "firmware/extracted/fit_flash_ub/Image",
+      "size_bytes": 22813184,
+      "shannon_entropy_bits_per_byte": 5.972631,
+      "classification": "Uncompressed Code / Filesystem / Bitstream"
+    },
+    {
+      "label": "system.dtb (Device Tree Blob)",
+      "path": "reverse-engineering/device-tree/system.dtb",
+      "size_bytes": 48076,
+      "shannon_entropy_bits_per_byte": 3.653355,
+      "classification": "Structured Text / Metadata"
+    },
+    {
+      "label": "RAMDISK.UB (FIT Initramfs)",
+      "path": "firmware/extracted/fat16_fs/RAMDISK.UB",
+      "size_bytes": 53341780,
+      "shannon_entropy_bits_per_byte": 7.980989,
+      "classification": "Compressed (GZIP) or Encrypted (AES-GCM)"
+    },
+    {
+      "label": "ROOTFS.BIN (Compressed ext4)",
+      "path": "firmware/extracted/fat16_fs/ROOTFS.BIN",
+      "size_bytes": 99365392,
+      "shannon_entropy_bits_per_byte": 7.976235,
+      "classification": "Compressed (GZIP) or Encrypted (AES-GCM)"
+    },
+    {
+      "label": "rootfs_decompressed.img (Decompressed ext4)",
+      "path": "firmware/extracted/rootfs_decompressed.img",
+      "size_bytes": 381229056,
+      "shannon_entropy_bits_per_byte": 4.853979,
+      "classification": "Structured Text / Metadata"
+    }
+  ]
+}
