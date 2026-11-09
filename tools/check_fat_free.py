@@ -19,3 +19,4 @@ with open('firmware/extracted/sec3_decompressed.img', 'rb') as f:
     last_cluster = chain[-1]
     print(f"Last cluster of ROOTFS.BIN: {last_cluster}")
     print(f"Next cluster after last cluster: {entries[last_cluster+1]}")
+

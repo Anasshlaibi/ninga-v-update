@@ -28,3 +28,4 @@ for poly in [0xEDB88320, 0x82F63B78, 0xEB31D82E]:
 for poly in [0x04C11DB7, 0x1EDC6F41, 0x741B8CD7]:
     next_d = ((d0_1 << 1) & 0xffffffff) ^ (poly if (d0_1 & 0x80000000) else 0)
     print(f"Unreflected step with poly {hex(poly)}: {hex(next_d)} (target: {hex(d_bit1)})")
+

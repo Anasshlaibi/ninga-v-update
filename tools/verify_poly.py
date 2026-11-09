@@ -15,3 +15,4 @@ print(f"Calculated d_bit3: {hex(d_bit3)}")
 print(f"Actual d_bit3:     0x402716a2")
 assert d_bit3 == 0x402716a2, "Mismatch on bit 3!"
 print("100% MATHEMATICAL PROOF: Polynomial 0x04C11DB7 generates the exact delta for every bit!")
+

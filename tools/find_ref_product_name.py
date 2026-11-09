@@ -26,3 +26,4 @@ for i in range(0, len(data) - 4, 4):
                 imm12 = (next_word >> 10) & 0xfff
                 if imm12 == 0xec8:
                     print(f"Reference at pc = 0x{i:x}")
+

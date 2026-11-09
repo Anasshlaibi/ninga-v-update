@@ -40,3 +40,4 @@ print(f"Data at cluster 3403: {first16_img.hex()}")
 print(f"ROOTFS.BIN first 16:   {first16_rootfs.hex()}")
 assert first16_img == first16_rootfs, "Mismatch!"
 print("EXACT MATCH: Cluster 3403 points directly to ROOTFS.BIN!")
+

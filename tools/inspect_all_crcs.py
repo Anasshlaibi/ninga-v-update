@@ -20,3 +20,4 @@ with open('firmware/original/ATOMNJV.FW', 'rb') as f:
 
 for s in sections:
     print(f"Sec {s['index']}: id=0x{s['sec_id']:08x}, len={s['pay_len']:9d}, crc=0x{s['crc']:08x}")
+

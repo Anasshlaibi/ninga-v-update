@@ -46,3 +46,5 @@ deploy/ATOMNJV.FW
 deploy/ATOMNJV_SPIDI.FW
 
 deploy/ATOMNJV_CLEAN_SPIDI.FW
+
+deploy/*.FW

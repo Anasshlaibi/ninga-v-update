@@ -15,3 +15,4 @@ decomp = gzip.decompress(padded_data)
 print(f"Decompressed successfully! Length: {len(decomp)} bytes")
 assert len(decomp) == 355729408, "Decompressed length mismatch!"
 print("100% VERIFIED: Zero-padded gzip decompresses perfectly to exact FAT16 image size!")
+

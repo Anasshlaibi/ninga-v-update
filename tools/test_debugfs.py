@@ -27,3 +27,4 @@ print("Stat mode lines:", [l for l in res.stdout.splitlines() if 'Mode:' in l])
 
 os.remove(img)
 os.remove(dummy)
+

@@ -8,3 +8,4 @@ with open('firmware/extracted/sec3_decompressed.img', 'rb') as f:
     print(f"Cluster 9467: {hex(entries[9467])}")
     print(f"Cluster 9468: {hex(entries[9468])}")
     print(f"Cluster 9469: {hex(entries[9469])}")
+

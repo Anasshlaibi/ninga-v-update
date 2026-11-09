@@ -27,3 +27,4 @@ fw_size = os.path.getsize(out_fw)
 print(f"Firmware size: {fw_size} bytes (matches 319558064: {fw_size == 319558064})")
 assert fw_size == 319558064, "Size mismatch!"
 print("Custom Ninja V [SPIDI] firmware package built successfully!")
+
