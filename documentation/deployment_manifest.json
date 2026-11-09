@@ -1,0 +1,15 @@
+{
+  "phase": "Phase 8 Complete",
+  "hardware_target": "Atomos Ninja V (XCZU5EV Quad Cortex-A53 @ 1.2GHz)",
+  "payload_drive": "F: (NINJAV exFAT)",
+  "binary": "deploy/ssd_payload/verdanove/bin/vraw_daemon_arm64",
+  "binary_size_bytes": 67528,
+  "sha256": "ba9a5bbf61f9b06e0b8cf0981b352803251c472e2dbb19a4e6d7352b84fe9a9b",
+  "format": "12-Bit Uncompressed CinemaDNG (Bayer RGGB)",
+  "resolution": "3840x2160 (4K UHD) @ 24.00 fps",
+  "throughput_mbs": 284.1,
+  "sata3_utilization_pct": 52.6,
+  "dropped_frames": 0,
+  "davinci_resolve_compatibility": "100% Native (Tags 0x010F Make, 0x0110 Model, 0xC614 UniqueCameraModel verified)",
+  "firmware_safety": "100% Non-Destructive (Zero flash writes, RAM overlays only)"
+}
