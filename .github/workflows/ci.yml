@@ -1,0 +1,38 @@
+name: Firmware & Recording Engine CI
+
+on:
+  push:
+    branches: [ main, phase-4-compression-engine ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-aarch64-linux-gnu e2fsprogs
+
+      - name: Compile CinemaDNG Ring Writer & Daemon (Host Syntax Test)
+        run: |
+          gcc -Wall -Wextra -O2 recording-engine/storage/cinemadng_ring_writer.c -o /tmp/ring_writer_host
+          gcc -Wall -Wextra -O2 recording-engine/storage/dng_writer.c -c -o /tmp/dng_writer.o
+
+      - name: Compile for AArch64 (ARM64 Cross-Compile Check)
+        run: |
+          aarch64-linux-gnu-gcc -Wall -Wextra -O2 recording-engine/storage/cinemadng_ring_writer.c -o /tmp/ring_writer_arm64
+
+      - name: Audit CRC & Container Checksum Math
+        run: |
+          python3 tools/verify_poly.py
+          python3 tools/test_crc_linearity.py
