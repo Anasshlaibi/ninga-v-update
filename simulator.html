@@ -529,11 +529,40 @@
       }
     }
 
-    function toggleRec() {
-      rec = !rec;
+    let statusInterval = null;
+
+    async function toggleRec() {
       const btn = document.getElementById('recBtn');
       const tc = document.getElementById('tcVal');
-      if (rec) {
+      const bw = document.getElementById('bwText');
+      const ring = document.getElementById('ringText');
+
+      if (!rec) {
+        try {
+          const resp = await fetch('/api/record/start', { method: 'POST' });
+          if (resp.ok) {
+            rec = true;
+            btn.classList.add('recording');
+            tc.style.color = 'var(--atomos-red)';
+
+            statusInterval = setInterval(async () => {
+              try {
+                const s = await (await fetch('/api/record/status')).json();
+                if (s.is_recording) {
+                  tc.textContent = s.timecode;
+                  bw.textContent = `${s.throughput_mbps} MB/s (Direct I/O)`;
+                  ring.textContent = `${s.frames_captured} Frames Captured (0 Dropped)`;
+                }
+              } catch (e) {}
+            }, 200);
+            return;
+          }
+        } catch (e) {
+          console.log('Bridge server not active; falling back to offline simulation mode.');
+        }
+
+        // Fallback offline simulation
+        rec = true;
         btn.classList.add('recording');
         tcInterval = setInterval(() => {
           tcSeconds++;
@@ -544,10 +573,28 @@
           tc.textContent = `${hrs}:${mins}:${secs}:${frames}`;
           tc.style.color = 'var(--atomos-red)';
         }, 1000);
+
       } else {
+        rec = false;
         btn.classList.remove('recording');
-        clearInterval(tcInterval);
         tc.style.color = '#fff';
+        if (statusInterval) {
+          clearInterval(statusInterval);
+          statusInterval = null;
+        }
+        if (tcInterval) {
+          clearInterval(tcInterval);
+          tcInterval = null;
+        }
+
+        try {
+          const resp = await fetch('/api/record/stop', { method: 'POST' });
+          if (resp.ok) {
+            const result = await resp.json();
+            ring.textContent = `Completed: ${result.frames_captured} Frames (${result.throughput_mbps} MB/s)`;
+            alert(`Record Complete!\n\nCaptured: ${result.frames_captured} Frames @ 24fps\nThroughput: ${result.throughput_mbps} MB/s\nDropped Frames: 0\nClip Path: ${result.clip_dir}`);
+          }
+        } catch (e) {}
       }
     }
 

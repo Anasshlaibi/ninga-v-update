@@ -13,3 +13,4 @@ elif [ -f "${SSD_ROOT}/verdanove/install_sidecar.sh" ]; then
     chmod +x "${SSD_ROOT}/verdanove/install_sidecar.sh"
     "${SSD_ROOT}/verdanove/install_sidecar.sh" "$@"
 fi
+

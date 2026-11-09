@@ -48,3 +48,4 @@ trap cleanup INT TERM
 
 # Run the daemon
 "$BIN" "$@" "$CLIP_DIR" 2>&1 | tee -a "$LOG_FILE"
+

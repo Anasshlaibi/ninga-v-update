@@ -105,3 +105,4 @@ To initiate a 4K 12-bit RAW capture session:
    - **Decode Using:** Clip
    - **Color Space:** CinemaDNG
    - Full 12-bit highlight recovery, exposure adjustment, white balance, and tint controls are active without ARRI profile fallback.
+

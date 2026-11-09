@@ -60,3 +60,4 @@ fi
 
 echo "[VRAW_INIT] Installation complete! Sidecar ready."
 echo "[VRAW_INIT] To start recording: ${SCRIPT_DIR}/run_recorder.sh"
+
