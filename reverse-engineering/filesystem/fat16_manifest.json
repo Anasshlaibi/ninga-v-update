@@ -1,0 +1,248 @@
+{
+  "source_image": "firmware/extracted/sec3_decompressed.img",
+  "filesystem_type": "FAT16",
+  "volume_serial_hex": "0xd186df06",
+  "file_count": 40,
+  "files": [
+    {
+      "filename": "APP0000.BIN",
+      "size_bytes": 4058580,
+      "sha256": "13ac9053cebe00db03944ab223d5c83e50a9fe6d2712ce9913ea4c6ce6937ce7",
+      "first_16_bytes_hex": "00000014000000140000001400000014"
+    },
+    {
+      "filename": "DAPP0000.BIN",
+      "size_bytes": 4058580,
+      "sha256": "c3fd74af1f0cf4047fe13c62ea9f89c4bd5e42ff17a0132db8490116bc7eb850",
+      "first_16_bytes_hex": "00000014000000140000001400000014"
+    },
+    {
+      "filename": "DATA0000.BIN",
+      "size_bytes": 64,
+      "sha256": "b0e087f4c09c8d180f99a5fd2fce3491b72380312613d2467bcb6b662872d95a",
+      "first_16_bytes_hex": "c725890f06282c204613e20e47288c24"
+    },
+    {
+      "filename": "DOCKUSB.BIN",
+      "size_bytes": 137228,
+      "sha256": "9b8511a3cd2a9c4bb74550ac11fa055437cba016b67c73b3284c59a369e7d4c5",
+      "first_16_bytes_hex": "43591cb0e00800000001000010402de9"
+    },
+    {
+      "filename": "DPGA0000.BIN",
+      "size_bytes": 8096828,
+      "sha256": "0047f4cc86df7665c934944640de7a5dc28433635330d8f47467adbbbfa44a8a",
+      "first_16_bytes_hex": "00000014000000140000001400000014"
+    },
+    {
+      "filename": "DPGA0001.BIN",
+      "size_bytes": 8096828,
+      "sha256": "77e1deb131164636489b9917c49a41d5917a9ddeda1c97f6fcc63f26ca929091",
+      "first_16_bytes_hex": "00000014000000140000001400000014"
+    },
+    {
+      "filename": "DPGA0002.BIN",
+      "size_bytes": 8096828,
+      "sha256": "082be856a564d02102a59c83adb0ae1ccdd9e5aa1c74462f79d13804f979e32e",
+      "first_16_bytes_hex": "00000014000000140000001400000014"
+    },
+    {
+      "filename": "DPGA0003.BIN",
+      "size_bytes": 8096828,
+      "sha256": "66aa0bd2b3f96b968d47dade9f052cb99e6b7eda3d72d68be4ef32e0039caca0",
+      "first_16_bytes_hex": "00000014000000140000001400000014"
+    },
+    {
+      "filename": "DPGA0005.BIN",
+      "size_bytes": 8096828,
+      "sha256": "80f061b0e15f50656f66a6cffe2b747d41b81bea393d957b0d9b598692b73147",
+      "first_16_bytes_hex": "00000014000000140000001400000014"
+    },
+    {
+      "filename": "DPGA0006.BIN",
+      "size_bytes": 8096828,
+      "sha256": "2f0a14682ed02a20aa2e2d7819df5d77db42175b5c59bfbb3c29ca918113e454",
+      "first_16_bytes_hex": "00000014000000140000001400000014"
+    },
+    {
+      "filename": "DPGA0009.BIN",
+      "size_bytes": 8096828,
+      "sha256": "e2be78184d90745d02988fb29129abec0db9eea43500d1d3b691cb089da890f1",
+      "first_16_bytes_hex": "00000014000000140000001400000014"
+    },
+    {
+      "filename": "DPGA0012.BIN",
+      "size_bytes": 8096828,
+      "sha256": "009ae29fc9fe0a35c86d702e5d476c1b8eaed2ff0bf2ea1210cbf8c19827a6df",
+      "first_16_bytes_hex": "00000014000000140000001400000014"
+    },
+    {
+      "filename": "DPGA0013.BIN",
+      "size_bytes": 8096828,
+      "sha256": "1283e0f9f961326d4a2ee8d3dd6666d2395f9c8aae20957d4b6099cf129b7d13",
+      "first_16_bytes_hex": "00000014000000140000001400000014"
+    },
+    {
+      "filename": "DPGA0014.BIN",
+      "size_bytes": 8096828,
+      "sha256": "d836a6b859e87a5d3068f1c3f5c662e9827800be53dbc848d32f346d2daad5ef",
+      "first_16_bytes_hex": "00000014000000140000001400000014"
+    },
+    {
+      "filename": "DPGA0015.BIN",
+      "size_bytes": 8096828,
+      "sha256": "b5b515938d4b1273ca0b2d9ab65f67fd5ae73feef0684bafc782389db0923d70",
+      "first_16_bytes_hex": "00000014000000140000001400000014"
+    },
+    {
+      "filename": "DPGA0017.BIN",
+      "size_bytes": 8096828,
+      "sha256": "3417ff6b3d809c900063a5b2293c63687d43f524d44b16f5a2fc43aa352cfc90",
+      "first_16_bytes_hex": "00000014000000140000001400000014"
+    },
+    {
+      "filename": "DPGA0018.BIN",
+      "size_bytes": 8096828,
+      "sha256": "4fe48b8f009d6395e72f5c5b49d8ef1becd9304a80a382a7c9a885a7f6d73075",
+      "first_16_bytes_hex": "00000014000000140000001400000014"
+    },
+    {
+      "filename": "DPGA0019.BIN",
+      "size_bytes": 8096828,
+      "sha256": "7e623aaaf4a108cd607b1e031b37b4d5a60b30351d778089be3cf709d3a641f4",
+      "first_16_bytes_hex": "00000014000000140000001400000014"
+    },
+    {
+      "filename": "DPGA0020.BIN",
+      "size_bytes": 8096828,
+      "sha256": "9662ac9ba8d63413efe50753aa37d8626d994bd1ca8331d60eeb3cc3a5ab869b",
+      "first_16_bytes_hex": "00000014000000140000001400000014"
+    },
+    {
+      "filename": "FLASH.UB",
+      "size_bytes": 8621680,
+      "sha256": "637824dd2b37b21bca4c45ef3d3cb5c912fddb557b61009366acffcd4d94e7da",
+      "first_16_bytes_hex": "d00dfeed00838e700000003800838a7c"
+    },
+    {
+      "filename": "FMODDOCK.BIN",
+      "size_bytes": 2192121,
+      "sha256": "52fddcdecffbce92b3334cf45714e49c4a046f21757b306ff1fe539a7e3b02da",
+      "first_16_bytes_hex": "00090ff00ff00ff00ff000000161002f"
+    },
+    {
+      "filename": "FMODSTRM.BIN",
+      "size_bytes": 553189,
+      "sha256": "e5b5df5dd5bd0fd26f04989766cd5c661c4b2270f3dc873d8786ed92b6c05aaf",
+      "first_16_bytes_hex": "00090ff00ff00ff00ff000000161003f"
+    },
+    {
+      "filename": "FWFAILED.BIN",
+      "size_bytes": 2088960,
+      "sha256": "0a56d97007e4874d54dd48e25958f2f8614cbb1bcafe42466656a31bc74823b8",
+      "first_16_bytes_hex": "000000ff000000ff000000ff000000ff"
+    },
+    {
+      "filename": "GECKO_FW.BIN",
+      "size_bytes": 15607,
+      "sha256": "57a8a21530deb918b297ab0738f08e2d6d483acafe29ec85a79aae5a3d477559",
+      "first_16_bytes_hex": "c7187d060188e83c00005dbe1900e100"
+    },
+    {
+      "filename": "MANIFEST.XMD",
+      "size_bytes": 122,
+      "sha256": "57ccf532027dbb8f3421fab55234cc7a6d26dbb307f91f3488b2a505502771fc",
+      "first_16_bytes_hex": "3020584d4f4453594e2e62696e203031"
+    },
+    {
+      "filename": "PLS_WAIT.BIN",
+      "size_bytes": 238560,
+      "sha256": "ce8f92a11b4fc19ae99dcc99137b48490f345a931fa0513a130b3fc76f8a50db",
+      "first_16_bytes_hex": "ffffff00ffffff00ffffff00ffffff00"
+    },
+    {
+      "filename": "RAMDISK.UB",
+      "size_bytes": 53341780,
+      "sha256": "b511780473656cd7b03485811a78caf6f9eefa71749ac3b3382ce50848fa2ad5",
+      "first_16_bytes_hex": "d00dfeed032dee5400000038032dea84"
+    },
+    {
+      "filename": "RES0001.BIN",
+      "size_bytes": 11459647,
+      "sha256": "e3847c365581d30e13dcae6ae22114656c80c91f7f2956bc230b0dbf24ff7d8d",
+      "first_16_bytes_hex": "b5009bb14aff644e000000605f7b8300"
+    },
+    {
+      "filename": "ROOTFS.BIN",
+      "size_bytes": 99365392,
+      "sha256": "95432401d029fb301dcf2575aa2c8d2ebf5c6c06a3ad67957e14761877b6b9b7",
+      "first_16_bytes_hex": "1f8b0800000000000203ecdd077c5455"
+    },
+    {
+      "filename": "ROOTFS.TXT",
+      "size_bytes": 42,
+      "sha256": "775c02a3d9245bfb0b258ffbb9e3d7ca0f79280e1e2d1d9b906522434cba3566",
+      "first_16_bytes_hex": "555549443d39623866396431612d6264"
+    },
+    {
+      "filename": "SYNC0001.BIN",
+      "size_bytes": 67686,
+      "sha256": "2581819ce6e98245521118e44061d1e7b9f10a45d4796b2bd026a27250b84e34",
+      "first_16_bytes_hex": "2a416947753100008f00000000081042"
+    },
+    {
+      "filename": "SYNC0002.BIN",
+      "size_bytes": 24698,
+      "sha256": "2c3ad943d11685673656c0867f0f195f4861e1dde93d1982acbcd19318b08d7c",
+      "first_16_bytes_hex": "2a544650416700007100000000001030"
+    },
+    {
+      "filename": "SYNC0003.BIN",
+      "size_bytes": 181474,
+      "sha256": "569a5b778c26c4a1cf69e3d5b9ccc0d7cfe2c49df5a88e244625e2e732cafabc",
+      "first_16_bytes_hex": "2a424c45616700009601000000002fb1"
+    },
+    {
+      "filename": "SYNC0004.BIN",
+      "size_bytes": 246781,
+      "sha256": "fca4aa083e36897750c1e75952cd53da92a4ac3881b6daf9c242ac795b0e4033",
+      "first_16_bytes_hex": "2a414775326300006600000000009f03"
+    },
+    {
+      "filename": "SYNC0005.BIN",
+      "size_bytes": 127633,
+      "sha256": "c04a22be53a627aff8b2fd7039eb2766f3d33034c9eb2a0ff2d74242eaf80448",
+      "first_16_bytes_hex": "2a41477532730000e700000000086907"
+    },
+    {
+      "filename": "UBOOT.ENV",
+      "size_bytes": 262144,
+      "sha256": "8a39d2abd3999ab73c34db2476849cddf303ce389b35826850f9a700589b4a90",
+      "first_16_bytes_hex": "00000000000000000000000000000000"
+    },
+    {
+      "filename": "XMODDOCK.BIN",
+      "size_bytes": 4402292,
+      "sha256": "97056302d66019148e7d637075ee88aef0bd1cbd768439ba9f6571dbdece58db",
+      "first_16_bytes_hex": "212054686973206c696e6520656e7375"
+    },
+    {
+      "filename": "XMODSDI.BIN",
+      "size_bytes": 3671179,
+      "sha256": "5ec2ca4d355bb683caac48011bcda1dbdf3f30ac28eb13dcb9f2dea081c26bb8",
+      "first_16_bytes_hex": "21436f70797269676874202843292032"
+    },
+    {
+      "filename": "XMODSTRM.BIN",
+      "size_bytes": 1111491,
+      "sha256": "7eb8be28a36a7e68544a587ea30852506aff957da111533df21409b20fff2c12",
+      "first_16_bytes_hex": "212054686973206c696e6520656e7375"
+    },
+    {
+      "filename": "XMODSYN.BIN",
+      "size_bytes": 3671129,
+      "sha256": "128b194731721efe6e85eec8e543690c05a4cb944adef5933c28e276007eda10",
+      "first_16_bytes_hex": "21436f70797269676874202843292032"
+    }
+  ]
+}

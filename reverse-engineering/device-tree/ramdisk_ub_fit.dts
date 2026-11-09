@@ -1,0 +1,57 @@
+/dts-v1/;
+/ {
+  timestamp = <0x6a6face3>;
+  description = "U-Boot fitImage for AtomOS aarch64 kernel";
+  #address-cells = <0x1>;
+  images {
+    kernel-1 {
+      description = "Linux Kernel";
+      data = </* binary 8571770 bytes, sha256=c2606f5640fe2d08... */>;
+      type = "kernel";
+      arch = "arm64";
+      os = "linux";
+      compression = "gzip";
+      load = <0x200000>;
+      entry = <0x200000>;
+      hash {
+        value = <0xc2606f56 0x40fe2d08 0xdfd74a05 0xb475901 0x817b102e 0x241b2992 0xaf061115 0x17a313d1>;
+        algo = "sha256";
+      };
+    };
+    fdt-1 {
+      description = "Flattened Device Tree blob";
+      data = </* binary 48076 bytes, sha256=f9ac3af2c7152105... */>;
+      type = "flat_dt";
+      arch = "arm64";
+      compression = "none";
+      hash {
+        value = <0xf9ac3af2 0xc7152105 0x771dde19 0x434b307c 0x3a00c314 0xd4772d9a 0x307fb640 0x5b27b751>;
+        algo = "sha256";
+      };
+    };
+    ramdisk-1 {
+      description = "minimal ramdisk";
+      data = </* binary 44719877 bytes, sha256=fea7df16d6921e88... */>;
+      type = "ramdisk";
+      arch = "arm64";
+      os = "linux";
+      compression = "none";
+      hash {
+        value = <0xfea7df16 0xd6921e88 0xd7b0e9d9 0x46ae5792 0x51085d2a 0xe25cc91d 0x2e1ed834 0x67e3eaef>;
+        algo = "sha256";
+      };
+    };
+  };
+  configurations {
+    default = "conf-1";
+    conf-1 {
+      description = "Boot Linux kernel with FDT blob + ramdisk";
+      kernel = "kernel-1";
+      fdt = "fdt-1";
+      ramdisk = "ramdisk-1";
+      hash {
+        algo = "sha256";
+      };
+    };
+  };
+};
