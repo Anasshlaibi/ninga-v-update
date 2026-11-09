@@ -3,180 +3,477 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Verdanove Ninja Lab — UI Simulator & Firmware Navigator</title>
+  <title>Verdanove Ninja Lab — Full AtomOS 11 UI Interactive Simulator</title>
   <style>
     :root {
-      --bg: #0b0f17;
-      --card-bg: #131a26;
-      --accent: #00d2ff;
-      --accent-dim: rgba(0, 210, 255, 0.15);
-      --green: #00ff88;
-      --orange: #ffaa00;
-      --text: #e1e7f0;
-      --text-dim: #7f8fa4;
-      --border: #1f2d3d;
+      --bg: #070a0f;
+      --card-bg: #0f1622;
+      --atomos-bar: rgba(14, 18, 24, 0.94);
+      --accent: #00e5ff;
+      --atomos-yellow: #f5c518;
+      --atomos-red: #ff2a3a;
+      --atomos-green: #00e676;
+      --text: #e8edf5;
+      --text-muted: #8391a5;
+      --border: #1e293b;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
-    body { background: var(--bg); color: var(--text); padding: 24px; }
-    header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 24px; }
-    .title-group h1 { font-size: 22px; color: #fff; font-weight: 700; display: flex; align-items: center; gap: 10px; }
-    .badge { font-size: 11px; padding: 3px 8px; border-radius: 4px; background: var(--accent-dim); color: var(--accent); border: 1px solid var(--accent); font-weight: 600; text-transform: uppercase; }
-    .badge-live { background: rgba(0, 255, 136, 0.15); color: var(--green); border-color: var(--green); }
-    .sub { color: var(--text-dim); font-size: 13px; margin-top: 4px; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-user-select: none; user-select: none; }
+    body { background: var(--bg); color: var(--text); padding: 16px 24px; min-height: 100vh; }
+    
+    header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px; }
+    .title-group h1 { font-size: 20px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 10px; }
+    .badge { font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 600; text-transform: uppercase; }
+    .badge-cyan { background: rgba(0, 229, 255, 0.15); color: var(--accent); border: 1px solid var(--accent); }
+    .badge-live { background: rgba(0, 230, 118, 0.15); color: var(--atomos-green); border: 1px solid var(--atomos-green); }
+    .sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
 
-    .grid { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; }
-    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 24px; }
-    .card-header { font-size: 14px; font-weight: 600; text-transform: uppercase; color: var(--text-dim); letter-spacing: 0.5px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; }
-
-    /* Ninja V Frame Preview */
-    .screen-wrapper {
+    /* Ninja V Hardware Chassis Container */
+    .ninja-chassis {
+      max-width: 1280px;
+      margin: 0 auto 20px auto;
+      background: #151921;
+      border: 14px solid #1e2430;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8), inset 0 0 2px rgba(255,255,255,0.1);
       position: relative;
-      background: #000;
-      border: 12px solid #1c2430;
-      border-radius: 12px;
-      box-shadow: 0 16px 36px rgba(0,0,0,0.6);
-      overflow: hidden;
+    }
+    .atomos-branding {
+      position: absolute;
+      top: -12px; left: 50%; transform: translateX(-50%);
+      font-size: 10px; letter-spacing: 2px; font-weight: 800; color: #5a687c; text-transform: uppercase;
+    }
+
+    /* 16:9 Screen (1920x1080 Simulated Canvas) */
+    .screen-viewport {
+      position: relative;
       aspect-ratio: 16 / 9;
-    }
-    .screen-wrapper img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .osd-overlay {
-      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-      pointer-events: none;
+      background: #000;
+      overflow: hidden;
       display: flex; flex-direction: column; justify-content: space-between;
-      padding: 14px 18px;
     }
-    .osd-top, .osd-bottom { display: flex; justify-content: space-between; align-items: center; }
-    .osd-pill { background: rgba(0,0,0,0.75); border: 1px solid rgba(255,255,255,0.2); padding: 5px 10px; border-radius: 4px; font-size: 12px; font-family: monospace; font-weight: bold; }
-    .osd-rec { color: #ff3344; display: flex; align-items: center; gap: 6px; }
-    .osd-rec::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #ff3344; display: inline-block; animation: pulse 1s infinite alternate; }
-    @keyframes pulse { from { opacity: 0.3; } to { opacity: 1; } }
 
-    /* Controls & Tree */
-    .stat-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 13px; }
-    .stat-label { color: var(--text-dim); }
-    .stat-val { font-family: monospace; font-weight: 600; color: #fff; }
+    /* Video Feed Background (Simulated Nikon ZR 12-bit Live Stream) */
+    .video-background {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(circle at 60% 45%, #1a2233 0%, #0d121c 60%, #05070a 100%);
+      z-index: 1;
+    }
+    .video-grid {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background-size: 40px 40px;
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+    .crosshair {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 120px; height: 120px; border: 1px dashed rgba(255,255,255,0.25);
+      border-radius: 50%; pointer-events: none;
+    }
+    .crosshair::before, .crosshair::after {
+      content: ""; position: absolute; background: rgba(255,255,255,0.4);
+    }
+    .crosshair::before { top: 50%; left: -15px; width: 150px; height: 1px; }
+    .crosshair::after { top: -15px; left: 50%; width: 1px; height: 150px; }
 
-    .file-tree { list-style: none; font-size: 13px; font-family: monospace; }
-    .file-tree li { padding: 6px 10px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
-    .file-tree li:hover { background: rgba(255,255,255,0.05); }
-    .file-tag { font-size: 10px; padding: 2px 6px; border-radius: 3px; font-weight: bold; }
-    .tag-open { background: rgba(0, 255, 136, 0.15); color: var(--green); }
-    .tag-lock { background: rgba(255, 170, 0, 0.15); color: var(--orange); }
+    /* AtomOS Top Toolbar */
+    .osd-topbar {
+      position: relative; z-index: 10;
+      height: 52px; background: var(--atomos-bar);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 16px;
+    }
+    .top-group { display: flex; align-items: center; gap: 12px; }
 
-    .tabs { display: flex; gap: 8px; margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
-    .tab-btn { background: none; border: none; color: var(--text-dim); padding: 6px 12px; font-weight: 600; font-size: 13px; cursor: pointer; border-radius: 4px; }
-    .tab-btn.active { background: var(--accent-dim); color: var(--accent); }
+    .rec-btn {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: #2a080c; border: 2px solid var(--atomos-red);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .rec-btn.recording { background: var(--atomos-red); box-shadow: 0 0 14px var(--atomos-red); }
+    .rec-btn-inner { width: 14px; height: 14px; border-radius: 50%; background: var(--atomos-red); }
+    .rec-btn.recording .rec-btn-inner { background: #fff; border-radius: 3px; }
+
+    .top-pill {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px; padding: 4px 10px; font-size: 12px; font-family: monospace;
+      font-weight: 700; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    }
+    .top-pill:hover { background: rgba(255,255,255,0.14); border-color: var(--accent); }
+    .pill-label { font-size: 9px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; margin-bottom: 1px; }
+    .pill-val { font-size: 13px; color: #fff; }
+
+    /* Center Video Display Area & Overlays */
+    .osd-center {
+      position: relative; z-index: 5; flex: 1;
+      display: flex; justify-content: space-between; padding: 16px;
+      pointer-events: none;
+    }
+    
+    /* Live Audio VU Meters Ch 1-4 */
+    .vu-meter-box {
+      pointer-events: auto;
+      background: rgba(10, 14, 20, 0.85); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px; padding: 10px 8px; width: 68px; display: flex; flex-direction: column; gap: 4px;
+    }
+    .vu-title { font-size: 9px; font-weight: 800; color: var(--text-muted); text-align: center; }
+    .vu-channels { display: flex; justify-content: space-around; height: 160px; margin-top: 6px; }
+    .vu-bar-track { width: 8px; height: 100%; background: #1a2230; border-radius: 3px; position: relative; overflow: hidden; display: flex; flex-direction: column-reverse; }
+    .vu-fill {
+      width: 100%; background: linear-gradient(to top, var(--atomos-green) 0%, var(--atomos-green) 70%, var(--atomos-yellow) 85%, var(--atomos-red) 100%);
+      height: 65%; border-radius: 3px; transition: height 0.15s ease-out;
+    }
+
+    /* Active Codec & Format Badge Overlay */
+    .format-hud {
+      pointer-events: auto;
+      align-self: flex-start;
+      background: rgba(10, 14, 20, 0.88); border: 1px solid var(--accent);
+      border-radius: 8px; padding: 10px 14px; box-shadow: 0 8px 24px rgba(0, 229, 255, 0.15);
+    }
+    .format-hud-title { font-size: 10px; color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+    .format-hud-main { font-size: 18px; font-weight: 800; color: #fff; margin: 3px 0; }
+    .format-hud-sub { font-size: 11px; color: var(--text-muted); font-family: monospace; }
+
+    /* AtomOS Bottom Navigation / Tools Bar */
+    .osd-bottombar {
+      position: relative; z-index: 10;
+      height: 58px; background: var(--atomos-bar);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: space-around;
+      padding: 0 10px;
+    }
+    .tool-btn {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 3px; background: none; border: none; color: var(--text-muted);
+      cursor: pointer; width: 64px; height: 46px; border-radius: 6px; transition: all 0.15s;
+    }
+    .tool-btn:hover { background: rgba(255,255,255,0.08); color: #fff; }
+    .tool-btn.active { background: rgba(0, 229, 255, 0.18); color: var(--accent); border: 1px solid var(--accent); }
+    .tool-icon { font-size: 16px; }
+    .tool-label { font-size: 9px; font-weight: 700; text-transform: uppercase; }
+
+    /* Interactive Modal for Settings */
+    .settings-modal {
+      position: absolute; top: 60px; left: 50%; transform: translateX(-50%);
+      width: 600px; background: #131b28; border: 2px solid var(--accent);
+      border-radius: 10px; z-index: 50; padding: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+      display: none;
+    }
+    .modal-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+    .modal-head h3 { font-size: 15px; color: var(--accent); text-transform: uppercase; }
+    .close-btn { background: none; border: none; color: #fff; font-size: 18px; cursor: pointer; }
+    .option-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .opt-card {
+      background: #192436; border: 1px solid var(--border); border-radius: 6px;
+      padding: 12px; text-align: center; cursor: pointer;
+    }
+    .opt-card:hover, .opt-card.selected { border-color: var(--accent); background: rgba(0, 229, 255, 0.12); }
+    .opt-title { font-size: 13px; font-weight: 700; color: #fff; }
+    .opt-desc { font-size: 10px; color: var(--text-muted); margin-top: 4px; }
+
+    /* Control Panel Cards Below Monitor */
+    .controls-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; max-width: 1280px; margin: 0 auto; }
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+    .card h2 { font-size: 14px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+    .btn-row { display: flex; gap: 10px; margin-top: 10px; }
+    .action-btn {
+      padding: 8px 14px; border-radius: 6px; font-size: 12px; font-weight: 700;
+      border: 1px solid var(--border); background: #182232; color: #fff; cursor: pointer;
+    }
+    .action-btn:hover { background: var(--accent); color: #000; }
   </style>
 </head>
 <body>
   <header>
     <div class="title-group">
-      <h1>Verdanove Ninja Lab <span class="badge">Simulator Active</span> <span class="badge badge-live">Local Host: 8080</span></h1>
-      <p class="sub">Simulated Atomos Ninja V (AtomOS 11.19.00 / XCZU5EV) &middot; Live Asset Preview</p>
+      <h1>AtomOS 11 Interactive Monitor Simulator <span class="badge badge-cyan">Verdanove Lab</span> <span class="badge badge-live">Live UI Mode</span></h1>
+      <p class="sub">Simulating Ninja V 5-Inch 1000nit HDR Monitor &middot; Full Touch OSD Layout & Recording Pipeline</p>
+    </div>
+    <div>
+      <span style="font-size: 12px; color: var(--text-muted);">Development Workstation: Core i9-14900HX &middot; RTX 4060 &middot; 32GB RAM</span>
     </div>
   </header>
 
-  <div class="grid">
-    <!-- Left Column: Screen Emulator -->
-    <div>
-      <div class="card">
-        <div class="card-header">
-          <span>Ninja V 5-Inch 1080p Screen Preview (Rendered from extracted rootfs)</span>
-          <span style="font-size: 11px; color: var(--green);">Source: /usr/share/video_pipeline/no_input_bg.png</span>
+  <!-- Ninja V Hardware Display Frame -->
+  <div class="ninja-chassis">
+    <div class="atomos-branding">ATOMOS NINJA V &middot; VERDANOVE CUSTOM LAB</div>
+    
+    <div class="screen-viewport">
+      <!-- Simulated Video Feed -->
+      <div class="video-background">
+        <div class="video-grid"></div>
+        <div class="crosshair"></div>
+      </div>
+
+      <!-- Top Toolbar -->
+      <div class="osd-topbar">
+        <div class="top-group">
+          <!-- Record Trigger Button -->
+          <div class="rec-btn" id="recButton" onclick="toggleRecord()" title="Trigger Recording">
+            <div class="rec-btn-inner"></div>
+          </div>
+          <!-- Timecode -->
+          <div class="top-pill">
+            <span class="pill-label">TIMECODE</span>
+            <span class="pill-val" id="tcDisplay">00:00:00:00</span>
+          </div>
+          <!-- Codec Preset Selector -->
+          <div class="top-pill" onclick="openModal('codecModal')">
+            <span class="pill-label">RECORD CODEC</span>
+            <span class="pill-val" id="activeCodecLabel" style="color: var(--accent);">ProRes RAW 12-Bit</span>
+          </div>
         </div>
-        <div class="screen-wrapper">
-          <img id="liveScreen" src="interface/monitoring/verdanove_simulated_ui_preview.png" alt="Simulated Screen">
-          <div class="osd-overlay">
-            <div class="osd-top">
-              <div class="osd-pill osd-rec">RAW REC STANDBY</div>
-              <div class="osd-pill">4K UHD 23.98p &middot; 12-BIT BAYER</div>
-              <div class="osd-pill">SATA: 520 MB/s &middot; SSDmini OK</div>
-            </div>
-            <div class="osd-bottom">
-              <div class="osd-pill">HDMI 2.0: NIKON ZR RAW</div>
-              <div class="osd-pill" style="color: var(--accent);">VERDANOVE BLUE COMPRESSOR [SIM]</div>
-              <div class="osd-pill">TDP: 11.2W &middot; FAN: 45%</div>
-            </div>
+
+        <div class="top-group">
+          <!-- Resolution & Frame Rate -->
+          <div class="top-pill" onclick="openModal('resModal')">
+            <span class="pill-label">INPUT FORMAT</span>
+            <span class="pill-val" id="activeResLabel">4K UHD 23.98p</span>
+          </div>
+          <!-- Storage SSD Remaining -->
+          <div class="top-pill">
+            <span class="pill-label">SSD: 1TB SSDmini</span>
+            <span class="pill-val" id="ssdDisplay" style="color: var(--atomos-green);">3h 24m REM</span>
+          </div>
+          <!-- Battery / Power -->
+          <div class="top-pill">
+            <span class="pill-label">BATTERY 1</span>
+            <span class="pill-val" style="color: var(--atomos-green);">7.4V (100%)</span>
           </div>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-header">
-          <span>Real-Time Math & Compute Feasibility</span>
+      <!-- Center Video Display Area & HUD Overlays -->
+      <div class="osd-center">
+        <!-- Audio VU Meters -->
+        <div class="vu-meter-box">
+          <div class="vu-title">AUDIO 4CH</div>
+          <div class="vu-channels">
+            <div class="vu-bar-track"><div class="vu-fill" id="vu1"></div></div>
+            <div class="vu-bar-track"><div class="vu-fill" id="vu2"></div></div>
+            <div class="vu-bar-track"><div class="vu-fill" id="vu3"></div></div>
+            <div class="vu-bar-track"><div class="vu-fill" id="vu4"></div></div>
+          </div>
         </div>
-        <div class="stat-row">
-          <span class="stat-label">SoC Application Processing Unit (APU)</span>
-          <span class="stat-val">4x ARM Cortex-A53 @ 1.20 GHz (Max 4.8 Giga-cycles/sec)</span>
-        </div>
-        <div class="stat-row">
-          <span class="stat-label">4K UHD 24fps Uncompressed 12-Bit Rate</span>
-          <span class="stat-val" style="color: var(--green);">284.8 MB/s (Fits in 550 MB/s SATA 3 bandwidth)</span>
-        </div>
-        <div class="stat-row">
-          <span class="stat-label">4K UHD 60fps Uncompressed 12-Bit Rate</span>
-          <span class="stat-val" style="color: var(--orange);">711.9 MB/s (Exceeds SATA 3 &middot; Requires Compression)</span>
-        </div>
-        <div class="stat-row">
-          <span class="stat-label">Software Wavelet Cycle Budget (4K 60fps)</span>
-          <span class="stat-val" style="color: #ff5566;">9.6 cycles / pixel (Hardware FPGA required for 60p)</span>
+
+        <!-- Format & Verdanove Engine Badge -->
+        <div class="format-hud">
+          <div class="format-hud-title">ACTIVE RECORDER ENGINE</div>
+          <div class="format-hud-main" id="hudTitle">Nikon ZR 12-Bit RAW</div>
+          <div class="format-hud-sub" id="hudSub">Bayer 3840x2160 &middot; 284.8 MB/s &middot; Target: Master Caddy II SSD</div>
         </div>
       </div>
-    </div>
 
-    <!-- Right Column: Explorer & Controls -->
-    <div>
-      <div class="card">
-        <div class="card-header">
-          <span>Firmware Component Explorer</span>
-        </div>
-        <ul class="file-tree">
-          <li>
-            <span>/usr/bin/video_pipeline (2.87 MB)</span>
-            <span class="file-tag tag-open">UNENCRYPTED</span>
-          </li>
-          <li>
-            <span>/usr/share/video_pipeline/no_input_bg.png</span>
-            <span class="file-tag tag-open">MODIFIED (ACTIVE)</span>
-          </li>
-          <li>
-            <span>FLASH.UB (Linux 6.1.5 Kernel + DTB)</span>
-            <span class="file-tag tag-open">UNENCRYPTED</span>
-          </li>
-          <li>
-            <span>ROOTFS.BIN (PetaLinux 2023.1 RootFS)</span>
-            <span class="file-tag tag-open">UNENCRYPTED</span>
-          </li>
-          <li>
-            <span>APP0000.BIN (Cortex-R5 UI Engine)</span>
-            <span class="file-tag tag-lock">ENCRYPTED (eFUSE)</span>
-          </li>
-          <li>
-            <span>DPGA0005.BIN (ProRes RAW HDMI FPGA)</span>
-            <span class="file-tag tag-lock">ENCRYPTED (eFUSE)</span>
-          </li>
-          <li>
-            <span>DPGA0009.BIN (H.265 / VCU Capture FPGA)</span>
-            <span class="file-tag tag-lock">ENCRYPTED (eFUSE)</span>
-          </li>
-          <li>
-            <span>FMODDOCK.BIN (AtomX CAST Artix-7)</span>
-            <span class="file-tag tag-open">UNENCRYPTED</span>
-          </li>
-        </ul>
+      <!-- Bottom Monitoring Toolbar -->
+      <div class="osd-bottombar">
+        <button class="tool-btn active" id="btnWaveform" onclick="toggleTool(this)">
+          <span class="tool-icon">&#x223F;</span>
+          <span class="tool-label">Waveform</span>
+        </button>
+        <button class="tool-btn" id="btnParade" onclick="toggleTool(this)">
+          <span class="tool-icon">&#x2630;</span>
+          <span class="tool-label">RGB Parade</span>
+        </button>
+        <button class="tool-btn" id="btnVector" onclick="toggleTool(this)">
+          <span class="tool-icon">&#x25CE;</span>
+          <span class="tool-label">Vectorscope</span>
+        </button>
+        <button class="tool-btn" id="btnPeaking" onclick="toggleTool(this)">
+          <span class="tool-icon">&#x25C9;</span>
+          <span class="tool-label">Peaking</span>
+        </button>
+        <button class="tool-btn" id="btnZebra" onclick="toggleTool(this)">
+          <span class="tool-icon">&#x25A6;</span>
+          <span class="tool-label">Zebra</span>
+        </button>
+        <button class="tool-btn" id="btnFalseColor" onclick="toggleTool(this)">
+          <span class="tool-icon">&#x25D1;</span>
+          <span class="tool-label">False Color</span>
+        </button>
+        <button class="tool-btn" id="btnZoom" onclick="toggleTool(this)">
+          <span class="tool-icon">&#x2315;</span>
+          <span class="tool-label">Zoom 1:1</span>
+        </button>
+        <button class="tool-btn" id="btnLUT" onclick="toggleTool(this)">
+          <span class="tool-icon">&#x25B3;</span>
+          <span class="tool-label">N-Log 3D LUT</span>
+        </button>
       </div>
 
-      <div class="card">
-        <div class="card-header">
-          <span>Simulation Controls</span>
+      <!-- Codec Modal -->
+      <div class="settings-modal" id="codecModal">
+        <div class="modal-head">
+          <h3>Select Recording Codec & Pipeline</h3>
+          <button class="close-btn" onclick="closeModal('codecModal')">&times;</button>
         </div>
-        <p style="font-size: 12px; color: var(--text-dim); margin-bottom: 14px;">
-          This local dashboard reflects the live emulated filesystem on your PC. You can edit any file in <code>firmware/extracted/rootfs_ext4</code> and refresh this page to see it instantly.
-        </p>
-        <button style="width: 100%; padding: 10px; background: var(--accent); color: #000; border: none; border-radius: 4px; font-weight: 700; cursor: pointer;" onclick="location.reload()">Refresh Live Preview</button>
+        <div class="option-grid">
+          <div class="opt-card selected" onclick="selectCodec('ProRes RAW 12-Bit', 'Nikon ZR 12-Bit RAW', 'FPGA prraw_cp_app.bit (DPGA0005.BIN)')">
+            <div class="opt-title">ProRes RAW 12-Bit</div>
+            <div class="opt-desc">Native AtomOS FPGA Pipeline (Preserves full sensor bayer)</div>
+          </div>
+          <div class="opt-card" onclick="selectCodec('Blue Compressor (Sim)', 'Verdanove Blue R3D NE', 'Cortex-A53 CPU NEON Wavelet &middot; 4K 24p Mode')">
+            <div class="opt-title">Blue Compressor [SIM]</div>
+            <div class="opt-desc">Wavelet / TICO-RAW Compression for Nikon R3D NE</div>
+          </div>
+          <div class="opt-card" onclick="selectCodec('Uncompressed 12-Bit', 'Direct Uncompressed DNG', 'Direct DDR to SATA 3 &middot; 284.8 MB/s at 24fps')">
+            <div class="opt-title">Uncompressed 12-Bit</div>
+            <div class="opt-desc">True Lossless Direct RAW Stream (CinemaDNG Compatible)</div>
+          </div>
+          <div class="opt-card" onclick="selectCodec('ProRes 422 HQ', 'Apple ProRes HQ 10-Bit', 'FPGA prores_cp_app.bit (DPGA0002.BIN)')">
+            <div class="opt-title">ProRes 422 HQ</div>
+            <div class="opt-desc">Standard 10-bit 4:2:2 Broadcast Codec</div>
+          </div>
+          <div class="opt-card" onclick="selectCodec('Avid DNxHR HQX', 'Avid DNxHR 10-Bit', 'FPGA dnx_cp_app.bit (DPGA0003.BIN)')">
+            <div class="opt-title">Avid DNxHR HQX</div>
+            <div class="opt-desc">Avid Media Composer Master Codec</div>
+          </div>
+          <div class="opt-card" onclick="selectCodec('H.265 10-Bit 4:2:2', 'HEVC Main10 (VCU Hard IP)', 'Linux video_pipeline + Allegro al5e.ko')">
+            <div class="opt-title">H.265 / HEVC 10-Bit</div>
+            <div class="opt-desc">Hardware VCU Encode &middot; Cloud / Proxy Upload</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resolution Modal -->
+      <div class="settings-modal" id="resModal">
+        <div class="modal-head">
+          <h3>Input Signal Format & Frame Rate</h3>
+          <button class="close-btn" onclick="closeModal('resModal')">&times;</button>
+        </div>
+        <div class="option-grid">
+          <div class="opt-card selected" onclick="selectRes('4K UHD 23.98p', '284.8 MB/s', '3h 24m REM')">
+            <div class="opt-title">4K UHD 23.98p</div>
+            <div class="opt-desc">3840x2160 &middot; Cinema Frame Rate</div>
+          </div>
+          <div class="opt-card" onclick="selectRes('4K UHD 29.97p', '356.0 MB/s', '2h 45m REM')">
+            <div class="opt-title">4K UHD 29.97p</div>
+            <div class="opt-desc">3840x2160 &middot; Standard Broadcast</div>
+          </div>
+          <div class="opt-card" onclick="selectRes('4K UHD 59.94p', '711.9 MB/s', '1h 22m REM')">
+            <div class="opt-title">4K UHD 59.94p</div>
+            <div class="opt-desc">3840x2160 &middot; High Frame Rate (Needs Compression)</div>
+          </div>
+          <div class="opt-card" onclick="selectRes('4K DCI 24.00p', '303.8 MB/s', '3h 10m REM')">
+            <div class="opt-title">4K DCI 24.00p</div>
+            <div class="opt-desc">4096x2160 &middot; Full DCI Scope</div>
+          </div>
+          <div class="opt-card" onclick="selectRes('1080p 59.94p', '178.0 MB/s', '5h 30m REM')">
+            <div class="opt-title">FHD 1080p 59.94p</div>
+            <div class="opt-desc">1920x1080 &middot; High Frame Rate</div>
+          </div>
+          <div class="opt-card" onclick="selectRes('1080p 23.98p', '71.2 MB/s', '12h 15m REM')">
+            <div class="opt-title">FHD 1080p 23.98p</div>
+            <div class="opt-desc">1920x1080 &middot; Low Data Rate</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+  <!-- Real-Time Hardware & Emulation Controls -->
+  <div class="controls-grid">
+    <div class="card">
+      <h2>Interactive Simulation Controls</h2>
+      <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+        Click any touch button on the Ninja V screen above to interact: press the <strong>Red Dot</strong> to trigger recording, click the <strong>Record Codec</strong> or <strong>Input Format</strong> pills to change pipelines, or toggle monitoring tools (Waveform, Peaking, LUT).
+      </p>
+      <div class="btn-row">
+        <button class="action-btn" onclick="toggleRecord()">Simulate Camera Rec Trigger</button>
+        <button class="action-btn" onclick="randomizeAudio()">Jitter Audio VU Levels</button>
+        <button class="action-btn" onclick="location.reload()">Reset Monitor State</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Pipeline Status (Live)</h2>
+      <div style="font-size: 12px; font-family: monospace; line-height: 1.8;">
+        <div>Device: <strong>Ninja V (XCZU5EV)</strong></div>
+        <div>APU Load: <span style="color: var(--atomos-green);" id="cpuLoad">14.2%</span></div>
+        <div>SATA SSD Write: <span style="color: var(--accent);" id="sataSpeed">0.0 MB/s</span></div>
+        <div>Active Bitstream: <span style="color: var(--atomos-yellow);" id="activeBitstream">DPGA0005.BIN</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let recording = false;
+    let frames = 0;
+    let recTimer = null;
+    let audioTimer = null;
+    let activeSpeed = "284.8 MB/s";
+
+    function toggleRecord() {
+      recording = !recording;
+      const btn = document.getElementById("recButton");
+      const sata = document.getElementById("sataSpeed");
+      const cpu = document.getElementById("cpuLoad");
+      
+      if (recording) {
+        btn.classList.add("recording");
+        sata.innerText = activeSpeed;
+        cpu.innerText = "28.6%";
+        recTimer = setInterval(updateTimecode, 1000 / 24);
+      } else {
+        btn.classList.remove("recording");
+        sata.innerText = "0.0 MB/s";
+        cpu.innerText = "14.2%";
+        clearInterval(recTimer);
+      }
+    }
+
+    function updateTimecode() {
+      frames++;
+      let f = frames % 24;
+      let totalSec = Math.floor(frames / 24);
+      let s = totalSec % 60;
+      let m = Math.floor(totalSec / 60) % 60;
+      let h = Math.floor(totalSec / 3600);
+      document.getElementById("tcDisplay").innerText = 
+        String(h).padStart(2, '0') + ":" + 
+        String(m).padStart(2, '0') + ":" + 
+        String(s).padStart(2, '0') + ":" + 
+        String(f).padStart(2, '0');
+    }
+
+    function toggleTool(btn) {
+      btn.classList.toggle("active");
+    }
+
+    function openModal(id) { document.getElementById(id).style.display = "block"; }
+    function closeModal(id) { document.getElementById(id).style.display = "none"; }
+
+    function selectCodec(name, hud, sub) {
+      document.getElementById("activeCodecLabel").innerText = name;
+      document.getElementById("hudTitle").innerText = hud;
+      document.getElementById("hudSub").innerText = sub;
+      closeModal('codecModal');
+      
+      let bs = "DPGA0005.BIN";
+      if (name.includes("ProRes 422")) bs = "DPGA0002.BIN";
+      if (name.includes("DNxHR")) bs = "DPGA0003.BIN";
+      if (name.includes("H.265")) bs = "DPGA0009.BIN (VCU)";
+      if (name.includes("Blue")) bs = "Linux A53 (Software)";
+      if (name.includes("Uncompressed")) bs = "HDMI Direct DMA";
+      document.getElementById("activeBitstream").innerText = bs;
+    }
+
+    function selectRes(res, speed, rem) {
+      document.getElementById("activeResLabel").innerText = res;
+      document.getElementById("ssdDisplay").innerText = rem;
+      activeSpeed = speed;
+      if (recording) document.getElementById("sataSpeed").innerText = speed;
+      closeModal('resModal');
+    }
+
+    function randomizeAudio() {
+      for (let i = 1; i <= 4; i++) {
+        let h = Math.floor(Math.random() * 65) + 20;
+        document.getElementById("vu" + i).style.height = h + "%";
+      }
+    }
+    audioTimer = setInterval(randomizeAudio, 300);
+  </script>
 </body>
 </html>
-
