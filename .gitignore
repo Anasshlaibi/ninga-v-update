@@ -40,3 +40,7 @@ venv/
 Thumbs.db
 .vscode/
 .idea/
+
+deploy/ATOMNJV.FW
+
+deploy/ATOMNJV_SPIDI.FW
