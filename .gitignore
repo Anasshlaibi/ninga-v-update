@@ -10,6 +10,8 @@ target/
 **/target/
 build/
 dist/
+recording-engine/storage/cinemadng_ring_writer
+recording-engine/storage/cinemadng_ring_writer_arm64
 compression/blue-compressor/repo/
 *.o
 *.a

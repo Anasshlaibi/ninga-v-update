@@ -126,7 +126,8 @@ int ioctl(int fd, unsigned long request, ...) {
 
         // 36-byte IPI read (receive from R5)
         if ((request & 0xFFFF) == 0x2000 && (request & 0x80000000)) {
-            // Return EAGAIN (no messages currently queued from R5)
+            // Yield CPU so the socket thread can process incoming requests
+            usleep(25000); // 25ms
             errno = EAGAIN;
             return -1;
         }

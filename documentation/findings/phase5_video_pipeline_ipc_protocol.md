@@ -115,3 +115,4 @@ The following pipeline configurations are verified from strings and function tab
    Because `video_pipeline` natively supports `UNCOMPRESSED` and passes DMA buffers via `/dev/dma_heap`, a custom sidecar service can receive raw 12-bit Bayer DMA buffers from the kernel and stream them directly to the SATA SSD using `O_DIRECT` at 24fps (284.8 MB/s), requiring **zero CPU compression cycles**.
 3. **No Bricking Risk:**  
    This pipeline connects via standard Linux userspace sockets (`/var/run/user/1000/atomos/video_pipeline_socket`) and standard `/dev/dma_heap` buffer sharing, eliminating any need to patch or flash the encrypted Cortex-R5 boot ROM (`APP0000.BIN`) or FPGA bitstreams (`DPGA*.BIN`).
+
