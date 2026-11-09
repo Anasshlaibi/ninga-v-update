@@ -3,477 +3,403 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Verdanove Ninja Lab — Full AtomOS 11 UI Interactive Simulator</title>
+  <title>Verdanove Ninja Lab — Stock AtomOS 11 + Custom Tool Integration</title>
   <style>
     :root {
-      --bg: #070a0f;
-      --card-bg: #0f1622;
-      --atomos-bar: rgba(14, 18, 24, 0.94);
-      --accent: #00e5ff;
+      --bg: #06090e;
+      --ninja-bezel: #1b212b;
+      --atomos-bar: rgba(12, 16, 22, 0.95);
       --atomos-yellow: #f5c518;
       --atomos-red: #ff2a3a;
       --atomos-green: #00e676;
+      --verdanove-cyan: #00d2ff;
       --text: #e8edf5;
-      --text-muted: #8391a5;
-      --border: #1e293b;
+      --text-dim: #7f8fa4;
+      --border: #222d3d;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-user-select: none; user-select: none; }
-    body { background: var(--bg); color: var(--text); padding: 16px 24px; min-height: 100vh; }
-    
-    header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px; }
-    .title-group h1 { font-size: 20px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 10px; }
-    .badge { font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 600; text-transform: uppercase; }
-    .badge-cyan { background: rgba(0, 229, 255, 0.15); color: var(--accent); border: 1px solid var(--accent); }
-    .badge-live { background: rgba(0, 230, 118, 0.15); color: var(--atomos-green); border: 1px solid var(--atomos-green); }
-    .sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+    body { background: var(--bg); color: var(--text); padding: 14px 20px; }
 
-    /* Ninja V Hardware Chassis Container */
-    .ninja-chassis {
-      max-width: 1280px;
-      margin: 0 auto 20px auto;
-      background: #151921;
-      border: 14px solid #1e2430;
-      border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.8), inset 0 0 2px rgba(255,255,255,0.1);
+    header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 14px; }
+    .title-group h1 { font-size: 19px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 10px; }
+    .badge { font-size: 11px; padding: 2px 8px; border-radius: 4px; font-weight: 700; text-transform: uppercase; }
+    .badge-stock { background: rgba(245, 197, 24, 0.15); color: var(--atomos-yellow); border: 1px solid var(--atomos-yellow); }
+    .badge-tool { background: rgba(0, 210, 255, 0.15); color: var(--verdanove-cyan); border: 1px solid var(--verdanove-cyan); }
+    .sub { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+
+    /* Ninja V Monitor Chassis */
+    .chassis {
+      max-width: 1240px; margin: 0 auto 16px auto;
+      background: #11151c; border: 12px solid var(--ninja-bezel);
+      border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.85);
       position: relative;
     }
-    .atomos-branding {
-      position: absolute;
-      top: -12px; left: 50%; transform: translateX(-50%);
-      font-size: 10px; letter-spacing: 2px; font-weight: 800; color: #5a687c; text-transform: uppercase;
+    .bezel-logo {
+      position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+      font-size: 9px; letter-spacing: 2px; font-weight: 800; color: #4e5a6c; text-transform: uppercase;
     }
 
-    /* 16:9 Screen (1920x1080 Simulated Canvas) */
-    .screen-viewport {
-      position: relative;
-      aspect-ratio: 16 / 9;
-      background: #000;
-      overflow: hidden;
+    /* 16:9 1080p Viewport */
+    .viewport {
+      position: relative; aspect-ratio: 16 / 9;
+      background: #000; overflow: hidden;
       display: flex; flex-direction: column; justify-content: space-between;
     }
 
-    /* Video Feed Background (Simulated Nikon ZR 12-bit Live Stream) */
-    .video-background {
+    /* Video Feed Background with Simulated Camera Feed */
+    .cam-feed {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background: radial-gradient(circle at 60% 45%, #1a2233 0%, #0d121c 60%, #05070a 100%);
+      background: radial-gradient(circle at 50% 50%, #172030 0%, #0c121c 65%, #05080d 100%);
       z-index: 1;
     }
-    .video-grid {
+    .grid-lines {
       position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background-size: 40px 40px;
-      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     }
-    .crosshair {
+    .focus-reticle {
       position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-      width: 120px; height: 120px; border: 1px dashed rgba(255,255,255,0.25);
-      border-radius: 50%; pointer-events: none;
+      width: 140px; height: 140px; border: 1px dashed rgba(255,255,255,0.25);
+      border-radius: 4px; pointer-events: none;
     }
-    .crosshair::before, .crosshair::after {
-      content: ""; position: absolute; background: rgba(255,255,255,0.4);
-    }
-    .crosshair::before { top: 50%; left: -15px; width: 150px; height: 1px; }
-    .crosshair::after { top: -15px; left: 50%; width: 1px; height: 150px; }
 
-    /* AtomOS Top Toolbar */
-    .osd-topbar {
-      position: relative; z-index: 10;
-      height: 52px; background: var(--atomos-bar);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 16px;
+    /* Stock AtomOS Top Bar */
+    .atomos-top {
+      position: relative; z-index: 10; height: 50px;
+      background: var(--atomos-bar); border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: space-between; padding: 0 14px;
     }
-    .top-group { display: flex; align-items: center; gap: 12px; }
+    .group-left, .group-right { display: flex; align-items: center; gap: 10px; }
 
     .rec-btn {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: #2a080c; border: 2px solid var(--atomos-red);
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; transition: all 0.2s;
+      width: 34px; height: 34px; border-radius: 50%;
+      background: #2b080d; border: 2px solid var(--atomos-red);
+      display: flex; align-items: center; justify-content: center; cursor: pointer;
     }
     .rec-btn.recording { background: var(--atomos-red); box-shadow: 0 0 14px var(--atomos-red); }
-    .rec-btn-inner { width: 14px; height: 14px; border-radius: 50%; background: var(--atomos-red); }
-    .rec-btn.recording .rec-btn-inner { background: #fff; border-radius: 3px; }
+    .rec-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--atomos-red); }
+    .rec-btn.recording .rec-dot { background: #fff; border-radius: 2px; }
 
-    .top-pill {
+    .pill {
       background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 6px; padding: 4px 10px; font-size: 12px; font-family: monospace;
-      font-weight: 700; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      border-radius: 5px; padding: 3px 9px; font-size: 12px; font-family: monospace;
+      font-weight: 700; cursor: pointer; display: flex; flex-direction: column; align-items: center;
     }
-    .top-pill:hover { background: rgba(255,255,255,0.14); border-color: var(--accent); }
-    .pill-label { font-size: 9px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; margin-bottom: 1px; }
-    .pill-val { font-size: 13px; color: #fff; }
+    .pill:hover { background: rgba(255,255,255,0.12); border-color: var(--atomos-yellow); }
+    .pill-sub { font-size: 8px; color: var(--text-dim); text-transform: uppercase; font-weight: 600; }
+    .pill-val { font-size: 12px; color: #fff; }
 
-    /* Center Video Display Area & Overlays */
-    .osd-center {
+    /* Center Viewport Overlays */
+    .center-overlay {
       position: relative; z-index: 5; flex: 1;
-      display: flex; justify-content: space-between; padding: 16px;
-      pointer-events: none;
+      display: flex; justify-content: space-between; padding: 14px; pointer-events: none;
     }
-    
-    /* Live Audio VU Meters Ch 1-4 */
-    .vu-meter-box {
-      pointer-events: auto;
-      background: rgba(10, 14, 20, 0.85); border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 6px; padding: 10px 8px; width: 68px; display: flex; flex-direction: column; gap: 4px;
+
+    /* Audio Meter (Left) */
+    .audio-block {
+      pointer-events: auto; background: rgba(10, 14, 20, 0.85); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px; padding: 8px 6px; width: 62px;
     }
-    .vu-title { font-size: 9px; font-weight: 800; color: var(--text-muted); text-align: center; }
-    .vu-channels { display: flex; justify-content: space-around; height: 160px; margin-top: 6px; }
-    .vu-bar-track { width: 8px; height: 100%; background: #1a2230; border-radius: 3px; position: relative; overflow: hidden; display: flex; flex-direction: column-reverse; }
+    .audio-header { font-size: 8px; font-weight: 800; color: var(--text-dim); text-align: center; }
+    .audio-bars { display: flex; justify-content: space-around; height: 150px; margin-top: 6px; }
+    .vu-track { width: 7px; height: 100%; background: #18202c; border-radius: 2px; display: flex; flex-direction: column-reverse; overflow: hidden; }
     .vu-fill {
-      width: 100%; background: linear-gradient(to top, var(--atomos-green) 0%, var(--atomos-green) 70%, var(--atomos-yellow) 85%, var(--atomos-red) 100%);
-      height: 65%; border-radius: 3px; transition: height 0.15s ease-out;
+      width: 100%; height: 60%;
+      background: linear-gradient(to top, var(--atomos-green) 0%, var(--atomos-green) 75%, var(--atomos-yellow) 88%, var(--atomos-red) 100%);
+      transition: height 0.15s ease-out;
     }
 
-    /* Active Codec & Format Badge Overlay */
-    .format-hud {
+    /* Waveform Scope Simulation Overlay (when WFM is active) */
+    .scope-overlay {
+      position: absolute; bottom: 62px; left: 86px; width: 280px; height: 140px;
+      background: rgba(0,0,0,0.75); border: 1px solid var(--atomos-green); border-radius: 6px;
+      display: flex; flex-direction: column; justify-content: space-between; padding: 6px;
       pointer-events: auto;
-      align-self: flex-start;
-      background: rgba(10, 14, 20, 0.88); border: 1px solid var(--accent);
-      border-radius: 8px; padding: 10px 14px; box-shadow: 0 8px 24px rgba(0, 229, 255, 0.15);
     }
-    .format-hud-title { font-size: 10px; color: var(--accent); font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
-    .format-hud-main { font-size: 18px; font-weight: 800; color: #fff; margin: 3px 0; }
-    .format-hud-sub { font-size: 11px; color: var(--text-muted); font-family: monospace; }
+    .scope-title { font-size: 9px; font-weight: 800; color: var(--atomos-green); font-family: monospace; display: flex; justify-content: space-between; }
+    .scope-wave { flex: 1; margin: 4px 0; background: repeating-linear-gradient(0deg, rgba(0, 230, 118, 0.08) 0px, rgba(0, 230, 118, 0.08) 1px, transparent 1px, transparent 16px); position: relative; overflow: hidden; }
+    .scope-line { position: absolute; left: 0; right: 0; height: 40px; top: 40px; background: linear-gradient(90deg, rgba(0,230,118,0.2) 0%, rgba(0,230,118,0.8) 50%, rgba(0,230,118,0.2) 100%); filter: blur(1px); }
 
-    /* AtomOS Bottom Navigation / Tools Bar */
-    .osd-bottombar {
-      position: relative; z-index: 10;
-      height: 58px; background: var(--atomos-bar);
-      border-top: 1px solid rgba(255,255,255,0.08);
-      display: flex; align-items: center; justify-content: space-around;
-      padding: 0 10px;
+    /* Custom Verdanove Tool Drawer / Tray (Opens when user clicks our new tool button!) */
+    .tool-tray {
+      position: absolute; bottom: 60px; right: 20px; width: 380px;
+      background: rgba(13, 19, 29, 0.95); border: 2px solid var(--verdanove-cyan);
+      border-radius: 8px; box-shadow: 0 16px 40px rgba(0,0,0,0.85);
+      z-index: 40; padding: 14px; pointer-events: auto; display: none;
     }
-    .tool-btn {
+    .tray-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 10px; }
+    .tray-title { font-size: 13px; font-weight: 800; color: var(--verdanove-cyan); text-transform: uppercase; letter-spacing: 0.5px; }
+    .tray-close { background: none; border: none; color: #fff; font-size: 16px; cursor: pointer; }
+    .tray-body { font-size: 12px; }
+    .tray-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-family: monospace; }
+    .tray-btn {
+      padding: 6px 10px; border-radius: 4px; font-size: 11px; font-weight: 700;
+      border: 1px solid var(--border); background: #1a2434; color: #fff; cursor: pointer;
+    }
+    .tray-btn.active { background: var(--verdanove-cyan); color: #000; border-color: var(--verdanove-cyan); }
+
+    /* Stock AtomOS Bottom Toolbar */
+    .atomos-bottom {
+      position: relative; z-index: 10; height: 54px;
+      background: var(--atomos-bar); border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: space-between; padding: 0 8px;
+    }
+    .btn-tool {
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 3px; background: none; border: none; color: var(--text-muted);
-      cursor: pointer; width: 64px; height: 46px; border-radius: 6px; transition: all 0.15s;
+      gap: 2px; background: none; border: none; color: var(--text-dim);
+      cursor: pointer; min-width: 54px; height: 42px; border-radius: 5px; transition: all 0.15s;
     }
-    .tool-btn:hover { background: rgba(255,255,255,0.08); color: #fff; }
-    .tool-btn.active { background: rgba(0, 229, 255, 0.18); color: var(--accent); border: 1px solid var(--accent); }
-    .tool-icon { font-size: 16px; }
-    .tool-label { font-size: 9px; font-weight: 700; text-transform: uppercase; }
+    .btn-tool:hover { background: rgba(255,255,255,0.08); color: #fff; }
+    .btn-tool.active { background: rgba(245, 197, 24, 0.18); color: var(--atomos-yellow); border: 1px solid var(--atomos-yellow); }
+    
+    /* Highlight Our New Verdanove Tool Button specifically! */
+    .btn-tool.verdanove-tool {
+      border: 1px dashed var(--verdanove-cyan); color: var(--verdanove-cyan);
+      background: rgba(0, 210, 255, 0.08);
+    }
+    .btn-tool.verdanove-tool:hover { background: rgba(0, 210, 255, 0.2); }
+    .btn-tool.verdanove-tool.active { background: var(--verdanove-cyan); color: #000; border-style: solid; font-weight: 800; }
 
-    /* Interactive Modal for Settings */
-    .settings-modal {
-      position: absolute; top: 60px; left: 50%; transform: translateX(-50%);
-      width: 600px; background: #131b28; border: 2px solid var(--accent);
-      border-radius: 10px; z-index: 50; padding: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.9);
-      display: none;
-    }
-    .modal-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
-    .modal-head h3 { font-size: 15px; color: var(--accent); text-transform: uppercase; }
-    .close-btn { background: none; border: none; color: #fff; font-size: 18px; cursor: pointer; }
-    .option-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    .opt-card {
-      background: #192436; border: 1px solid var(--border); border-radius: 6px;
-      padding: 12px; text-align: center; cursor: pointer;
-    }
-    .opt-card:hover, .opt-card.selected { border-color: var(--accent); background: rgba(0, 229, 255, 0.12); }
-    .opt-title { font-size: 13px; font-weight: 700; color: #fff; }
-    .opt-desc { font-size: 10px; color: var(--text-muted); margin-top: 4px; }
+    .tool-glyph { font-size: 15px; }
+    .tool-txt { font-size: 8px; font-weight: 700; text-transform: uppercase; }
 
-    /* Control Panel Cards Below Monitor */
-    .controls-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; max-width: 1280px; margin: 0 auto; }
-    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
-    .card h2 { font-size: 14px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
-    .btn-row { display: flex; gap: 10px; margin-top: 10px; }
-    .action-btn {
-      padding: 8px 14px; border-radius: 6px; font-size: 12px; font-weight: 700;
-      border: 1px solid var(--border); background: #182232; color: #fff; cursor: pointer;
-    }
-    .action-btn:hover { background: var(--accent); color: #000; }
+    /* Description Below */
+    .desc-card { max-width: 1240px; margin: 0 auto; background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 16px; font-size: 13px; line-height: 1.6; }
+    .desc-card h3 { font-size: 14px; color: #fff; margin-bottom: 6px; }
   </style>
 </head>
 <body>
   <header>
     <div class="title-group">
-      <h1>AtomOS 11 Interactive Monitor Simulator <span class="badge badge-cyan">Verdanove Lab</span> <span class="badge badge-live">Live UI Mode</span></h1>
-      <p class="sub">Simulating Ninja V 5-Inch 1000nit HDR Monitor &middot; Full Touch OSD Layout & Recording Pipeline</p>
+      <h1>Stock AtomOS 11 + Custom Verdanove Tool Tray <span class="badge badge-stock">Original AtomOS Preserved</span> <span class="badge badge-tool">Extension Injected</span></h1>
     </div>
-    <div>
-      <span style="font-size: 12px; color: var(--text-muted);">Development Workstation: Core i9-14900HX &middot; RTX 4060 &middot; 32GB RAM</span>
+    <div style="font-size: 12px; color: var(--text-dim);">
+      Every original menu, button, and monitoring tool is 100% untouched.
     </div>
   </header>
 
-  <!-- Ninja V Hardware Display Frame -->
-  <div class="ninja-chassis">
-    <div class="atomos-branding">ATOMOS NINJA V &middot; VERDANOVE CUSTOM LAB</div>
-    
-    <div class="screen-viewport">
-      <!-- Simulated Video Feed -->
-      <div class="video-background">
-        <div class="video-grid"></div>
-        <div class="crosshair"></div>
+  <div class="chassis">
+    <div class="bezel-logo">ATOMOS NINJA V &middot; ATOMOS 11.19.00 BASELINE</div>
+
+    <div class="viewport">
+      <!-- Simulated Camera Live Feed -->
+      <div class="cam-feed">
+        <div class="grid-lines"></div>
+        <div class="focus-reticle"></div>
       </div>
 
-      <!-- Top Toolbar -->
-      <div class="osd-topbar">
-        <div class="top-group">
-          <!-- Record Trigger Button -->
-          <div class="rec-btn" id="recButton" onclick="toggleRecord()" title="Trigger Recording">
-            <div class="rec-btn-inner"></div>
+      <!-- 1. Authentic Stock AtomOS Top Bar -->
+      <div class="atomos-top">
+        <div class="group-left">
+          <div class="rec-btn" id="recButton" onclick="toggleRec()" title="Trigger Record">
+            <div class="rec-dot"></div>
           </div>
-          <!-- Timecode -->
-          <div class="top-pill">
-            <span class="pill-label">TIMECODE</span>
-            <span class="pill-val" id="tcDisplay">00:00:00:00</span>
+          <div class="pill">
+            <span class="pill-sub">TIMECODE</span>
+            <span class="pill-val" id="tcVal">00:00:00:00</span>
           </div>
-          <!-- Codec Preset Selector -->
-          <div class="top-pill" onclick="openModal('codecModal')">
-            <span class="pill-label">RECORD CODEC</span>
-            <span class="pill-val" id="activeCodecLabel" style="color: var(--accent);">ProRes RAW 12-Bit</span>
+          <div class="pill">
+            <span class="pill-sub">CODEC (STOCK)</span>
+            <span class="pill-val" style="color: var(--atomos-yellow);">ProRes RAW</span>
+          </div>
+          <div class="pill">
+            <span class="pill-sub">INPUT</span>
+            <span class="pill-val">4K UHD 23.98p</span>
           </div>
         </div>
 
-        <div class="top-group">
-          <!-- Resolution & Frame Rate -->
-          <div class="top-pill" onclick="openModal('resModal')">
-            <span class="pill-label">INPUT FORMAT</span>
-            <span class="pill-val" id="activeResLabel">4K UHD 23.98p</span>
+        <div class="group-right">
+          <div class="pill">
+            <span class="pill-sub">TRIGGER</span>
+            <span class="pill-val">HDMI &middot; Auto</span>
           </div>
-          <!-- Storage SSD Remaining -->
-          <div class="top-pill">
-            <span class="pill-label">SSD: 1TB SSDmini</span>
-            <span class="pill-val" id="ssdDisplay" style="color: var(--atomos-green);">3h 24m REM</span>
+          <div class="pill">
+            <span class="pill-sub">SSD MINI (exFAT)</span>
+            <span class="pill-val" style="color: var(--atomos-green);">3h 24m REM</span>
           </div>
-          <!-- Battery / Power -->
-          <div class="top-pill">
-            <span class="pill-label">BATTERY 1</span>
+          <div class="pill">
+            <span class="pill-sub">BATTERY</span>
             <span class="pill-val" style="color: var(--atomos-green);">7.4V (100%)</span>
           </div>
         </div>
       </div>
 
-      <!-- Center Video Display Area & HUD Overlays -->
-      <div class="osd-center">
-        <!-- Audio VU Meters -->
-        <div class="vu-meter-box">
-          <div class="vu-title">AUDIO 4CH</div>
-          <div class="vu-channels">
-            <div class="vu-bar-track"><div class="vu-fill" id="vu1"></div></div>
-            <div class="vu-bar-track"><div class="vu-fill" id="vu2"></div></div>
-            <div class="vu-bar-track"><div class="vu-fill" id="vu3"></div></div>
-            <div class="vu-bar-track"><div class="vu-fill" id="vu4"></div></div>
+      <!-- 2. Middle Overlay (Audio VU, Scopes, Tool Drawer) -->
+      <div class="center-overlay">
+        <!-- Stock 4-Channel Audio Meter -->
+        <div class="audio-block">
+          <div class="audio-header">AUDIO 4CH</div>
+          <div class="audio-bars">
+            <div class="vu-track"><div class="vu-fill" id="vu1"></div></div>
+            <div class="vu-track"><div class="vu-fill" id="vu2"></div></div>
+            <div class="vu-track"><div class="vu-fill" id="vu3"></div></div>
+            <div class="vu-track"><div class="vu-fill" id="vu4"></div></div>
           </div>
         </div>
 
-        <!-- Format & Verdanove Engine Badge -->
-        <div class="format-hud">
-          <div class="format-hud-title">ACTIVE RECORDER ENGINE</div>
-          <div class="format-hud-main" id="hudTitle">Nikon ZR 12-Bit RAW</div>
-          <div class="format-hud-sub" id="hudSub">Bayer 3840x2160 &middot; 284.8 MB/s &middot; Target: Master Caddy II SSD</div>
+        <!-- Simulated Active Waveform Scope (When WFM toggle is on) -->
+        <div class="scope-overlay" id="wfmScope">
+          <div class="scope-title">
+            <span>WFM LUMA &middot; 100 IRE</span>
+            <span>10-BIT</span>
+          </div>
+          <div class="scope-wave"><div class="scope-line"></div></div>
+          <div style="font-size: 8px; color: var(--text-dim); text-align: right;">ATOMOS HARDWARE SCOPE</div>
         </div>
-      </div>
 
-      <!-- Bottom Monitoring Toolbar -->
-      <div class="osd-bottombar">
-        <button class="tool-btn active" id="btnWaveform" onclick="toggleTool(this)">
-          <span class="tool-icon">&#x223F;</span>
-          <span class="tool-label">Waveform</span>
-        </button>
-        <button class="tool-btn" id="btnParade" onclick="toggleTool(this)">
-          <span class="tool-icon">&#x2630;</span>
-          <span class="tool-label">RGB Parade</span>
-        </button>
-        <button class="tool-btn" id="btnVector" onclick="toggleTool(this)">
-          <span class="tool-icon">&#x25CE;</span>
-          <span class="tool-label">Vectorscope</span>
-        </button>
-        <button class="tool-btn" id="btnPeaking" onclick="toggleTool(this)">
-          <span class="tool-icon">&#x25C9;</span>
-          <span class="tool-label">Peaking</span>
-        </button>
-        <button class="tool-btn" id="btnZebra" onclick="toggleTool(this)">
-          <span class="tool-icon">&#x25A6;</span>
-          <span class="tool-label">Zebra</span>
-        </button>
-        <button class="tool-btn" id="btnFalseColor" onclick="toggleTool(this)">
-          <span class="tool-icon">&#x25D1;</span>
-          <span class="tool-label">False Color</span>
-        </button>
-        <button class="tool-btn" id="btnZoom" onclick="toggleTool(this)">
-          <span class="tool-icon">&#x2315;</span>
-          <span class="tool-label">Zoom 1:1</span>
-        </button>
-        <button class="tool-btn" id="btnLUT" onclick="toggleTool(this)">
-          <span class="tool-icon">&#x25B3;</span>
-          <span class="tool-label">N-Log 3D LUT</span>
-        </button>
-      </div>
-
-      <!-- Codec Modal -->
-      <div class="settings-modal" id="codecModal">
-        <div class="modal-head">
-          <h3>Select Recording Codec & Pipeline</h3>
-          <button class="close-btn" onclick="closeModal('codecModal')">&times;</button>
-        </div>
-        <div class="option-grid">
-          <div class="opt-card selected" onclick="selectCodec('ProRes RAW 12-Bit', 'Nikon ZR 12-Bit RAW', 'FPGA prraw_cp_app.bit (DPGA0005.BIN)')">
-            <div class="opt-title">ProRes RAW 12-Bit</div>
-            <div class="opt-desc">Native AtomOS FPGA Pipeline (Preserves full sensor bayer)</div>
+        <!-- NEW TOOL TRAY: Opens only when tapping our injected [V-RAW] button! -->
+        <div class="tool-tray" id="vrawTray">
+          <div class="tray-head">
+            <span class="tray-title">&#x2726; Verdanove RAW Sidecar Tool</span>
+            <button class="tray-close" onclick="toggleVRaw()">&times;</button>
           </div>
-          <div class="opt-card" onclick="selectCodec('Blue Compressor (Sim)', 'Verdanove Blue R3D NE', 'Cortex-A53 CPU NEON Wavelet &middot; 4K 24p Mode')">
-            <div class="opt-title">Blue Compressor [SIM]</div>
-            <div class="opt-desc">Wavelet / TICO-RAW Compression for Nikon R3D NE</div>
-          </div>
-          <div class="opt-card" onclick="selectCodec('Uncompressed 12-Bit', 'Direct Uncompressed DNG', 'Direct DDR to SATA 3 &middot; 284.8 MB/s at 24fps')">
-            <div class="opt-title">Uncompressed 12-Bit</div>
-            <div class="opt-desc">True Lossless Direct RAW Stream (CinemaDNG Compatible)</div>
-          </div>
-          <div class="opt-card" onclick="selectCodec('ProRes 422 HQ', 'Apple ProRes HQ 10-Bit', 'FPGA prores_cp_app.bit (DPGA0002.BIN)')">
-            <div class="opt-title">ProRes 422 HQ</div>
-            <div class="opt-desc">Standard 10-bit 4:2:2 Broadcast Codec</div>
-          </div>
-          <div class="opt-card" onclick="selectCodec('Avid DNxHR HQX', 'Avid DNxHR 10-Bit', 'FPGA dnx_cp_app.bit (DPGA0003.BIN)')">
-            <div class="opt-title">Avid DNxHR HQX</div>
-            <div class="opt-desc">Avid Media Composer Master Codec</div>
-          </div>
-          <div class="opt-card" onclick="selectCodec('H.265 10-Bit 4:2:2', 'HEVC Main10 (VCU Hard IP)', 'Linux video_pipeline + Allegro al5e.ko')">
-            <div class="opt-title">H.265 / HEVC 10-Bit</div>
-            <div class="opt-desc">Hardware VCU Encode &middot; Cloud / Proxy Upload</div>
+          <div class="tray-body">
+            <div class="tray-row">
+              <span style="color: var(--text-dim);">Engine Mode:</span>
+              <span style="color: var(--verdanove-cyan); font-weight: bold;">R3D NE Wavelet [SIM]</span>
+            </div>
+            <div class="tray-row">
+              <span style="color: var(--text-dim);">Sensor Depth:</span>
+              <span style="color: #fff;">12-Bit Preserved</span>
+            </div>
+            <div class="tray-row">
+              <span style="color: var(--text-dim);">Compression Preset:</span>
+              <div style="display: flex; gap: 4px;">
+                <button class="tray-btn active">4:1</button>
+                <button class="tray-btn">8:1</button>
+                <button class="tray-btn">Lossless</button>
+              </div>
+            </div>
+            <div class="tray-row">
+              <span style="color: var(--text-dim);">Target Output:</span>
+              <span style="color: var(--atomos-green);">SATA 3 SSDmini Direct</span>
+            </div>
+            <div style="margin-top: 10px; font-size: 11px; color: var(--text-dim); border-top: 1px solid rgba(255,255,255,0.06); padding-top: 6px;">
+              Running as a background sidecar service over Linux IPC without modifying Cortex-R5 or FPGA bitstreams.
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Resolution Modal -->
-      <div class="settings-modal" id="resModal">
-        <div class="modal-head">
-          <h3>Input Signal Format & Frame Rate</h3>
-          <button class="close-btn" onclick="closeModal('resModal')">&times;</button>
-        </div>
-        <div class="option-grid">
-          <div class="opt-card selected" onclick="selectRes('4K UHD 23.98p', '284.8 MB/s', '3h 24m REM')">
-            <div class="opt-title">4K UHD 23.98p</div>
-            <div class="opt-desc">3840x2160 &middot; Cinema Frame Rate</div>
-          </div>
-          <div class="opt-card" onclick="selectRes('4K UHD 29.97p', '356.0 MB/s', '2h 45m REM')">
-            <div class="opt-title">4K UHD 29.97p</div>
-            <div class="opt-desc">3840x2160 &middot; Standard Broadcast</div>
-          </div>
-          <div class="opt-card" onclick="selectRes('4K UHD 59.94p', '711.9 MB/s', '1h 22m REM')">
-            <div class="opt-title">4K UHD 59.94p</div>
-            <div class="opt-desc">3840x2160 &middot; High Frame Rate (Needs Compression)</div>
-          </div>
-          <div class="opt-card" onclick="selectRes('4K DCI 24.00p', '303.8 MB/s', '3h 10m REM')">
-            <div class="opt-title">4K DCI 24.00p</div>
-            <div class="opt-desc">4096x2160 &middot; Full DCI Scope</div>
-          </div>
-          <div class="opt-card" onclick="selectRes('1080p 59.94p', '178.0 MB/s', '5h 30m REM')">
-            <div class="opt-title">FHD 1080p 59.94p</div>
-            <div class="opt-desc">1920x1080 &middot; High Frame Rate</div>
-          </div>
-          <div class="opt-card" onclick="selectRes('1080p 23.98p', '71.2 MB/s', '12h 15m REM')">
-            <div class="opt-title">FHD 1080p 23.98p</div>
-            <div class="opt-desc">1920x1080 &middot; Low Data Rate</div>
-          </div>
-        </div>
+      <!-- 3. Authentic Stock AtomOS Bottom Bar + OUR INJECTED BUTTON -->
+      <div class="atomos-bottom">
+        <!-- Stock Tool 1: Waveform -->
+        <button class="btn-tool active" id="toolWfm" onclick="toggleWfm()">
+          <span class="tool-glyph">&#x223F;</span>
+          <span class="tool-txt">WFM</span>
+        </button>
+        <!-- Stock Tool 2: RGB Parade -->
+        <button class="btn-tool" onclick="toggleStock(this)">
+          <span class="tool-glyph">&#x2630;</span>
+          <span class="tool-txt">Parade</span>
+        </button>
+        <!-- Stock Tool 3: Vectorscope -->
+        <button class="btn-tool" onclick="toggleStock(this)">
+          <span class="tool-glyph">&#x25CE;</span>
+          <span class="tool-txt">Vector</span>
+        </button>
+        <!-- Stock Tool 4: Focus Peaking -->
+        <button class="btn-tool" onclick="toggleStock(this)">
+          <span class="tool-glyph">&#x25C9;</span>
+          <span class="tool-txt">Peaking</span>
+        </button>
+        <!-- Stock Tool 5: Zebra -->
+        <button class="btn-tool" onclick="toggleStock(this)">
+          <span class="tool-glyph">&#x25A6;</span>
+          <span class="tool-txt">Zebra</span>
+        </button>
+        <!-- Stock Tool 6: False Color -->
+        <button class="btn-tool" onclick="toggleStock(this)">
+          <span class="tool-glyph">&#x25D1;</span>
+          <span class="tool-txt">False Col</span>
+        </button>
+        <!-- Stock Tool 7: Zoom 1:1 -->
+        <button class="btn-tool" onclick="toggleStock(this)">
+          <span class="tool-glyph">&#x2315;</span>
+          <span class="tool-txt">Zoom</span>
+        </button>
+        <!-- Stock Tool 8: Frame Guides -->
+        <button class="btn-tool" onclick="toggleStock(this)">
+          <span class="tool-glyph">&#x25A2;</span>
+          <span class="tool-txt">Guides</span>
+        </button>
+        <!-- Stock Tool 9: 3D LUT -->
+        <button class="btn-tool" onclick="toggleStock(this)">
+          <span class="tool-glyph">&#x25B3;</span>
+          <span class="tool-txt">LUT</span>
+        </button>
+
+        <!-- OUR NEW INJECTED TOOL: Tapping this opens the Verdanove RAW tray! -->
+        <button class="btn-tool verdanove-tool" id="vrawBtn" onclick="toggleVRaw()" title="Open Verdanove RAW Tool">
+          <span class="tool-glyph">&#x2726;</span>
+          <span class="tool-txt">V-RAW</span>
+        </button>
       </div>
     </div>
   </div>
 
-  <!-- Real-Time Hardware & Emulation Controls -->
-  <div class="controls-grid">
-    <div class="card">
-      <h2>Interactive Simulation Controls</h2>
-      <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
-        Click any touch button on the Ninja V screen above to interact: press the <strong>Red Dot</strong> to trigger recording, click the <strong>Record Codec</strong> or <strong>Input Format</strong> pills to change pipelines, or toggle monitoring tools (Waveform, Peaking, LUT).
-      </p>
-      <div class="btn-row">
-        <button class="action-btn" onclick="toggleRecord()">Simulate Camera Rec Trigger</button>
-        <button class="action-btn" onclick="randomizeAudio()">Jitter Audio VU Levels</button>
-        <button class="action-btn" onclick="location.reload()">Reset Monitor State</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Pipeline Status (Live)</h2>
-      <div style="font-size: 12px; font-family: monospace; line-height: 1.8;">
-        <div>Device: <strong>Ninja V (XCZU5EV)</strong></div>
-        <div>APU Load: <span style="color: var(--atomos-green);" id="cpuLoad">14.2%</span></div>
-        <div>SATA SSD Write: <span style="color: var(--accent);" id="sataSpeed">0.0 MB/s</span></div>
-        <div>Active Bitstream: <span style="color: var(--atomos-yellow);" id="activeBitstream">DPGA0005.BIN</span></div>
-      </div>
-    </div>
+  <div class="desc-card">
+    <h3>Design Verified: Pure Additive Extension</h3>
+    <p>
+      Notice how this preserves 100% of the authentic AtomOS Ninja V experience: the top status bar (Timecode, original ProRes RAW indicator, HDMI Trigger, SSD remaining, Battery), all 9 stock monitoring scopes and touch aids (WFM, Parade, Vector, Peaking, Zebra, False Color, Zoom, Guides, LUT), and the live camera feed. Our custom addition is strictly the <strong>[V-RAW]</strong> tool button at the end of the tray, which pops up our dedicated compression controls on demand without altering any factory menus or camera profiles.
+    </p>
   </div>
 
   <script>
-    let recording = false;
+    let rec = false;
     let frames = 0;
-    let recTimer = null;
-    let audioTimer = null;
-    let activeSpeed = "284.8 MB/s";
+    let recInt = null;
 
-    function toggleRecord() {
-      recording = !recording;
-      const btn = document.getElementById("recButton");
-      const sata = document.getElementById("sataSpeed");
-      const cpu = document.getElementById("cpuLoad");
-      
-      if (recording) {
-        btn.classList.add("recording");
-        sata.innerText = activeSpeed;
-        cpu.innerText = "28.6%";
-        recTimer = setInterval(updateTimecode, 1000 / 24);
+    function toggleRec() {
+      rec = !rec;
+      const b = document.getElementById("recButton");
+      if (rec) {
+        b.classList.add("recording");
+        recInt = setInterval(() => {
+          frames++;
+          let f = frames % 24;
+          let totalSec = Math.floor(frames / 24);
+          let s = totalSec % 60;
+          let m = Math.floor(totalSec / 60) % 60;
+          let h = Math.floor(totalSec / 3600);
+          document.getElementById("tcVal").innerText =
+            String(h).padStart(2, '0') + ":" +
+            String(m).padStart(2, '0') + ":" +
+            String(s).padStart(2, '0') + ":" +
+            String(f).padStart(2, '0');
+        }, 1000 / 24);
       } else {
-        btn.classList.remove("recording");
-        sata.innerText = "0.0 MB/s";
-        cpu.innerText = "14.2%";
-        clearInterval(recTimer);
+        b.classList.remove("recording");
+        clearInterval(recInt);
       }
     }
 
-    function updateTimecode() {
-      frames++;
-      let f = frames % 24;
-      let totalSec = Math.floor(frames / 24);
-      let s = totalSec % 60;
-      let m = Math.floor(totalSec / 60) % 60;
-      let h = Math.floor(totalSec / 3600);
-      document.getElementById("tcDisplay").innerText = 
-        String(h).padStart(2, '0') + ":" + 
-        String(m).padStart(2, '0') + ":" + 
-        String(s).padStart(2, '0') + ":" + 
-        String(f).padStart(2, '0');
+    function toggleWfm() {
+      const btn = document.getElementById("toolWfm");
+      const scope = document.getElementById("wfmScope");
+      btn.classList.toggle("active");
+      scope.style.display = btn.classList.contains("active") ? "flex" : "none";
     }
 
-    function toggleTool(btn) {
+    function toggleStock(btn) {
       btn.classList.toggle("active");
     }
 
-    function openModal(id) { document.getElementById(id).style.display = "block"; }
-    function closeModal(id) { document.getElementById(id).style.display = "none"; }
-
-    function selectCodec(name, hud, sub) {
-      document.getElementById("activeCodecLabel").innerText = name;
-      document.getElementById("hudTitle").innerText = hud;
-      document.getElementById("hudSub").innerText = sub;
-      closeModal('codecModal');
-      
-      let bs = "DPGA0005.BIN";
-      if (name.includes("ProRes 422")) bs = "DPGA0002.BIN";
-      if (name.includes("DNxHR")) bs = "DPGA0003.BIN";
-      if (name.includes("H.265")) bs = "DPGA0009.BIN (VCU)";
-      if (name.includes("Blue")) bs = "Linux A53 (Software)";
-      if (name.includes("Uncompressed")) bs = "HDMI Direct DMA";
-      document.getElementById("activeBitstream").innerText = bs;
+    function toggleVRaw() {
+      const btn = document.getElementById("vrawBtn");
+      const tray = document.getElementById("vrawTray");
+      btn.classList.toggle("active");
+      tray.style.display = btn.classList.contains("active") ? "block" : "none";
     }
 
-    function selectRes(res, speed, rem) {
-      document.getElementById("activeResLabel").innerText = res;
-      document.getElementById("ssdDisplay").innerText = rem;
-      activeSpeed = speed;
-      if (recording) document.getElementById("sataSpeed").innerText = speed;
-      closeModal('resModal');
-    }
-
-    function randomizeAudio() {
+    // Audio meter animation
+    setInterval(() => {
       for (let i = 1; i <= 4; i++) {
-        let h = Math.floor(Math.random() * 65) + 20;
+        let h = Math.floor(Math.random() * 60) + 25;
         document.getElementById("vu" + i).style.height = h + "%";
       }
-    }
-    audioTimer = setInterval(randomizeAudio, 300);
+    }, 250);
   </script>
 </body>
 </html>
