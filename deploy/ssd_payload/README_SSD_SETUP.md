@@ -24,18 +24,20 @@ To ensure maximum direct I/O throughput (**>284 MB/s**) with zero dropped frames
 Extract or copy the contents of `deploy/ssd_payload/` directly to the **root** of your Master Caddy SSD:
 
 ```text
-E:\ (or /media/your-ssd/)
+F:\ (or /run/media/NINJAV-sda1/)
 ├── autorun.sh
 ├── README_SSD_SETUP.md
 └── verdanove/
     ├── bin/
-    │   └── vraw_daemon_arm64       # Pre-compiled, stripped AArch64 binary
+    │   ├── vraw_daemon_arm64      # AArch64 CinemaDNG & CoPro ring writer
+    │   └── libfakecopro.so        # LD_PRELOAD CoPro snooper & SCM_RIGHTS forwarder
     ├── config/
     │   └── vraw.conf              # 4K resolution, 24fps, DNG tags
     ├── clips/                     # Output directory where .dng clips appear
-    ├── logs/                      # Runtime debug logs
-    ├── install_sidecar.sh         # Non-destructive RAM overlay installer
-    └── run_recorder.sh            # One-touch capture execution script
+    ├── logs/                      # Runtime CoPro & capture logs
+    ├── install_sidecar.sh         # Non-destructive RAM overlay helper
+    ├── run_recorder.sh            # Standalone / direct CoPro recorder launcher
+    └── snoop_video_pipeline.sh    # Non-destructive stock video_pipeline LD_PRELOAD snooper
 ```
 
 ---
@@ -44,27 +46,30 @@ E:\ (or /media/your-ssd/)
 
 When the SSD is inserted into the Atomos Ninja V Master Caddy slot:
 
-1. **Automount:** The Linux kernel detects the SATA device on `/dev/sda1` and udev automounts it under `/run/media/ATOMOS-sda1` (or `/run/media/sda1`).
-2. **Zero Internal Flash Writes:** Stock AtomOS 11 runs with `DEV_MODE=true` by default, establishing a volatile RAM overlay (`tmpfs`) over `/etc` and `/home/root`. Any background service initialization stays in RAM and disappears upon powering down.
-3. **Execution Methods:**
-   - **Method A (UART Serial Console — Developer):** Connect to `ttyPS0` on the expansion port / test pads at **115200 baud, 8N1**, then execute:
-     ```sh
-     /run/media/sda1/verdanove/run_recorder.sh
-     ```
-   - **Method B (Automount Hook / Sidecar):** If autorun is enabled on your custom overlay layer, `autorun.sh` triggers `install_sidecar.sh`, making `vraw` available system-wide.
+1. **Automount:** Stock udev/systemd (`/etc/udev/scripts/mount.sh`) mounts the drive under `/run/media/<LABEL>-sda1` (for label `NINJAV`, `/run/media/NINJAV-sda1`, or `/run/media/sda1` if unlabeled). Stock AtomOS udev rules do **not** run `autorun.sh` automatically on insert.
+2. **Zero Internal Flash Writes:** Scripts stage binaries into `/tmp/verdanove_bin/` (RAM tmpfs, bypassing exFAT `noexec`) and write all captures/logs back to `verdanove/` on the SSD. Everything in `/tmp` disappears on reboot.
+3. **Execution via Shell (UART Serial `ttyPS0` at `115200` baud 8N1 or network shell):**
+   ```sh
+   # Mode A: Live CoPro snooping + frame forwarding via libfakecopro.so:
+   /run/media/NINJAV-sda1/verdanove/snoop_video_pipeline.sh --frames 24
+
+   # Mode B: Snoop ioctl traffic only (logs to verdanove/logs/copro_snoop_*.log):
+   /run/media/NINJAV-sda1/verdanove/snoop_video_pipeline.sh --snoop-only
+
+   # Mode C: Standalone synthetic 4K 24fps SATA storage benchmark:
+   /run/media/NINJAV-sda1/verdanove/run_recorder.sh --standalone 24
+   ```
 
 ---
 
-## 4. Capturing CinemaDNG Video
-
-To initiate a 4K 12-bit RAW capture session:
+## 4. Capturing & Snooping Commands
 
 ```sh
-# Record continuously until Ctrl+C / SIGINT:
-./run_recorder.sh
+# Snoop stock /usr/bin/video_pipeline and forward DMABUFs to vraw_daemon:
+./snoop_video_pipeline.sh --frames 120
 
-# Or record a specific frame count (e.g., 240 frames = 10 seconds):
-./run_recorder.sh 240
+# Run standalone 4K benchmark directly:
+./run_recorder.sh --standalone 240
 ```
 
 ### Live Terminal Feedback
