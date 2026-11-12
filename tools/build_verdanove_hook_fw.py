@@ -31,6 +31,7 @@ import zlib
 from build_res_test5_fw import (
     compute_section_crc,
     get_fat16_entry,
+    patch_res0001,
     read_chain_bytes,
     write_fat16_file_same_or_shorter,
 )
@@ -311,13 +312,33 @@ def main():
     print(f"   ROOTFS.BIN new={new_rootfs_sz:,} B (orig={orig_rootfs_sz:,} B, cluster cap={cap_bytes:,} B)")
     assert new_rootfs_sz <= cap_bytes, f"New ROOTFS.BIN ({new_rootfs_sz}) exceeds cluster chain ({cap_bytes})!"
 
-    print("3. Updating ROOTFS.BIN and ROOTFS.TXT inside /tmp FAT16 Section 3 image...")
+    print("3. Updating ROOTFS.BIN, ROOTFS.TXT, and RES0001.BIN inside /tmp FAT16 Section 3 image...")
     shutil.copyfile(ORIG_SEC3, tmp_sec3_img)
     with open(tmp_rootfs_gz, "rb") as rf:
         new_rootfs_bytes = rf.read()
     write_fat16_file_same_or_shorter(
         tmp_sec3_img, fat_off, nfats, fat_len, clu_bytes, data_off, dirent_off, chain, new_rootfs_bytes
     )
+
+    # 3b. Update RES0001.BIN so the UI elements, buttons, and badges reflect the new theme/options
+    print("   Patching RES0001.BIN UI assets (recolored REC pills, Menu tabs, and badges)...")
+    res_fat_off, res_nfats, res_fat_len, res_clu_bytes, res_data_off, res_dirent_off, orig_sz_res, res_chain = get_fat16_entry(
+        tmp_sec3_img, "RES0001.BIN"
+    )
+    orig_res = read_chain_bytes(tmp_sec3_img, res_clu_bytes, res_data_off, orig_sz_res, res_chain)
+    new_res = patch_res0001(orig_res)
+    write_fat16_file_same_or_shorter(
+        tmp_sec3_img,
+        res_fat_off,
+        res_nfats,
+        res_fat_len,
+        res_clu_bytes,
+        res_data_off,
+        res_dirent_off,
+        res_chain,
+        new_res,
+    )
+    print(f"   [OK] RES0001.BIN UI assets updated in FAT16 image ({len(new_res):,} B).")
 
     # Update ROOTFS.TXT so phoenix_boot.bin sees the new UUID and unpacks ROOTFS.BIN to /dev/mmcblk0p5
     (
