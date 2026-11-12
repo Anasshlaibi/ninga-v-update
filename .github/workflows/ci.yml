@@ -36,3 +36,4 @@ jobs:
         run: |
           python3 tools/verify_poly.py
           python3 tools/test_crc_linearity.py
+
