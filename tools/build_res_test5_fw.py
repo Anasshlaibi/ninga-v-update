@@ -19,7 +19,7 @@ import struct
 import subprocess
 import zlib
 import numpy as np
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
 
 BASE_DIR = '/mnt/c/Users/HELIOS NEO 16/Documents/framatomos/verdanove-ninja-lab'
 EXT_DIR = os.path.join(BASE_DIR, 'firmware', 'extracted')
@@ -202,6 +202,40 @@ def patch_res0001(orig_res):
     u1[:, :960, 2] = 74   # V
     u1[:, :960, 1] = np.clip(u1[:, :960, 1].astype(np.int16) + 18, 0, 235).astype(np.uint8)
     u1[:, :960, 3] = np.clip(u1[:, :960, 3].astype(np.int16) + 18, 0, 235).astype(np.uint8)
+
+    # Stamp custom "SPIDI CINEMA LAB" emerald signature badge into Chunk 1 wallpaper (bottom right)
+    try:
+        font_path = '/mnt/c/Windows/Fonts/arialbd.ttf' if os.path.exists('/mnt/c/Windows/Fonts/arialbd.ttf') else 'C:/Windows/Fonts/arialbd.ttf'
+        font = ImageFont.truetype(font_path, 36)
+        bw, bh = 460, 60
+        badge = Image.new('RGBA', (bw, bh), (0, 0, 0, 0))
+        draw_b = ImageDraw.Draw(badge)
+        draw_b.rounded_rectangle([(0, 0), (bw - 1, bh - 1)], radius=12, fill=(10, 42, 26, 240), outline=(0, 255, 170, 255), width=2)
+        draw_b.text((25, 8), '★ SPIDI CINEMA LAB ★', font=font, fill=(0, 255, 180, 255))
+        b_arr = np.array(badge)
+        br = b_arr[:, :, 0].astype(float)
+        bg = b_arr[:, :, 1].astype(float)
+        bb = b_arr[:, :, 2].astype(float)
+        ba = b_arr[:, :, 3]
+        by = (0.299 * br + 0.587 * bg + 0.114 * bb).astype(np.uint8)
+        bu = (-0.169 * br - 0.331 * bg + 0.500 * bb + 128).astype(np.uint8)
+        bv = (0.500 * br - 0.419 * bg - 0.081 * bb + 128).astype(np.uint8)
+        bu_w = ((bu[:, 0::2].astype(int) + bu[:, 1::2].astype(int)) // 2).astype(np.uint8)
+        bv_w = ((bv[:, 0::2].astype(int) + bv[:, 1::2].astype(int)) // 2).astype(np.uint8)
+        by0_w = by[:, 0::2]
+        by1_w = by[:, 1::2]
+        ba_w = np.maximum(ba[:, 0::2], ba[:, 1::2])
+        
+        y0_pos, x0_pos = 980, 710 # 710 words = x=1420..1880 in 1920x1080 display
+        y1_pos, x1_pos = y0_pos + bh, x0_pos + (bw // 2)
+        mask = (ba_w > 50)
+        u1[y0_pos:y1_pos, x0_pos:x1_pos, 0] = np.where(mask, bu_w, u1[y0_pos:y1_pos, x0_pos:x1_pos, 0])
+        u1[y0_pos:y1_pos, x0_pos:x1_pos, 1] = np.where(mask, by0_w, u1[y0_pos:y1_pos, x0_pos:x1_pos, 1])
+        u1[y0_pos:y1_pos, x0_pos:x1_pos, 2] = np.where(mask, bv_w, u1[y0_pos:y1_pos, x0_pos:x1_pos, 2])
+        u1[y0_pos:y1_pos, x0_pos:x1_pos, 3] = np.where(mask, by1_w, u1[y0_pos:y1_pos, x0_pos:x1_pos, 3])
+        print('   [OK] Stamped SPIDI CINEMA LAB emerald badge into wallpaper.')
+    except Exception as e:
+        print(f'   [WARN] Could not stamp wallpaper badge: {e}')
 
     # Save Before/After visual comparison sheet
     canvas = Image.new('RGB', (1200, 760), (16, 18, 20))
